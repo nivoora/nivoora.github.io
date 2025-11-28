@@ -1,0 +1,2469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivora - Durma Melhor com Ciência</title>
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #4A44C6;
+            --dark: #0F0F1E;
+            --darker: #070712;
+            --light: #FFFFFF;
+            --gray: #A0A0B0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            transform: translate3d(0,0,0);
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+            transform: translate3d(0,0,0);
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { 
+                opacity: 0.2;
+                transform: scale(0.8) translate3d(0,0,0);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.2) translate3d(0,0,0);
+            }
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: rgba(15, 15, 30, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            position: relative;
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+            background: rgba(108, 99, 255, 0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            padding: 120px 5% 80px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, var(--primary), #8A84FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+            text-align: center;
+        }
+        
+        .stats-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px 35px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 250px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-text {
+            font-size: 1.1rem;
+            color: var(--light);
+            font-weight: 500;
+        }
+        
+        .single-stat {
+            margin-top: 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 15, 30, 0.95);
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .stats-row {
+                gap: 20px;
+            }
+            
+            .stat-card {
+                min-width: 200px;
+                padding: 25px 30px;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars-container"></div>
+    
+    <header>
+        <div class="logo">NIVORA 🌙</div>
+        <div class="nav-container">
+            <nav>
+                <ul id="main-menu">
+                    <li><a href="#home">Início 🏠</a></li>
+                    <li><a href="#form">Plano de Sono 🎯</a></li>
+                    <li><a href="#quiz-animal">Animal do Sono 😴</a></li>
+                    <li><a href="#testimonials">Depoimentos 💬</a></li>
+                    <li><a href="#about">Sobre Nós 🔍</a></li>
+                    <li><a href="#privacy">Política de Privacidade 🔒</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobile-menu-toggle">☰</button>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>CANSOU DE TER PROBLEMAS<br>PARA DORMIR ?</h1>
+        <div class="hero-subtitle">MUDE ISSO EM 7 DIAS! 🔥</div>
+        <div class="hero-description">
+            <p>Descubra seu plano personalizado de sono com base na ciência e transforme suas noites de forma definitiva.</p>
+        </div>
+        <div class="stats-container">
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-number">+5600</div>
+                    <div class="stat-text">Sonos Transformados ✨</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">✅</div>
+                    <div class="stat-text">Cientificamente Comprovado 🔬</div>
+                </div>
+            </div>
+            <div class="stats-row">
+                <div class="stat-card single-stat">
+                    <div class="stat-number">7 Dias</div>
+                    <div class="stat-text">Para Resultados Reais 🗓️</div>
+                </div>
+            </div>
+        </div>
+        <a href="#form" class="cta-button">Descubra Seu Plano de Sono 🚀</a>
+    </section>
+
+<script>
+function createStars() {
+    const starsContainer = document.getElementById('stars-container');
+    const starsCount = 100;
+    while (starsContainer.firstChild) {
+        starsContainer.removeChild(starsContainer.firstChild);
+    }
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < starsCount; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const size = Math.random() * 2 + 1;
+        const delay = Math.random() * 5;
+        const duration = 3 + Math.random() * 3;
+        star.style.left = `${x}%`;
+        star.style.top = `${y}%`;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.animationDelay = `${delay}s`;
+        star.style.animationDuration = `${duration}s`;
+        fragment.appendChild(star);
+    }
+    starsContainer.appendChild(fragment);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    createStars();
+    const mobileToggle = document.getElementById('mobile-menu-toggle');
+    const mainMenu = document.getElementById('main-menu');
+    mobileToggle.addEventListener('click', function() {
+        mainMenu.classList.toggle('show');
+    });
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(createStars, 250);
+    });
+});
+</script>
+<section class="form-section" id="form">
+    <div class="container">
+        <h2>Seu Plano Personalizado de Sono 🎯</h2>
+        <p class="section-subtitle">Responda algumas perguntas para receber recomendações específicas</p>
+        
+        <div class="form-container">
+            <form id="main-form">
+                <div class="form-group">
+                    <label for="age">Sua Idade</label>
+                    <input type="number" id="age" name="age" min="12" max="100" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Problemas de Saúde (pode selecionar vários)</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="health" value="pressure-high"> Pressão Alta
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="health" value="pressure-low"> Pressão Baixa
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="health" value="cardiac"> Cardíaco
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="health" value="anxiety"> Ansiedade
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="health" value="insomnia"> Insônia
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="health" value="other"> Outros
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="health" value="none"> Nenhum problema de saúde
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sleep-hours">Quantas horas você dorme por noite?</label>
+                    <select id="sleep-hours" name="sleep-hours" required>
+                        <option value="">Selecione</option>
+                        <option value="less-5">Menos de 5 horas</option>
+                        <option value="5-6">5-6 horas</option>
+                        <option value="6-7">6-7 horas</option>
+                        <option value="7-8">7-8 horas</option>
+                        <option value="more-8">Mais de 8 horas</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sleep-quality">Como avalia a qualidade do seu sono?</label>
+                    <select id="sleep-quality" name="sleep-quality" required>
+                        <option value="">Selecione</option>
+                        <option value="excellent">Excelente - Durmo profundamente</option>
+                        <option value="good">Boa - Acordo descansado</option>
+                        <option value="regular">Regular - Acordo cansado às vezes</option>
+                        <option value="poor">Ruim - Sempre acordo cansado</option>
+                        <option value="very-poor">Muito Ruim - Não descanso nada</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="wakeup-time">Que horas você costuma acordar?</label>
+                    <select id="wakeup-time" name="wakeup-time" required>
+                        <option value="">Selecione</option>
+                        <option value="before-6">Antes das 6h</option>
+                        <option value="6-7">6h-7h</option>
+                        <option value="7-8">7h-8h</option>
+                        <option value="8-9">8h-9h</option>
+                        <option value="after-9">Depois das 9h</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="cta-button">Gerar Meu Plano Personalizado 📋</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="form-result" id="form-result" style="display: none;">
+    <div class="container">
+        <h2>Seu Plano de Sono Personalizado 📋</h2>
+        
+        <div class="plan-sections">
+            <div class="plan-section">
+                <h3>🌙 Rotina Noturna Recomendada</h3>
+                <div class="routine-list">
+                    <div class="routine-item">
+                        <div class="routine-checkbox"></div>
+                        <span>Banho morno 90 minutos antes de dormir</span>
+                    </div>
+                    <div class="routine-item">
+                        <div class="routine-checkbox"></div>
+                        <span>Desligar telas 1 hora antes de deitar</span>
+                    </div>
+                    <div class="routine-item">
+                        <div class="routine-checkbox"></div>
+                        <span>Alongamentos leves por 10 minutos</span>
+                    </div>
+                    <div class="routine-item">
+                        <div class="routine-checkbox"></div>
+                        <span>Leitura relaxante por 20 minutos</span>
+                    </div>
+                    <div class="routine-item">
+                        <div class="routine-checkbox"></div>
+                        <span>Respiração profunda por 5 minutos</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="plan-section">
+                <h3>🏠 Ambiente do Quarto Ideal</h3>
+                <div class="environment-tips">
+                    <div class="tip-item">
+                        <strong>Temperatura:</strong> 18-20°C
+                    </div>
+                    <div class="tip-item">
+                        <strong>Umidade:</strong> 40-60%
+                    </div>
+                    <div class="tip-item">
+                        <strong>Travesseiro:</strong> Altura média, material hipoalergênico
+                    </div>
+                    <div class="tip-item">
+                        <strong>Cobertor:</strong> Peso médio, tecido respirável
+                    </div>
+                    <div class="tip-item">
+                        <strong>Iluminação:</strong> Luzes quentes e indiretas
+                    </div>
+                </div>
+            </div>
+            
+            <div class="plan-section">
+                <h3>🥗 Recomendações de Nutrição</h3>
+                <div class="nutrition-tips">
+                    <div class="tip-item">
+                        <strong>Jantar:</strong> 3 horas antes de dormir, refeição leve
+                    </div>
+                    <div class="tip-item">
+                        <strong>Evitar:</strong> Cafeína após 16h, alimentos pesados
+                    </div>
+                    <div class="tip-item">
+                        <strong>Recomendado:</strong> Chá de camomila, leite morno
+                    </div>
+                    <div class="tip-item">
+                        <strong>Alimentos:</strong> Banana, aveia, amêndoas
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#quiz-animal" class="cta-button">Descubra Seu Animal do Sono 😴</a>
+        </div>
+    </div>
+</section>
+
+<style>
+.form-section {
+    padding: 80px 5%;
+    background: rgba(15, 15, 30, 0.7);
+}
+
+.form-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--gray);
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--light);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+}
+
+.checkbox-group {
+    display: grid;
+    gap: 12px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--light);
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    width: auto;
+}
+
+.form-result {
+    padding: 80px 5%;
+    background: rgba(15, 15, 30, 0.8);
+}
+
+.plan-sections {
+    display: grid;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.plan-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.plan-section h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.routine-list {
+    display: grid;
+    gap: 15px;
+}
+
+.routine-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.routine-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    margin-right: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.routine-checkbox.checked {
+    background: var(--primary);
+}
+
+.routine-checkbox.checked::after {
+    content: '✓';
+    color: white;
+    font-size: 14px;
+}
+
+.environment-tips,
+.nutrition-tips {
+    display: grid;
+    gap: 15px;
+}
+
+.tip-item {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.tip-item strong {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        padding: 30px 20px;
+    }
+    
+    .plan-sections {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+document.getElementById('main-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('form').style.display = 'none';
+    document.getElementById('form-result').style.display = 'block';
+    document.getElementById('form-result').scrollIntoView({ behavior: 'smooth' });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('.routine-checkbox');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('click', function() {
+            this.classList.toggle('checked');
+        });
+    });
+});
+</script>
+<section class="quiz-animal-section" id="quiz-animal">
+    <div class="container">
+        <div class="section-header">
+            <h2>Descubra Seu Animal do Sono 😴</h2>
+            <p class="section-subtitle">Responda 10 perguntas para descobrir qual animal representa seu padrão de sono</p>
+        </div>
+        
+        <div class="quiz-container">
+            <!-- Pergunta 1 -->
+            <div class="quiz-step active" id="step-1">
+                <h3 class="quiz-question">1. Qual horário você se sente mais produtivo?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="owl">Manhã (6h-12h) 🌅</div>
+                    <div class="quiz-option" data-value="bear">Tarde (12h-18h) ☀️</div>
+                    <div class="quiz-option" data-value="wolf">Noite (18h-24h) 🌙</div>
+                    <div class="quiz-option" data-value="giraffe">Madrugada (0h-6h) 🌌</div>
+                    <div class="quiz-option" data-value="penguin">Varia muito durante o dia 🔄</div>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="quiz-btn" onclick="nextAnimalStep(2)">Próxima →</button>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 10%"></div>
+                        </div>
+                    </div>
+                    <span>1 de 10</span>
+                </div>
+            </div>
+
+            <!-- Pergunta 2 -->
+            <div class="quiz-step" id="step-2">
+                <h3 class="quiz-question">2. Como você acorda naturalmente nos fins de semana?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="bear">Mesmo horário da semana ⏰</div>
+                    <div class="quiz-option" data-value="penguin">1-2 horas mais tarde 😴</div>
+                    <div class="quiz-option" data-value="giraffe">3-4 horas mais tarde 🛌</div>
+                    <div class="quiz-option" data-value="wolf">Horário completamente diferente 🔄</div>
+                    <div class="quiz-option" data-value="owl">Depende do dia, sem padrão fixo 🎲</div>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="quiz-btn" onclick="prevAnimalStep(1)">← Voltar</button>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 20%"></div>
+                        </div>
+                    </div>
+                    <button class="quiz-btn" onclick="nextAnimalStep(3)">Próxima →</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 3 -->
+            <div class="quiz-step" id="step-3">
+                <h3 class="quiz-question">3. Quantas vezes você acorda durante a noite?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="bear">Nunca, durmo a noite toda 😴</div>
+                    <div class="quiz-option" data-value="wolf">1-2 vezes rapidamente ⏰</div>
+                    <div class="quiz-option" data-value="penguin">3-4 vezes, mas volto a dormir 🔄</div>
+                    <div class="quiz-option" data-value="giraffe">Muitas vezes, tenho sono leve 🌊</div>
+                    <div class="quiz-option" data-value="owl">Depende da minha ansiedade no dia 😥</div>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="quiz-btn" onclick="prevAnimalStep(2)">← Voltar</button>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 30%"></div>
+                        </div>
+                    </div>
+                    <button class="quiz-btn" onclick="nextAnimalStep(4)">Próxima →</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 4 -->
+            <div class="quiz-step" id="step-4">
+                <h3 class="quiz-question">4. Como é seu nível de energia durante o dia?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="bear">Constante do começo ao fim 📈</div>
+                    <div class="quiz-option" data-value="wolf">Varia muito, com picos 📊</div>
+                    <div class="quiz-option" data-value="owl">Baixa de manhã, alta à noite 🌙</div>
+                    <div class="quiz-option" data-value="penguin">Sempre moderada, sem extremos ➖</div>
+                    <div class="quiz-option" data-value="giraffe">Alta de manhã, baixa à tarde 📉</div>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="quiz-btn" onclick="prevAnimalStep(3)">← Voltar</button>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 40%"></div>
+                        </div>
+                    </div>
+                    <button class="quiz-btn" onclick="nextAnimalStep(5)">Próxima →</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 5 -->
+            <div class="quiz-step" id="step-5">
+                <h3 class="quiz-question">5. Qual desses descreve melhor seu sono?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="bear">Profundo e reparador 💤</div>
+                    <div class="quiz-option" data-value="penguin">Leve e tranquilo 🌊</div>
+                    <div class="quiz-option" data-value="wolf">Intenso mas agitado ⚡</div>
+                    <div class="quiz-option" data-value="owl">Curto mas eficiente 🎯</div>
+                    <div class="quiz-option" data-value="giraffe">Longo e interrompido 🔄</div>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="quiz-btn" onclick="prevAnimalStep(4)">← Voltar</button>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <button class="quiz-btn" onclick="nextAnimalStep(6)">Próxima →</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 6 -->
+            <div class="quiz-step" id="step-6">
+                <h3 class="quiz-question">6. Como você lida com mudanças de rotina?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="bear">Prefiro rotina fixa 📅</div>
+                    <div class="quiz-option" data-value="wolf">Me adapto facilmente 🔄</div>
+                    <div class="quiz-option" data-value="owl">Gosto de variedade 🎭</div>
+                    <div class="quiz-option" data-value="penguin">Tenho dificuldade 😣</div>
+                    <div class="quiz-option" data-value="giraffe">Depende da mudança 🎲</div>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="quiz-btn" onclick="prevAnimalStep(5)">← Voltar</button>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <button class="quiz-btn" onclick="nextAnimalStep(7)">Próxima →</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 7 -->
+            <div class="quiz-step" id="step-7">
+                <h3 class="quiz-question">7. Qual é sua relação com cochilos?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="bear">Nunca cochilo ❌</div>
+                    <div class="quiz-option" data-value="penguin">Cochilos curtos de 20min ⏱️</div>
+                    <div class="quiz-option" data-value="wolf">Cochilos longos quando preciso 💤</div>
+                    <div class="quiz-option" data-value="owl">Vários cochilos curtos 🔄</div>
+                    <div class="quiz-option" data-value="giraffe">Só cochilo se estiver exausto 😴</div>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="quiz-btn" onclick="prevAnimalStep(6)">← Voltar</button>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <button class="quiz-btn" onclick="nextAnimalStep(8)">Próxima →</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 8 -->
+            <div class="quiz-step" id="step-8">
+                <h3 class="quiz-question">8. Como é sua memória de sonhos?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="penguin">Lembro de muitos detalhes 📝</div>
+                    <div class="quiz-option" data-value="bear">Lembro apenas fragmentos 🧩</div>
+                    <div class="quiz-option" data-value="wolf">Sonhos vívidos e intensos 🎬</div>
+                    <div class="quiz-option" data-value="owl">Raramente lembro dos sonhos ❓</div>
+                    <div class="quiz-option" data-value="giraffe">Às vezes lembro, às vezes não 🔄</div>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="quiz-btn" onclick="prevAnimalStep(7)">← Voltar</button>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <button class="quiz-btn" onclick="nextAnimalStep(9)">Próxima →</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 9 -->
+            <div class="quiz-step" id="step-9">
+                <h3 class="quiz-question">9. Qual ambiente te faz dormir melhor?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="bear">Silêncio total 🤫</div>
+                    <div class="quiz-option" data-value="penguin">Sons suaves naturais 🌊</div>
+                    <div class="quiz-option" data-value="wolf">Ruído branco constante 📻</div>
+                    <div class="quiz-option" data-value="owl">Pouca luz e temperatura baixa ❄️</div>
+                    <div class="quiz-option" data-value="giraffe">Ambiente familiar e confortável 🏠</div>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="quiz-btn" onclick="prevAnimalStep(8)">← Voltar</button>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <button class="quiz-btn" onclick="nextAnimalStep(10)">Próxima →</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 10 -->
+            <div class="quiz-step" id="step-10">
+                <h3 class="quiz-question">10. Como você se sente ao acordar?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="bear">Revigorado e alerta ⚡</div>
+                    <div class="quiz-option" data-value="penguin">Calmo e tranquilo 😊</div>
+                    <div class="quiz-option" data-value="wolf">Criativo e inspirado 💡</div>
+                    <div class="quiz-option" data-value="owl">Lento mas focado 🎯</div>
+                    <div class="quiz-option" data-value="giraffe">Cansado mas funcional 😴</div>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="quiz-btn" onclick="prevAnimalStep(9)">← Voltar</button>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <button class="quiz-btn" onclick="calculateAnimalResult()">Ver Resultado! 🎉</button>
+                </div>
+            </div>
+
+            <!-- Resultado Animal -->
+            <div class="animal-result" id="animal-result" style="display: none;">
+                <div class="result-content">
+                    <div class="animal-icon" id="animal-icon">🦉</div>
+                    <h2 id="animal-title">Seu animal é: Coruja</h2>
+                    <p id="animal-description" class="animal-description">
+                        Você é uma verdadeira coruja! Seu relógio biológico funciona melhor à noite, 
+                        com picos de energia quando a maioria das pessoas já está cansada.
+                    </p>
+                    
+                    <div class="animal-traits">
+                        <h4>Características do seu sono:</h4>
+                        <ul id="animal-traits-list">
+                            <li>Energia máxima no período noturno</li>
+                            <li>Adaptável a diferentes rotinas</li>
+                            <li>Sono eficiente em períodos curtos</li>
+                            <li>Criatividade em horários alternativos</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="cta-button" onclick="restartAnimalQuiz()">Fazer Quiz Novamente 🔄</button>
+                        <a href="#stress" class="cta-button secondary">Medir Meu Estresse 🚨</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Section Header Updates - Espaçamento igual ao Medidor de Estresse */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.section-header .section-subtitle {
+    color: var(--gray);
+    font-size: 1.1rem;
+    margin: 0;
+    margin-top: 20px; /* Espaçamento igual ao do Medidor de Estresse */
+}
+
+/* Quiz Animal Section */
+.quiz-animal-section {
+    padding: 80px 5%;
+    background: rgba(15, 15, 30, 0.6);
+}
+
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quiz-step {
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.quiz-step.active {
+    display: block;
+}
+
+.quiz-question {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.quiz-option {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.quiz-option:hover {
+    background: rgba(108, 99, 255, 0.2);
+    border-color: var(--primary);
+}
+
+.quiz-option.selected {
+    background: rgba(108, 99, 255, 0.3);
+    border-color: var(--primary);
+}
+
+.quiz-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.quiz-btn {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.3s;
+    white-space: nowrap;
+}
+
+.quiz-btn:hover {
+    transform: translateY(-2px);
+}
+
+.quiz-progress {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    width: 0%;
+    transition: width 0.3s;
+}
+
+/* Animal Result */
+.animal-result {
+    text-align: center;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.animal-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+.animal-title {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.animal-description {
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.animal-traits {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px 0;
+    text-align: left;
+}
+
+.animal-traits h4 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.animal-traits ul {
+    list-style: none;
+    padding: 0;
+}
+
+.animal-traits li {
+    padding: 10px 0;
+    color: var(--gray);
+    position: relative;
+    padding-left: 25px;
+}
+
+.animal-traits li:before {
+    content: '✓';
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--primary);
+}
+
+.cta-button.secondary:hover {
+    background: rgba(108, 99, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .quiz-container {
+        padding: 30px 20px;
+    }
+    
+    .quiz-question {
+        font-size: 1.2rem;
+    }
+    
+    .quiz-navigation {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .quiz-progress {
+        width: 100%;
+        order: -1;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .animal-icon {
+        font-size: 4rem;
+    }
+    
+    .animal-title {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<script>
+// Quiz Animal Logic - Atualizado para 5 animais
+let animalAnswers = {};
+let currentAnimalStep = 1;
+
+function nextAnimalStep(step) {
+    // Verificar se resposta atual foi selecionada
+    const currentOptions = document.querySelectorAll(`#step-${currentAnimalStep} .quiz-option.selected`);
+    if (currentOptions.length === 0) {
+        alert('Por favor, selecione uma resposta antes de continuar.');
+        return;
+    }
+    
+    document.getElementById(`step-${currentAnimalStep}`).classList.remove('active');
+    document.getElementById(`step-${step}`).classList.add('active');
+    currentAnimalStep = step;
+    
+    // Save current answer
+    animalAnswers[`question${currentAnimalStep-1}`] = currentOptions[0].getAttribute('data-value');
+}
+
+function prevAnimalStep(step) {
+    document.getElementById(`step-${currentAnimalStep}`).classList.remove('active');
+    document.getElementById(`step-${step}`).classList.add('active');
+    currentAnimalStep = step;
+}
+
+// Select animal options
+document.addEventListener('DOMContentLoaded', function() {
+    const options = document.querySelectorAll('.quiz-option');
+    options.forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove selected from siblings
+            const siblings = this.parentElement.querySelectorAll('.quiz-option');
+            siblings.forEach(sib => sib.classList.remove('selected'));
+            
+            // Add selected to clicked
+            this.classList.add('selected');
+        });
+    });
+});
+
+// Calculate animal result - Sistema atualizado para 1 animal único
+function calculateAnimalResult() {
+    // Verificar se última pergunta foi respondida
+    const lastOptions = document.querySelectorAll(`#step-${currentAnimalStep} .quiz-option.selected`);
+    if (lastOptions.length === 0) {
+                    alert('Por favor, selecione uma resposta antes de continuar.');
+        return;
+    }
+    
+    document.getElementById(`step-${currentAnimalStep}`).classList.remove('active');
+    document.getElementById(`step-${step}`).classList.add('active');
+    currentAnimalStep = step;
+    
+    // Save current answer
+    animalAnswers[`question${currentAnimalStep-1}`] = currentOptions[0].getAttribute('data-value');
+}
+
+function prevAnimalStep(step) {
+    document.getElementById(`step-${currentAnimalStep}`).classList.remove('active');
+    document.getElementById(`step-${step}`).classList.add('active');
+    currentAnimalStep = step;
+}
+
+// Select animal options
+document.addEventListener('DOMContentLoaded', function() {
+    const options = document.querySelectorAll('.quiz-option');
+    options.forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove selected from siblings
+            const siblings = this.parentElement.querySelectorAll('.quiz-option');
+            siblings.forEach(sib => sib.classList.remove('selected'));
+            
+            // Add selected to clicked
+            this.classList.add('selected');
+        });
+    });
+});
+
+// Calculate animal result - Sistema atualizado para 1 animal único
+function calculateAnimalResult() {
+    // Verificar se última pergunta foi respondida
+    const lastOptions = document.querySelectorAll(`#step-${currentAnimalStep} .quiz-option.selected`);
+    if (lastOptions.length === 0) {
+        alert('Por favor, selecione uma resposta para a última pergunta.');
+        return;
+    }
+    
+    // Save last answer
+    animalAnswers[`question${currentAnimalStep}`] = lastOptions[0].getAttribute('data-value');
+    
+    // Count animal votes
+    const animalCount = { 
+        owl: 0, 
+        bear: 0, 
+        wolf: 0, 
+        giraffe: 0, 
+        penguin: 0 
+    };
+    
+    Object.values(animalAnswers).forEach(animal => {
+        if (animalCount[animal] !== undefined) {
+            animalCount[animal]++;
+        }
+    });
+    
+    // Encontrar animal vencedor
+    const animalEntries = Object.entries(animalCount);
+    animalEntries.sort((a, b) => b[1] - a[1]);
+    
+    const winningAnimal = animalEntries[0][0];
+    
+    // Mostrar resultados
+    document.getElementById(`step-${currentAnimalStep}`).classList.remove('active');
+    document.getElementById('animal-result').style.display = 'block';
+    
+    // Display animal result
+    displayAnimalResult(winningAnimal);
+}
+
+function displayAnimalResult(animal) {
+    const results = {
+        owl: {
+            icon: '🦉',
+            title: 'Coruja',
+            description: 'Você é uma verdadeira coruja! Seu relógio biológico funciona melhor à noite, com picos de energia quando a maioria das pessoas já está cansada. Seu padrão de sono é único e se adapta bem a rotinas não convencionais.',
+            traits: [
+                'Energia máxima no período noturno',
+                'Adaptável a diferentes rotinas',
+                'Sono eficiente em períodos curtos',
+                'Criatividade em horários alternativos',
+                'Produtividade em ambientes tranquilos'
+            ]
+        },
+        bear: {
+            icon: '🐻',
+            title: 'Urso',
+            description: 'Você tem um padrão de sono consistente e previsível como um urso! Seu corpo segue naturalmente o ciclo solar, com energia constante ao longo do dia e necessidade de sono regular.',
+            traits: [
+                'Rotina de sono consistente',
+                'Energia equilibrada durante o dia',
+                'Sono profundo e reparador',
+                'Adaptação fácil ao ciclo solar',
+                'Prefere estabilidade e previsibilidade'
+            ]
+        },
+        wolf: {
+            icon: '🐺',
+            title: 'Lobo',
+            description: 'Você é um lobo - com energia que vem em ondas e picos criativos! Seu sono pode ser afetado por momentos de alta inspiração, mas também tem grande capacidade de adaptação.',
+            traits: [
+                'Energia em picos criativos',
+                'Sono intenso mas variável',
+                'Grande capacidade de adaptação',
+                'Produtivo em momentos de inspiração',
+                'Sonhos vívidos e memoráveis'
+            ]
+        },
+        giraffe: {
+            icon: '🦒',
+            title: 'Girafa',
+            description: 'Como uma girafa, você tem um padrão de sono curto mas eficiente! Seu sono é leve e você precisa de menos horas para se recuperar, mantendo-se alerta durante grande parte do dia.',
+            traits: [
+                'Sono curto mas de alta qualidade',
+                'Alerta durante longos períodos',
+                'Acorda facilmente e rapidamente',
+                'Pouca necessidade de sono profundo',
+                'Adaptável a rotinas intensas'
+            ]
+        },
+        penguin: {
+            icon: '🐧',
+            title: 'Pinguim',
+            description: 'Você é um pinguim - metódico e organizado com seu sono! Prefere rotinas bem estabelecidas e ambientes controlados para garantir a melhor qualidade de descanso possível.',
+            traits: [
+                'Rotinas de sono muito organizadas',
+                'Sensível ao ambiente de dormir',
+                'Precisa de condições ideais',
+                'Sono leve mas consistente',
+                'Grande planejador noturno'
+            ]
+        }
+    };
+    
+    const result = results[animal];
+    document.getElementById('animal-icon').textContent = result.icon;
+    document.getElementById('animal-title').textContent = `Seu animal é: ${result.title}`;
+    document.getElementById('animal-description').textContent = result.description;
+    
+    // Update traits list
+    const traitsList = document.getElementById('animal-traits-list');
+    traitsList.innerHTML = '';
+    result.traits.forEach(trait => {
+        const li = document.createElement('li');
+        li.textContent = trait;
+        traitsList.appendChild(li);
+    });
+}
+
+function restartAnimalQuiz() {
+    // Reset everything
+    animalAnswers = {};
+    currentAnimalStep = 1;
+    
+    // Hide results, show first step
+    document.getElementById('animal-result').style.display = 'none';
+    document.getElementById('step-1').classList.add('active');
+    
+    // Clear selections
+    const selectedOptions = document.querySelectorAll('.quiz-option.selected');
+    selectedOptions.forEach(option => option.classList.remove('selected'));
+}
+</script>
+<section class="stress-section" id="stress">
+    <div class="container">
+        <div class="section-header">
+            <h2>Medidor de Estresse Diário 😅</h2>
+            <p class="section-subtitle">Avalie como seu dia está afetando sua qualidade de sono</p>
+        </div>
+        
+        <div class="stress-quiz">
+            <div class="stress-question">
+                <h3>Quantas xícaras de café você consumiu hoje?</h3>
+                <div class="stress-options">
+                    <button class="stress-option" data-value="0">Nenhuma 🚫</button>
+                    <button class="stress-option" data-value="1">1-2 xícaras 👍</button>
+                    <button class="stress-option" data-value="2">3-4 xícaras 😅</button>
+                    <button class="stress-option" data-value="3">5+ xícaras ⚡</button>
+                </div>
+            </div>
+            
+            <div class="stress-question">
+                <h3>Você fez atividade física hoje?</h3>
+                <div class="stress-options">
+                    <button class="stress-option" data-value="0">Exercício intenso 🏃‍♂️</button>
+                    <button class="stress-option" data-value="1">Exercício moderado 🚶‍♂️</button>
+                    <button class="stress-option" data-value="2">Pouca atividade 🪑</button>
+                    <button class="stress-option" data-value="3">Nenhuma atividade 😴</button>
+                </div>
+            </div>
+            
+            <div class="stress-question">
+                <h3>Como classifica o estresse do seu dia?</h3>
+                <div class="stress-options">
+                    <button class="stress-option" data-value="0">Tranquilo 😊</button>
+                    <button class="stress-option" data-value="1">Normal 😐</button>
+                    <button class="stress-option" data-value="2">Estressante 😓</button>
+                    <button class="stress-option" data-value="3">Muito estressante 😡</button>
+                </div>
+            </div>
+            
+            <div class="stress-question">
+                <h3>Você se expôs à luz natural hoje?</h3>
+                <div class="stress-options">
+                    <button class="stress-option" data-value="0">Sim, bastante ☀️</button>
+                    <button class="stress-option" data-value="1">Um pouco ⛅</button>
+                    <button class="stress-option" data-value="2">Quase nada 🌆</button>
+                    <button class="stress-option" data-value="3">Nada 🏢</button>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="cta-button" onclick="calculateStress()">
+                    Calcular Meu Estresse 📊
+                </button>
+            </div>
+            
+            <div class="stress-result" id="stress-assessment-result" style="display: none; margin-top: 40px;">
+                <div class="stress-meter-container">
+                    <div class="stress-meter">
+                        <div class="meter-fill" id="meter-fill"></div>
+                    </div>
+                    <div class="meter-labels">
+                        <span>Baixo</span>
+                        <span>Moderado</span>
+                        <span>Alto</span>
+                        <span>Muito Alto</span>
+                    </div>
+                </div>
+                <h3 id="stress-assessment-title">Seu Nível de Estresse: Moderado</h3>
+                <p id="stress-assessment-text" class="stress-recommendation">
+                    Recomendamos exercícios de respiração profunda por 5 minutos antes de dormir.
+                </p>
+                <div class="stress-tips">
+                    <h4>💡 Dicas Para Hoje:</h4>
+                    <ul>
+                        <li>Evite telas 1 hora antes de dormir</li>
+                        <li>Tome um chá de camomila ou lavanda</li>
+                        <li>Faça alongamentos suaves por 10 minutos</li>
+                        <li>Pratique respiração 4-7-8 (4s inspira, 7s segura, 8s expira)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="feedback-section" id="feedback">
+    <div class="container">
+        <div class="section-header">
+            <h2>Deixe Seu Feedback ⭐</h2>
+            <p class="section-subtitle">Sua opinião ajuda outras pessoas a melhorarem o sono</p>
+        </div>
+        
+        <div class="feedback-form">
+            <div class="rating-section">
+                <h3>Como você avalia sua experiência?</h3>
+                <div class="stars-rating-input">
+                    <span class="star-input" data-rating="1">★</span>
+                    <span class="star-input" data-rating="2">★</span>
+                    <span class="star-input" data-rating="3">★</span>
+                    <span class="star-input" data-rating="4">★</span>
+                    <span class="star-input" data-rating="5">★</span>
+                </div>
+                <div class="rating-text" id="rating-text">Selecione uma avaliação</div>
+            </div>
+            
+            <div class="comment-section">
+                <h3>Compartilhe sua experiência (até 100 caracteres)</h3>
+                <textarea 
+                    id="feedback-comment" 
+                    placeholder="Escreva como a NIVORA ajudou você..."
+                    maxlength="100"
+                ></textarea>
+                <div class="char-count">
+                    <span id="char-count">0</span>/100 caracteres
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="cta-button" onclick="submitFeedback()">
+                    Enviar Feedback 📨
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="feedback-toast" id="feedback-toast">
+    <div class="toast-content">
+        <span class="toast-icon">✅</span>
+        <span class="toast-text">Enviado com sucesso</span>
+    </div>
+</div>
+
+<style>
+.stress-section {
+    padding: 80px 5%;
+    background: rgba(15, 15, 30, 0.7);
+}
+
+.stress-quiz {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stress-question {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.stress-question h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.stress-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.stress-option {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 15px 10px;
+    color: var(--light);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+}
+
+.stress-option:hover {
+    background: rgba(108, 99, 255, 0.2);
+    border-color: var(--primary);
+}
+
+.stress-option.selected {
+    background: rgba(108, 99, 255, 0.3);
+    border-color: var(--primary);
+}
+
+.stress-meter-container {
+    margin: 30px 0;
+}
+
+.stress-meter {
+    width: 100%;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.meter-fill {
+    height: 100%;
+    border-radius: 12px;
+    transition: width 0.5s ease;
+    background: linear-gradient(90deg, #4CAF50, #FF9800, #FF5722, #F44336);
+}
+
+.meter-labels {
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.stress-tips {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 25px;
+}
+
+.stress-tips h4 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.stress-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.stress-tips li {
+    padding: 8px 0;
+    color: var(--gray);
+    position: relative;
+    padding-left: 25px;
+}
+
+.stress-tips li:before {
+    content: '✓';
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+}
+
+.feedback-section {
+    padding: 80px 5%;
+    background: rgba(15, 15, 30, 0.6);
+}
+
+.feedback-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rating-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.rating-section h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.stars-rating-input {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.star-input {
+    font-size: 2.5rem;
+    color: var(--gray);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.star-input:hover,
+.star-input.active {
+    color: gold;
+}
+
+.rating-text {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.comment-section {
+    margin-bottom: 30px;
+}
+
+.comment-section h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+#feedback-comment {
+    width: 100%;
+    height: 100px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.char-count {
+    text-align: right;
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.feedback-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: rgba(76, 175, 80, 0.95);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.feedback-toast.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toast-icon {
+    font-size: 1.2rem;
+}
+
+.toast-text {
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .stress-options {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .feedback-form {
+        padding: 30px 20px;
+    }
+    
+    .stars-rating-input {
+        gap: 5px;
+    }
+    
+    .star-input {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stress-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .feedback-toast {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        transform: translateY(100px);
+    }
+    
+    .feedback-toast.show {
+        transform: translateY(0);
+    }
+}
+</style>
+
+<script>
+let stressAnswers = {};
+let selectedRating = 0;
+
+document.addEventListener('DOMContentLoaded', function() {
+    const stressOptions = document.querySelectorAll('.stress-option');
+    stressOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const question = this.closest('.stress-question');
+            const siblings = question.querySelectorAll('.stress-option');
+            siblings.forEach(sib => sib.classList.remove('selected'));
+            this.classList.add('selected');
+            const questionIndex = Array.from(document.querySelectorAll('.stress-question')).indexOf(question);
+            stressAnswers[`stress${questionIndex}`] = parseInt(this.getAttribute('data-value'));
+        });
+    });
+
+    const stars = document.querySelectorAll('.star-input');
+    stars.forEach((star, index) => {
+        star.addEventListener('click', function() {
+            selectedRating = parseInt(this.getAttribute('data-rating'));
+            stars.forEach((s, i) => {
+                if (i < selectedRating) {
+                    s.classList.add('active');
+                } else {
+                    s.classList.remove('active');
+                }
+            });
+            const ratingTexts = [
+                'Selecione uma avaliação',
+                'Péssimo',
+                'Ruim', 
+                'Regular',
+                'Bom',
+                'Excelente'
+            ];
+            document.getElementById('rating-text').textContent = ratingTexts[selectedRating];
+        });
+    });
+
+    const commentField = document.getElementById('feedback-comment');
+    const charCount = document.getElementById('char-count');
+    commentField.addEventListener('input', function() {
+        charCount.textContent = this.value.length;
+    });
+});
+
+function calculateStress() {
+    let totalScore = 0;
+    Object.values(stressAnswers).forEach(score => {
+        totalScore += score;
+    });
+    
+    let stressLevel, stressTitle, stressText, meterWidth;
+    
+    if (totalScore <= 3) {
+        stressLevel = 'Baixo';
+        stressTitle = '🎉 Seu Nível de Estresse: Baixo';
+        stressText = 'Excelente! Seu dia foi equilibrado. Mantenha essa rotina para noites de sono tranquilas e reparadoras.';
+        meterWidth = '25%';
+    } else if (totalScore <= 6) {
+        stressLevel = 'Moderado';
+        stressTitle = '😊 Seu Nível de Estresse: Moderado';
+        stressText = 'Seu dia teve alguns momentos de tensão. Recomendamos exercícios de respiração profunda por 5 minutos antes de dormir para relaxar.';
+        meterWidth = '50%';
+    } else if (totalScore <= 9) {
+        stressLevel = 'Alto';
+        stressTitle = '😰 Seu Nível de Estresse: Alto';
+        stressText = 'Seu dia foi bastante estressante. Pratique técnicas de relaxamento progressivo e evite trabalhar até tarde para melhorar seu sono.';
+        meterWidth = '75%';
+    } else {
+        stressLevel = 'Muito Alto';
+        stressTitle = '😡 Seu Nível de Estresse: Muito Alto';
+        stressText = 'Seu dia foi extremamente estressante. Considere meditação guiada, banho quente antes de dormir e evite estimulantes.';
+        meterWidth = '95%';
+    }
+    
+    const resultElement = document.getElementById('stress-assessment-result');
+    const meterFill = document.getElementById('meter-fill');
+    const titleElement = document.getElementById('stress-assessment-title');
+    const textElement = document.getElementById('stress-assessment-text');
+    
+    meterFill.style.width = meterWidth;
+    titleElement.textContent = stressTitle;
+    textElement.textContent = stressText;
+    
+    resultElement.style.display = 'block';
+    resultElement.scrollIntoView({ behavior: 'smooth' });
+}
+
+function submitFeedback() {
+    if (selectedRating === 0) {
+        alert('Por favor, selecione uma avaliação com as estrelas.');
+        return;
+    }
+    
+    const toast = document.getElementById('feedback-toast');
+    toast.classList.add('show');
+    
+    selectedRating = 0;
+    document.querySelectorAll('.star-input').forEach(star => {
+        star.classList.remove('active');
+    });
+    document.getElementById('rating-text').textContent = 'Selecione uma avaliação';
+    document.getElementById('feedback-comment').value = '';
+    document.getElementById('char-count').textContent = '0';
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+</script>
+<section class="testimonials" id="testimonials">
+    <h2>Quem Usou Aprova ⭐⭐⭐⭐⭐</h2>
+    <div class="testimonials-container">
+        <div class="testimonial-card">
+            <p class="testimonial-text">Eu não acreditava que funcionaria, mas em uma semana já estava dormindo a noite toda. Simplesmente incrível! 😴</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">AF</div>
+                <div class="author-info">
+                    <h4>Alexandre Flávio</h4>
+                    <p>Usuário há 3 meses</p>
+                </div>
+            </div>
+            <div class="stars-rating">★★★★★</div>
+        </div>
+        <div class="testimonial-card">
+            <p class="testimonial-text">Minha insônia sumiu completamente. Finalmente consigo descansar de verdade e acordo com energia. 💪</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">MC</div>
+                <div class="author-info">
+                    <h4>Marina Costa</h4>
+                    <p>Usuária há 2 meses</p>
+                </div>
+            </div>
+            <div class="stars-rating">★★★★★</div>
+        </div>
+        <div class="testimonial-card">
+            <p class="testimonial-text">Depois de anos tentando de tudo, essas técnicas científicas foram a única coisa que realmente resolveu meu problema. 🙏</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">RS</div>
+                <div class="author-info">
+                    <h4>Ricardo Silva</h4>
+                    <p>Usuário há 5 meses</p>
+                </div>
+            </div>
+            <div class="stars-rating">★★★★★</div>
+        </div>
+    </div>
+</section>
+
+<section class="about-section" id="about">
+    <div class="container">
+        <h2>Sobre Nós 🔍</h2>
+        <div class="about-content">
+            <p class="about-summary">
+                A nivora nasceu da necessidade urgente de combater a epidemia de problemas de sono que afeta milhões de pessoas em todo o mundo. 🌍 Fundado por especialistas em neurociência e medicina do sono, nosso projeto tem como missão principal democratizar o acesso a informações científicas sobre qualidade do sono.
+                <span class="read-more-text" id="read-more-text" style="display: none;">
+                    <br><br>
+                    Nossa equipe é composta por pesquisadores, médicos e desenvolvedores que acreditam que uma boa noite de sono é fundamental para a saúde física, mental e emocional. 💡 Trabalhamos incansavelmente para transformar complexas pesquisas acadêmicas em orientações práticas e acessíveis para todos.
+                    <br><br>
+                    O que nos diferencia é o compromisso com a ciência. 🧪 Todas as técnicas e recomendações disponíveis em nossa plataforma são baseadas em estudos revisados por pares e validadas por instituições de renome no campo da medicina do sono. Rejeitamos mitos e soluções milagrosas, focando apenas no que realmente funciona de acordo com as evidências científicas.
+                    <br><br>
+                    Acreditamos que cada pessoa merece acordar revigorada e pronta para enfrentar os desafios do dia. ⚡ Por isso, desenvolvemos métodos personalizados que consideram as particularidades de cada indivíduo - desde rotinas noturnas até ajustes ambientais que fazem toda a diferença na qualidade do descanso.
+                    <br><br>
+                    Nossa visão é criar um mundo onde problemas como insônia, apneia do sono e distúrbios do ritmo circadiano sejam coisas do passado. 🎯 Estamos constantemente atualizando nosso conhecimento e expandindo nossos serviços para oferecer sempre o que há de mais moderno e eficaz em termos de saúde do sono.
+                </span>
+            </p>
+            <button class="read-more-btn" onclick="toggleReadMore()">
+                <strong>ler mais ...</strong>
+            </button>
+
+            <div class="team-stats">
+                <div class="team-stat">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Anos de Pesquisa</div>
+                </div>
+                <div class="team-stat">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Especialistas</div>
+                </div>
+                <div class="team-stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Estudos Analisados</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.testimonials {
+    padding: 80px 5%;
+    background-color: rgba(15, 15, 30, 0.7);
+}
+
+.testimonials h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--primary);
+}
+
+.testimonials-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 350px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+.testimonial-text {
+    color: var(--light);
+    font-style: italic;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.testimonial-text::before {
+    content: '"';
+    font-size: 3rem;
+    color: var(--primary);
+    position: absolute;
+    left: -10px;
+    top: -15px;
+    opacity: 0.7;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+}
+
+.author-info h4 {
+    color: var(--light);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.author-info p {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.stars-rating {
+    color: gold;
+    font-size: 1.3rem;
+    text-align: right;
+}
+
+.about-section {
+    padding: 80px 5%;
+    background-color: rgba(15, 15, 30, 0.7);
+}
+
+.about-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--primary);
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--gray);
+    line-height: 1.7;
+}
+
+.about-summary {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.read-more-btn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 40px;
+    display: block;
+}
+
+.read-more-btn:hover {
+    text-decoration: underline;
+}
+
+.team-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-stat {
+    text-align: center;
+    flex: 1;
+    max-width: 200px;
+}
+
+.team-stat .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.team-stat .stat-label {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .team-stats {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .about-summary {
+        text-align: left;
+    }
+    
+    .team-stat {
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-stats {
+        gap: 25px;
+    }
+    
+    .team-stat .stat-number {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<script>
+function toggleReadMore() {
+    const readMoreText = document.getElementById('read-more-text');
+    const readMoreBtn = document.querySelector('.read-more-btn');
+    
+    if (readMoreText.style.display === 'none') {
+        readMoreText.style.display = 'inline';
+        readMoreBtn.innerHTML = '<strong>ler menos ...</strong>';
+    } else {
+        readMoreText.style.display = 'none';
+        readMoreBtn.innerHTML = '<strong>ler mais ...</strong>';
+    }
+    
+    readMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+<section class="privacy-section" id="privacy">
+    <div class="container">
+        <h2>Política de Privacidade 🔒</h2>
+        <div class="privacy-content">
+            <div class="privacy-item">
+                <h3>📋 Coleta de Informações</h3>
+                <p>Coletamos apenas informações necessárias para personalizar seu plano de sono: idade e hábitos de sono. Não solicitamos dados sensíveis. Todas as informações são tratadas com total confidencialidade e segurança.</p>
+            </div>
+            
+            <div class="privacy-item">
+                <h3>🔍 Uso dos Dados</h3>
+                <p>Seus dados são utilizados exclusivamente para gerar recomendações personalizadas de sono. Não compartilhamos informações com terceiros. Os dados de quiz são processados localmente no seu navegador para sua privacidade.</p>
+            </div>
+            
+            <div class="privacy-item">
+                <h3>💾 Armazenamento</h3>
+                <p>As informações são armazenadas de forma segura em servidores protegidos com criptografia SSL. Implementamos medidas técnicas avançadas para garantir a segurança dos dados contra acessos não autorizados.</p>
+            </div>
+            
+            <div class="privacy-item">
+                <h3>🍪 Cookies</h3>
+                <p>Utilizamos cookies apenas para melhorar sua experiência de navegação e analisar o tráfego do site. Você pode desativá-los nas configurações do seu navegador. Não utilizamos cookies de terceiros para publicidade.</p>
+            </div>
+
+            <div class="privacy-item">
+                <h3>📞 Contato</h3>
+                <p>Para questões sobre privacidade, entre em contato através do nosso formulário de feedback ou envie um email para privacidade@nivora.com.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.privacy-section {
+    padding: 80px 5%;
+    background-color: rgba(15, 15, 30, 0.9);
+}
+
+.privacy-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--primary);
+}
+
+.privacy-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.privacy-item {
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.privacy-item h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.privacy-item p {
+    color: var(--gray);
+    line-height: 1.6;
+}
+</style>
+<footer>
+    <div class="footer-content">
+        <div class="footer-column">
+            <h3>nivora 🌙</h3>
+            <p>Transformando noites em descanso de qualidade através da ciência e tecnologia. ✨</p>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Legal ⚖️</h3>
+            <ul>
+                <li><a href="#privacy">Política de Privacidade 🔒</a></li>
+                <li><a href="#about">Sobre Nós 🔍</a></li>
+                <li><a href="#cookies">Política de Cookies 🍪</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="copyright">
+            <p>&copy; 2025 nivora. Todos os direitos reservados. ✅</p>
+            <p>Desenvolvido com ❤️ para melhorar seu sono</p>
+        </div>
+        <div class="compliance-badges">
+            <span class="badge">🔒 LGPD</span>
+            <span class="badge">🌐 SSL</span>
+            <span class="badge">⚕️ Conteúdo Médico Verificado</span>
+        </div>
+    </div>
+</footer>
+
+<style>
+footer {
+    background-color: var(--dark);
+    padding: 60px 5% 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: block;
+    padding: 5px 0;
+}
+
+.footer-column ul li a:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+.footer-column p {
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.copyright p {
+    color: var(--gray);
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.compliance-badges {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: var(--gray);
+    font-size: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .compliance-badges {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-column {
+        text-align: center;
+    }
+    
+    .compliance-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+
+<script>
+// Smooth scrolling for anchor links
+document.addEventListener('DOMContentLoaded', function() {
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+
+// Cookie Consent
+function showCookieConsent() {
+    if (!localStorage.getItem('cookiesAccepted')) {
+        const consentBanner = document.createElement('div');
+        consentBanner.style.cssText = `
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 30, 0.95);
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        `;
+        
+        consentBanner.innerHTML = `
+            <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+                <p style="color: var(--light); margin: 0; flex: 1;">
+                    🍪 Usamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa 
+                    <a href="#privacy" style="color: var(--primary);">Política de Privacidade</a>.
+                </p>
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="acceptCookies()" style="
+                        background: var(--primary);
+                        color: white;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    ">Aceitar</button>
+                    <button onclick="closeBanner()" style="
+                        background: transparent;
+                        color: var(--gray);
+                        border: 1px solid var(--gray);
+                        padding: 10px 20px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    ">Recusar</button>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(consentBanner);
+        
+        window.acceptCookies = function() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.body.removeChild(consentBanner);
+        };
+        
+        window.closeBanner = function() {
+            document.body.removeChild(consentBanner);
+        };
+    }
+}
+
+// Initialize cookie consent
+document.addEventListener('DOMContentLoaded', showCookieConsent);
+
+// Add loading states to buttons
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.cta-button, .quiz-btn');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            const originalText = this.innerHTML;
+            this.innerHTML = '<span class="loading"></span> Carregando...';
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+            }, 1500);
+        });
+    });
+});
+</script>
+
+</body>
+</html>
