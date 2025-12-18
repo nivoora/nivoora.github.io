@@ -1,62 +1,124 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Sobre Nós - Nivoora</title>
+  <title>Sobre Nós - Nivora</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0d1a;
-      color: #cfd8ff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+    :root {
+      --primary: #6C63FF;
+      --dark: #0F0F1E;
+      --darker: #070712;
+      --light: #FFFFFF;
+      --gray: #A0A0B0;
     }
 
-    .box {
-      max-width: 800px;
-      padding: 50px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: var(--darker);
+      color: var(--light);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%,100% { opacity:.2; transform:scale(.8); }
+      50% { opacity:1; transform:scale(1.2); }
+    }
+
+    .content {
+      max-width: 850px;
+      animation: fadeInUp .8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity:0; transform:translateY(30px); }
+      to { opacity:1; transform:translateY(0); }
     }
 
     h1 {
-      color: #5f6bff;
-      margin-bottom: 25px;
+      color: var(--primary);
+      font-size: 2.6rem;
+      margin-bottom: 30px;
     }
 
     p {
+      color: var(--gray);
+      font-size: 1.1rem;
       line-height: 1.8;
       margin-bottom: 20px;
     }
   </style>
 </head>
-
 <body>
-  <div class="box">
-    <h1>Sobre a Nivoora</h1>
 
-    <p>
-      A Nivoora é um projeto informativo criado com o objetivo de ajudar
-      pessoas a melhorarem sua qualidade de sono e bem-estar geral.
-    </p>
+<div class="stars" id="stars"></div>
 
-    <p>
-      Nosso conteúdo é baseado em estudos, hábitos saudáveis e informações
-      educacionais, sempre buscando apresentar dados claros, acessíveis e
-      responsáveis.
-    </p>
+<div class="content">
+  <h1>Sobre a Nivora</h1>
 
-    <p>
-      Não oferecemos diagnósticos médicos. As informações disponíveis no site
-      têm caráter informativo e educacional.
-    </p>
-  </div>
+  <p>
+    A Nivora é um projeto criado com o propósito de ajudar pessoas
+    a melhorarem a qualidade do sono através de informação confiável,
+    ciência aplicada e hábitos comprovados.
+  </p>
+
+  <p>
+    Sabemos que problemas para dormir afetam diretamente a saúde mental,
+    produtividade e bem-estar. Por isso, reunimos conteúdos claros,
+    métodos práticos e ferramentas educativas em um único lugar.
+  </p>
+
+  <p>
+    Nosso compromisso é oferecer informações acessíveis, baseadas em
+    estudos científicos, sem promessas milagrosas ou soluções enganosas.
+  </p>
+
+  <p>
+    A Nivora não substitui acompanhamento médico, mas atua como um apoio
+    educativo para quem busca noites melhores e uma vida mais equilibrada.
+  </p>
+</div>
+
+<script>
+  const stars = document.getElementById('stars');
+  for (let i = 0; i < 150; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.width = s.style.height = `${Math.random()*3+1}px`;
+    s.style.top = `${Math.random()*100}%`;
+    s.style.left = `${Math.random()*100}%`;
+    s.style.animationDelay = `${Math.random()*3}s`;
+    stars.appendChild(s);
+  }
+</script>
+
 </body>
 </html>
