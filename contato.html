@@ -2,57 +2,82 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Contato - Nivoora</title>
+  <title>Contato - Nivora</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    :root {
+      --primary:#6C63FF;
+      --darker:#070712;
+      --gray:#A0A0B0;
+    }
+
     body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0d1a;
-      color: #cfd8ff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      margin:0;
+      background:var(--darker);
+      color:white;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:40px 20px;
+      position:relative;
+      overflow:hidden;
+      font-family:'Segoe UI',sans-serif;
     }
 
-    .box {
-      max-width: 700px;
-      padding: 50px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
-      text-align: center;
-    }
+    .stars{position:fixed;inset:0;z-index:-1;}
+    .star{position:absolute;background:white;border-radius:50%;animation:twinkle 3s infinite;}
+    @keyframes twinkle{0%,100%{opacity:.2}50%{opacity:1}}
 
-    h1 {
-      color: #5f6bff;
-      margin-bottom: 25px;
-    }
+    .content{max-width:800px;animation:fade .8s ease forwards;}
+    @keyframes fade{from{opacity:0;transform:translateY(30px)}to{opacity:1}}
 
-    p {
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
+    h1{color:var(--primary);font-size:2.6rem;margin-bottom:30px;}
+    p{color:var(--gray);font-size:1.1rem;line-height:1.8;margin-bottom:20px;}
   </style>
 </head>
-
 <body>
-  <div class="box">
-    <h1>Contato</h1>
 
-    <p>
-      Se você tiver dúvidas, sugestões ou quiser entrar em contato com a
-      equipe da Nivoora, fique à vontade para nos enviar uma mensagem.
-    </p>
+<div class="stars" id="stars"></div>
 
-    <p>
-      📧 E-mail: <strong>contato@nivoora.com</strong>
-    </p>
+<div class="content">
+  <h1>Contato</h1>
 
-    <p>
-      Respondemos normalmente dentro de alguns dias úteis.
-    </p>
-  </div>
+  <p>
+    Se você tiver dúvidas, sugestões, parcerias ou feedbacks,
+    ficaremos felizes em ouvir você.
+  </p>
+
+  <p>
+    Nosso objetivo é melhorar continuamente a experiência
+    dos usuários e o conteúdo oferecido pela Nivora.
+  </p>
+
+  <p>
+    Entre em contato pelo e-mail:
+    <br><br>
+    <strong style="color:#6C63FF;">contato@nivora.com</strong>
+  </p>
+
+  <p>
+    Agradecemos sua visita 🌙
+  </p>
+</div>
+
+<script>
+  const stars=document.getElementById('stars');
+  for(let i=0;i<140;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    s.style.width=s.style.height=`${Math.random()*3+1}px`;
+    s.style.top=`${Math.random()*100}%`;
+    s.style.left=`${Math.random()*100}%`;
+    s.style.animationDelay=`${Math.random()*3}s`;
+    stars.appendChild(s);
+  }
+</script>
+
 </body>
 </html>
