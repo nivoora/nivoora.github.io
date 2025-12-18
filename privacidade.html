@@ -2,66 +2,123 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Política de Privacidade - Nivoora</title>
+  <title>Política de Privacidade - Nivora</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0d1a;
-      color: #cfd8ff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+    :root {
+      --primary: #6C63FF;
+      --dark: #0F0F1E;
+      --darker: #070712;
+      --light: #FFFFFF;
+      --gray: #A0A0B0;
     }
 
-    .box {
-      max-width: 850px;
-      padding: 50px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: var(--darker);
+      color: var(--light);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%,100% { opacity: .2; transform: scale(.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    .content {
+      max-width: 800px;
+      animation: fadeInUp .8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
-      color: #5f6bff;
-      text-align: center;
+      color: var(--primary);
+      font-size: 2.6rem;
       margin-bottom: 30px;
     }
 
     p {
+      color: var(--gray);
+      font-size: 1.1rem;
       line-height: 1.8;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
   </style>
 </head>
-
 <body>
-  <div class="box">
-    <h1>Política de Privacidade</h1>
 
-    <p>
-      A Nivoora respeita a privacidade de todos os usuários que acessam
-      nosso site. Não coletamos informações pessoais sensíveis de forma
-      intencional.
-    </p>
+<div class="stars" id="stars"></div>
 
-    <p>
-      Utilizamos serviços de terceiros, como o Google AdSense e o Google
-      Analytics, que podem usar cookies para exibir anúncios relevantes
-      e analisar estatísticas de acesso.
-    </p>
+<div class="content">
+  <h1>Política de Privacidade</h1>
 
-    <p>
-      Cookies são pequenos arquivos armazenados no navegador do usuário
-      que ajudam a melhorar a experiência de navegação.
-    </p>
+  <p>
+    A Nivora respeita a sua privacidade e está comprometida em proteger
+    os dados pessoais dos usuários que acessam nosso site.
+  </p>
 
-    <p>
-      Ao utilizar este site, você concorda com esta Política de Privacidade.
-      Caso não concorde, recomendamos que não utilize nossos serviços.
-    </p>
-  </div>
+  <p>
+    As informações coletadas são utilizadas exclusivamente para melhorar
+    a experiência do usuário, otimizar conteúdos e oferecer serviços
+    personalizados relacionados ao sono e bem-estar.
+  </p>
+
+  <p>
+    Utilizamos ferramentas de terceiros, como Google Analytics e
+    Google AdSense, que podem usar cookies para exibir anúncios relevantes
+    de acordo com seus interesses.
+  </p>
+
+  <p>
+    Ao continuar navegando neste site, você concorda com esta Política
+    de Privacidade.
+  </p>
+</div>
+
+<script>
+  const stars = document.getElementById('stars');
+  for (let i = 0; i < 150; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.width = s.style.height = `${Math.random()*3+1}px`;
+    s.style.top = `${Math.random()*100}%`;
+    s.style.left = `${Math.random()*100}%`;
+    s.style.animationDelay = `${Math.random()*3}s`;
+    stars.appendChild(s);
+  }
+</script>
+
 </body>
 </html>
