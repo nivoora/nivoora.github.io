@@ -1,92 +1,804 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Termos de Uso - Nivora</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    :root {
-      --primary: #6C63FF;
-      --darker: #070712;
-      --gray: #A0A0B0;
-    }
-
-    body {
-      margin: 0;
-      background: var(--darker);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    .stars { position: fixed; inset: 0; z-index: -1; }
-    .star {
-      position: absolute;
-      background: white;
-      border-radius: 50%;
-      animation: twinkle 3s infinite ease-in-out;
-    }
-
-    @keyframes twinkle {
-      0%,100% { opacity:.2; }
-      50% { opacity:1; }
-    }
-
-    .content { max-width: 850px; animation: fade .8s ease forwards; }
-    @keyframes fade { from {opacity:0; transform:translateY(30px)} to {opacity:1} }
-
-    h1 { color: var(--primary); font-size: 2.6rem; margin-bottom: 30px; }
-    p { color: var(--gray); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
-  </style>
+    <meta charset="UTF-8">
+    <title>Termos de Uso - Nivora | Acordo Legal Completo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Termos de Uso completos da plataforma Nivora. Leia atentamente antes de utilizar nossos serviços educativos sobre saúde do sono.">
+    
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --darker: #070712;
+            --light: #FFFFFF;
+            --gray: #A0A0B0;
+            --highlight: rgba(108, 99, 255, 0.1);
+            --warning: rgba(255, 152, 0, 0.1);
+            --important: rgba(244, 67, 54, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: var(--darker);
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            line-height: 1.7;
+        }
+        
+        /* Estrelas de fundo */
+        .stars {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        
+        @keyframes twinkle {
+            0%,100% { opacity: .2; transform: scale(.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        /* Conteúdo principal */
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
+            background: rgba(15, 15, 30, 0.85);
+            border-radius: 15px;
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.8s ease forwards;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Títulos */
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin: 50px 0 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(108, 99, 255, 0.3);
+        }
+        
+        h3 {
+            color: var(--light);
+            font-size: 1.4rem;
+            margin: 35px 0 18px;
+        }
+        
+        h4 {
+            color: var(--light);
+            font-size: 1.2rem;
+            margin: 25px 0 15px;
+            font-weight: 600;
+        }
+        
+        /* Texto */
+        p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 22px;
+            text-align: justify;
+        }
+        
+        /* Listas */
+        ul, ol {
+            color: var(--gray);
+            margin: 20px 0 25px 35px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            padding-left: 8px;
+            line-height: 1.6;
+        }
+        
+        /* Destaques */
+        .destaque {
+            background: var(--highlight);
+            border-left: 4px solid var(--primary);
+            padding: 25px;
+            margin: 35px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .destaque p {
+            color: var(--light);
+            font-size: 1.15rem;
+            margin: 0;
+            text-align: left;
+        }
+        
+        /* Avisos importantes */
+        .aviso {
+            background: var(--warning);
+            border-left: 4px solid #FF9800;
+            padding: 25px;
+            margin: 35px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .aviso p {
+            color: var(--light);
+            font-size: 1.15rem;
+            margin: 0;
+            text-align: left;
+        }
+        
+        /* Importante/crítico */
+        .importante {
+            background: var(--important);
+            border-left: 4px solid #F44336;
+            padding: 25px;
+            margin: 35px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .importante p {
+            color: var(--light);
+            font-size: 1.15rem;
+            margin: 0;
+            text-align: left;
+        }
+        
+        /* Blocos informativos */
+        .info-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        /* Link */
+        .link-voltar {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-top: 50px;
+            font-size: 1.1rem;
+            padding: 12px 24px;
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        .link-voltar:hover {
+            background: var(--highlight);
+            transform: translateY(-2px);
+        }
+        
+        /* Rodapé */
+        .rodape {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .content {
+                padding: 35px 25px;
+                margin: 25px auto;
+            }
+            
+            h1 {
+                font-size: 2.1rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+                margin: 40px 0 22px;
+            }
+            
+            ul, ol {
+                margin-left: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.9rem;
+            }
+            
+            ul, ol {
+                margin-left: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Estrelas -->
+    <div class="stars" id="stars"></div>
+    
+    <div class="content">
+        <h1>Termos de Uso da Plataforma Nivora</h1>
+        
+        <div class="aviso">
+            <p><strong>⚠️ LEIA ATENTAMENTE:</strong> Ao acessar, navegar ou utilizar qualquer recurso da plataforma Nivora, você declara expressamente que leu, compreendeu integralmente e concorda incondicionalmente com todos os termos e condições estabelecidos neste documento. Se você não concordar com qualquer parte destes Termos de Uso, sua única alternativa é cessar imediatamente o uso da plataforma.</p>
+        </div>
+        
+        <p><strong>Última atualização:</strong> 15 de Dezembro de 2024 | <strong>Versão:</strong> 2.0 | <strong>Eficácia:</strong> Imediata para todos os usuários</p>
+        
+        <h2>1. 🎯 Aceitação Integral dos Termos</h2>
+        
+        <p>Estes Termos de Uso constituem um acordo legalmente vinculativo entre você ("Usuário", "Visitante" ou "Você") e a plataforma Nivora ("Nós", "Nossa", "Plataforma" ou "Nivora"). Este documento estabelece os direitos, obrigações, limitações e condições que regem sua utilização do website <strong>https://nivoora.github.io</strong> e todos os subdomínios, páginas, conteúdos, recursos, ferramentas e serviços associados (coletivamente referidos como "Plataforma" ou "Serviços").</p>
+        
+        <h3>1.1 Âmbito de Aplicação</h3>
+        
+        <p>Estes Termos aplicam-se a:</p>
+        
+        <ul>
+            <li>Todos os visitantes, independentemente de registro ou identificação</li>
+            <li>Todos os conteúdos educativos disponibilizados gratuitamente</li>
+            <li>Todas as ferramentas interativas (quizzes, formulários, geradores)</li>
+            <li>Todas as funcionalidades presentes e futuras da plataforma</li>
+            <li>Todas as formas de acesso (desktop, mobile, tablet, aplicativos futuros)</li>
+        </ul>
+        
+        <h3>1.2 Modificações dos Termos</h3>
+        
+        <p>A Nivora reserva-se o direito exclusivo de modificar, alterar, atualizar ou revisar estes Termos de Uso a qualquer momento, a seu exclusivo critério. As modificações entrarão em vigor imediatamente após sua publicação na plataforma. É sua responsabilidade exclusiva:</p>
+        
+        <ul>
+            <li>Revisar periodicamente estes Termos para estar ciente de alterações</li>
+            <li>Cessar o uso da plataforma caso não concorde com modificações</li>
+            <li>Manter conhecimento sobre a versão vigente dos Termos</li>
+        </ul>
+        
+        <div class="importante">
+            <p><strong>🚨 CONSEQUÊNCIA LEGAL:</strong> O uso continuado da plataforma após a publicação de quaisquer modificações constitui aceitação tácita e irrevogável dos novos termos. A não leitura das atualizações não isenta você de seu cumprimento.</p>
+        </div>
+        
+        <h2>2. 📚 Natureza e Finalidade da Plataforma</h2>
+        
+        <h3>2.1 Caráter Exclusivamente Educativo</h3>
+        
+        <p>A Nivora é uma plataforma digital de <strong>educação em saúde pública</strong> com foco específico em ciência do sono, qualidade do descanso noturno e otimização de hábitos relacionados ao sono. Nossa finalidade é exclusivamente:</p>
+        
+        <ul>
+            <li><strong>Disseminação de Informação Científica:</strong> Disponibilizar conteúdo educativo baseado em pesquisas científicas revisadas por pares</li>
+            <li><strong>Tradução de Conhecimento Complexo:</strong> Transformar terminologia técnica especializada em linguagem acessível ao público leigo</li>
+            <li><strong>Promoção de Hábitos Saudáveis:</strong> Estimular práticas comprovadamente benéficas para a qualidade do sono</li>
+            <li><strong>Combate à Desinformação:</strong> Fornecer contra-argumentos científicos para mitos populares sobre sono</li>
+        </ul>
+        
+        <h3>2.2 Limitações Explícitas e Não Oferecimentos</h3>
+        
+        <p>É fundamental compreender o que a Nivora <strong>NÃO É</strong> e o que <strong>NÃO OFERECE</strong>:</p>
+        
+        <div class="info-box">
+            <h4>❌ SERVIÇOS NÃO PRESTADOS:</h4>
+            <ul>
+                <li><strong>Não somos serviço médico:</strong> Não realizamos diagnósticos, prescrições ou tratamentos</li>
+                <li><strong>Não somos consultoria clínica:</strong> Não oferecemos aconselhamento médico personalizado</li>
+                <li><strong>Não somos emergência médica:</strong> Não respondemos a situações de urgência ou crise</li>
+                <li><strong>Não somos substituição profissional:</strong> Não substituímos consultas com médicos, psicólogos ou especialistas</li>
+                <li><strong>Não somos garantia de resultados:</strong> Não prometemos cura, solução definitiva ou eficácia garantida</li>
+            </ul>
+        </div>
+        
+        <h3>2.3 Restrições de Aplicabilidade</h3>
+        
+        <p>O conteúdo da Nivora possui restrições específicas de aplicabilidade:</p>
+        
+        <ul>
+            <li><strong>Contexto Geral:</strong> Destina-se a informações educativas gerais sobre saúde do sono</li>
+            <li><strong>Individualidade Biológica:</strong> Reconhece que cada pessoa possui necessidades e respostas únicas</li>
+            <li><strong>Condições Pré-existentes:</strong> Pode não ser adequado para indivíduos com condições médicas específicas não mencionadas</li>
+            <li><strong>Medicações em Uso:</strong> Não considera interações com medicamentos prescritos ou de uso contínuo</li>
+            <li><strong>Contexto Cultural:</strong> Baseia-se predominantemente em pesquisas internacionais, com adaptações para o contexto brasileiro</li>
+        </ul>
+        
+        <h2>3. 👥 Elegibilidade e Requisitos do Usuário</h2>
+        
+        <h3>3.1 Capacidade Legal</h3>
+        
+        <p>Para utilizar a plataforma Nivora, você declara e garante que:</p>
+        
+        <ul>
+            <li><strong>Maioridade Civil:</strong> Possui pelo menos 18 (dezoito) anos de idade completos OU</li>
+            <li><strong>Consentimento Parental:</strong> Se menor de 18 anos, possui autorização expressa de pais ou responsáveis legais</li>
+            <li><strong>Capacidade Plena:</strong> Não está sob interdição judicial ou limitação legal de capacidade</li>
+            <li><strong>Representação Verdadeira:</strong> Todas as informações fornecidas são verdadeiras, precisas e atualizadas</li>
+        </ul>
+        
+        <h3>3.2 Restrições Regionais e de Acesso</h3>
+        
+        <p>O acesso à plataforma está sujeito a:</p>
+        
+        <ul>
+            <li><strong>Disponibilidade Geográfica:</strong> Acesso permitido globalmente, sujeito a restrições legais locais</li>
+            <li><strong>Conformidade Legal:</strong> Você é responsável por verificar conformidade com leis de seu país/região</li>
+            <li><strong>Responsabilidade de Acesso:</strong> É sua responsabilidade garantir que o acesso não viole leis aplicáveis</li>
+            <li><strong>Custos de Conexão:</strong> Você assume todos os custos de conexão à internet para acesso</li>
+        </ul>
+        
+        <div class="aviso">
+            <p><strong>🌍 USUÁRIOS INTERNACIONAIS:</strong> Usuários fora do Brasil acessam a plataforma por sua própria conta e risco, sendo responsáveis por conformidade com leis locais sobre conteúdo de saúde, privacidade de dados e comunicação digital.</p>
+        </div>
+        
+        <h2>4. 📝 Uso Aceitável da Plataforma</h2>
+        
+        <h3>4.1 Condutas Permitidas</h3>
+        
+        <p>Você está autorizado a utilizar a plataforma para:</p>
+        
+        <ul>
+            <li><strong>Acesso Educativo:</strong> Ler, estudar e aprender com os conteúdos disponibilizados</li>
+            <li><strong>Uso Pessoal:</strong> Aplicar informações em seu próprio contexto de saúde e bem-estar</li>
+            <li><strong>Compartilhamento Ético:</strong> Compartilhar links diretos para páginas específicas</li>
+            <li><strong>Feedback Construtivo:</strong> Enviar comentários, sugestões ou relatos de experiências</li>
+            <li><strong>Pesquisa Acadêmica:</strong> Utilizar informações como referência em trabalhos educacionais (com citação apropriada)</li>
+        </ul>
+        
+        <h3>4.2 Condutas Expressamente Proibidas</h3>
+        
+        <p>É estritamente proibido utilizar a plataforma para:</p>
+        
+        <div class="importante">
+            <ul>
+                <li><strong>Uso Comercial Não Autorizado:</strong> Revender, redistribuir ou explorar comercialmente o conteúdo sem autorização prévia por escrito</li>
+                <li><strong>Modificação Técnica:</strong> Descompilar, fazer engenharia reversa, hackear ou modificar qualquer aspecto técnico da plataforma</li>
+                <li><strong>Acesso Automatizado Abusivo:</strong> Utilizar bots, crawlers, scrapers ou outros meios automatizados para acessar, copiar ou monitorar a plataforma de maneira excessiva ou prejudicial</li>
+                <li><strong>Violação de Direitos:</strong> Violar direitos autorais, marcas registradas, patentes, segredos comerciais ou outros direitos de propriedade intelectual</li>
+                <li><strong>Atividades Ilícitas:</strong> Realizar qualquer atividade ilegal, fraudulenta, enganosa ou maliciosa</li>
+                <li><strong>Prejuízo à Plataforma:</strong> Realizar ações que possam prejudicar, sobrecarregar ou danificar a plataforma ou sua infraestrutura</li>
+                <li><strong>Representação Falsa:</strong> Fazer-se passar por outra pessoa ou entidade, ou falsear afiliações</li>
+                <li><strong>Spam e Solicitações Indevidas:</strong> Enviar comunicações comerciais não solicitadas ou material promocional</li>
+            </ul>
+        </div>
+        <h3>4.3 Limitações de Uso Específicas</h3>
 
-<div class="stars" id="stars"></div>
+<p>Além das proibições gerais, aplicam-se as seguintes limitações específicas:</p>
 
-<div class="content">
-  <h1>Termos de Uso</h1>
+<ul>
+    <li><strong>Consultoria Não Autorizada:</strong> Não utilize informações da plataforma para oferecer serviços de consultoria, coaching ou aconselhamento remunerado a terceiros</li>
+    <li><strong>Criação de Conteúdo Derivado:</strong> Não crie obras derivadas baseadas em nosso conteúdo sem autorização explícita</li>
+    <li><strong>Replicagem de Ferramentas:</strong> Não replique nossas ferramentas interativas (quizzes, formulários) em outros websites</li>
+    <li><strong>Uso em Contextos Clínicos:</strong> Não utilize nosso conteúdo como ferramenta primária em contextos clínicos sem validação profissional independente</li>
+    <li><strong>Interpretação Literal Excessiva:</strong> Não interprete informações educativas como instruções médicas absolutas ou obrigatórias</li>
+</ul>
 
-  <p>
-    Ao acessar e utilizar o site Nivora, você concorda com os termos
-    e condições descritos nesta página.
-  </p>
+<h2>5. 🧠 Responsabilidades do Usuário</h2>
 
-  <p>
-    Todo o conteúdo disponibilizado tem caráter informativo e educacional,
-    não devendo ser interpretado como aconselhamento médico profissional.
-  </p>
+<h3>5.1 Autonomia Decisória e Responsabilidade Pessoal</h3>
 
-  <p>
-    O usuário compromete-se a utilizar o site de forma ética, legal
-    e respeitosa, não tentando explorar falhas ou comprometer o sistema.
-  </p>
+<p>Como usuário da Nivora, você assume as seguintes responsidades fundamentais:</p>
 
-  <p>
-    A Nivora pode modificar estes Termos de Uso a qualquer momento,
-    sendo responsabilidade do usuário revisá-los periodicamente.
-  </p>
+<ul>
+    <li><strong>Avaliação Crítica:</strong> Avaliar criticamente todas as informações antes de aplicá-las ao seu contexto pessoal</li>
+    <li><strong>Consulta Profissional:</strong> Buscar orientação profissional qualificada para questões médicas específicas</li>
+    <li><strong>Monitoramento de Reações:</strong> Monitorar atentamente suas reações a qualquer mudança implementada</li>
+    <li><strong>Interrupção Responsável:</strong> Interromper imediatamente qualquer prática que cause desconforto ou efeitos adversos</li>
+    <li><strong>Contextualização Individual:</strong> Adaptar informações gerais às suas circunstâncias específicas de saúde, estilo de vida e necessidades</li>
+</ul>
+
+<h3>5.2 Deveres Específicos</h3>
+
+<p>Você concorda especificamente em:</p>
+
+<ul>
+    <li><strong>Fornecer Informações Verdadeiras:</strong> Quando fornecer informações em formulários ou quizzes, garantir sua veracidade e precisão</li>
+    <li><strong>Respeitar a Natureza Educativa:</strong> Não pressionar por respostas médicas personalizadas através de canais não destinados a esse fim</li>
+    <li><strong>Reportar Problemas Técnicos:</strong> Comunicar problemas técnicos, vulnerabilidades ou comportamentos inesperados da plataforma</li>
+    <li><strong>Manter Segurança de Acesso:</strong> Proteger seu dispositivo e conexão contra acesso não autorizado</li>
+    <li><strong>Respeitar Outros Usuários:</strong> Em futuras funcionalidades interativas, respeitar outros usuários e suas opiniões</li>
+</ul>
+
+<div class="destaque">
+    <p><strong>⚖️ PRINCÍPIO FUNDAMENTAL:</strong> Você, e somente você, é o responsável final por decisões relacionadas à sua saúde. A Nivora fornece informações educativas, não assume responsabilidade por escolhas individuais baseadas nessas informações.</p>
 </div>
 
-<script>
-  const stars=document.getElementById('stars');
-  for(let i=0;i<140;i++){
-    const s=document.createElement('div');
-    s.className='star';
-    s.style.width=s.style.height=`${Math.random()*3+1}px`;
-    s.style.top=`${Math.random()*100}%`;
-    s.style.left=`${Math.random()*100}%`;
-    s.style.animationDelay=`${Math.random()*3}s`;
-    stars.appendChild(s);
-  }
-</script>
+<h2>6. 🚫 Limitações de Responsabilidade</h2>
 
+<h3>6.1 Isenções Gerais de Responsabilidade</h3>
+
+<p>A Nivora NÃO se responsabiliza por:</p>
+
+<div class="importante">
+    <ul>
+        <li><strong>Consequências de Aplicação:</strong> Quaisquer consequências negativas, efeitos adversos ou resultados indesejados decorrentes da aplicação de informações obtidas na plataforma</li>
+        <li><strong>Interpretações Incorretas:</strong> Interpretações equivocadas, distorções ou aplicações inadequadas do conteúdo educativo</li>
+        <li><strong>Condições Pré-existentes:</strong> Agravamento de condições médicas pré-existentes não reveladas ou não consideradas</li>
+        <li><strong>Interações com Tratamentos:</strong> Interações negativas com tratamentos médicos em curso, medicamentos prescritos ou terapias estabelecidas</li>
+        <li><strong>Falhas em Buscar Ajuda Profissional:</strong> Deterioração de condições por falha em buscar atendimento profissional adequado quando necessário</li>
+        <li><strong>Decisões Baseadas em Conteúdo:</strong> Decisões de saúde tomadas exclusivamente com base em nosso conteúdo sem validação profissional</li>
+    </ul>
+</div>
+
+<h3>6.2 Limitações Técnicas e Operacionais</h3>
+
+<p>Além das limitações de conteúdo, aplicam-se as seguintes limitações operacionais:</p>
+
+<ul>
+    <li><strong>Disponibilidade Contínua:</strong> Não garantimos disponibilidade ininterrupta, acesso livre de erros ou funcionamento perfeito da plataforma</li>
+    <li><strong>Atualizações e Manutenção:</strong> Reservamo-nos o direito de interromper o acesso para manutenção, atualizações ou melhorias</li>
+    <li><strong>Conteúdo Desatualizado:</strong> Embora nos esforcemos para atualizar regularmente, não garantimos que todo conteúdo reflita as pesquisas mais recentes</li>
+    <li><strong>Erros e Omissões:</strong> Não nos responsabilizamos por erros tipográficos, imprecisões factuais ou omissões acidentais</li>
+    <li><strong>Links Externos:</strong> Não endossamos nem nos responsabilizamos por conteúdo de sites de terceiros vinculados</li>
+</ul>
+
+<h3>6.3 Limitação Máxima de Responsabilidade</h3>
+
+<p>Na extensão máxima permitida por lei, a responsabilidade total da Nivora por quaisquer reclamações relacionadas a estes Termos ou ao uso da plataforma está limitada a:</p>
+
+<div class="aviso">
+    <p><strong>💰 LIMITE MÁXIMO:</strong> O valor de R$ 100,00 (cem reais) ou o valor mínimo permitido por lei, o que for maior. Esta limitação aplica-se independentemente da teoria legal (contrato, delito, responsabilidade objetiva ou outra) e mesmo se a Nivora tiver sido avisada da possibilidade de tais danos.</p>
+</div>
+
+<h2>7. 📄 Propriedade Intelectual</h2>
+
+<h3>7.1 Direitos Autorais e Conteúdo Original</h3>
+
+<p>Todos os conteúdos originais da plataforma Nivora são protegidos por direitos autorais e incluem, mas não se limitam a:</p>
+
+<ul>
+    <li><strong>Textos e Artigos:</strong> Conteúdo escrito original sobre ciência do sono</li>
+    <li><strong>Infografias e Elementos Visuais:</strong> Design gráfico, layouts e elementos visuais únicos</li>
+    <li><strong>Ferramentas Interativas:</strong> Lógica de quizzes, formulários e geradores personalizados</li>
+    <li><strong>Metodologia Educativa:</strong> Abordagem pedagógica e estrutura de apresentação de conteúdo</li>
+    <li><strong>Interface e Design:</strong> Design da plataforma, experiência do usuário e elementos de interface</li>
+</ul>
+
+<h3>7.2 Licença de Uso Limitada</h3>
+
+<p>A Nivora concede a você uma licença limitada, não exclusiva, intransferível e revogável para:</p>
+
+<ul>
+    <li><strong>Acesso Pessoal:</strong> Acessar e utilizar a plataforma para fins educativos pessoais</li>
+    <li><strong>Citações Acadêmicas:</strong> Citar pequenos trechos em trabalhos acadêmicos com atribuição adequada</li>
+    <li><strong>Compartilhamento Social:</strong> Compartilhar links diretos para páginas específicas através de redes sociais</li>
+</ul>
+
+<p><strong>Esta licença NÃO inclui permissão para:</strong></p>
+
+<ul>
+    <li>Reproduzir, duplicar ou copiar conteúdo para republicação</li>
+    <li>Criar obras derivadas baseadas em nosso conteúdo</li>
+    <li>Vender, licenciar ou explorar comercialmente nosso conteúdo</li>
+    <li>Utilizar nosso conteúdo como parte de produtos ou serviços concorrentes</li>
+    <li>Remover, obscurecer ou alterar avisos de direitos autorais</li>
+</ul>
+
+<h3>7.3 Conteúdo de Terceiros e Uso Justo</h3>
+
+<p>A Nivora respeita rigorosamente os direitos autorais de terceiros:</p>
+
+<ul>
+    <li><strong>Citações Científicas:</strong> Utilizamos citações dentro dos limites do uso justo para fins educativos</li>
+    <li><strong>Atribuição Correta:</strong> Sempre que possível, atribuímos corretamente fontes externas</li>
+    <li><strong>Conteúdo de Domínio Público:</strong> Utilizamos conteúdo de domínio público com atribuição apropriada</li>
+    <li><strong>Reclamações de Direitos Autorais:</strong> Respeitamos o processo DMCA e legislação brasileira equivalente</li>
+</ul>
+
+<h2>8. 🔒 Privacidade e Proteção de Dados</h2>
+
+<h3>8.1 Referência à Política de Privacidade</h3>
+
+<p>O uso da plataforma Nivora também está sujeito à nossa <strong>Política de Privacidade</strong>, que é incorporada por referência a estes Termos de Uso. A Política de Privacidade descreve:</p>
+
+<ul>
+    <li>Quais informações coletamos e como as utilizamos</li>
+    <li>Nossas práticas de proteção de dados e segurança</li>
+    <li>Seus direitos em relação aos seus dados pessoais</li>
+    <li>Como entramos em contato com você</li>
+    <li>Como processamos cookies e tecnologias similares</li>
+</ul>
+
+<div class="destaque">
+    <p><strong>📋 LEITURA COMPLEMENTAR OBRIGATÓRIA:</strong> Ao utilizar a plataforma, você concorda com os termos da Política de Privacidade. Recomendamos sua leitura atenta antes de fornecer qualquer informação ou utilizar recursos interativos.</p>
+</div>
+
+<h3>8.2 Dados em Ferramentas Interativas</h3>
+
+<p>Especificamente em relação a ferramentas interativas (quizzes, formulários):</p>
+
+<ul>
+    <li><strong>Processamento Local:</strong> A maioria dos dados é processada localmente em seu navegador</li>
+    <li><strong>Não Identificação:</strong> Não coletamos informações que permitam identificação pessoal direta</li>
+    <li><strong>Anonimização:</strong> Dados agregados podem ser utilizados para melhorar ferramentas</li>
+    <li><strong>Consentimento Implícito:</strong> O uso de ferramentas implica consentimento para processamento descrito</li>
+</ul>
+
+<h3>8.3 Cookies e Tecnologias de Rastreamento</h3>
+
+<p>Ao utilizar a plataforma, você concorda com o uso de:</p>
+
+<ul>
+    <li><strong>Cookies Essenciais:</strong> Necessários para funcionamento básico da plataforma</li>
+    <li><strong>Cookies Analíticos:</strong> Para entender padrões de uso e melhorar a experiência</li>
+    <li><strong>Cookies de Publicidade:</strong> Para exibição de anúncios contextualmente relevantes</li>
+</ul>
+
+<p>Você pode gerenciar preferências de cookies através das configurações do seu navegador, mas algumas funcionalidades podem ficar limitadas.</p>
+
+<h2>9. ⚖️ Lei Aplicável e Foro</h2>
+
+<h3>9.1 Jurisdição Aplicável</h3>
+
+<p>Estes Termos de Uso serão regidos e interpretados de acordo com as leis da República Federativa do Brasil, sem considerar seus princípios de conflito de leis.</p>
+
+<h3>9.2 Foro Eleito</h3>
+
+<p>Para todas as questões ou controvérsias decorrentes destes Termos ou relacionados ao uso da plataforma, as partes elegem o foro da comarca de São Paulo, Estado de São Paulo, com expressa renúncia a qualquer outro, por mais privilegiado que seja.</p>
+
+<div class="aviso">
+    <p><strong>🏛️ ELEIÇÃO DE FORO:</strong> Esta cláusula é essencial para a operação da plataforma. Ao utilizar nossos serviços, você concorda expressamente com esta escolha de foro, mesmo que resida ou tenha domicílio em outra localidade.</p>
+</div>
+
+<h3>9.3 Renúncia a Juízo por Júri</h3>
+
+<p>Você renuncia expressamente a qualquer direito a julgamento por júri em qualquer ação ou procedimento decorrente destes Termos ou relacionado ao uso da plataforma.</p>
+        <h2>10. ⚡ Rescisão e Suspensão</h2>
+        
+        <h3>10.1 Direito de Rescisão pela Nivora</h3>
+        
+        <p>A Nivora reserva-se o direito de, a seu exclusivo critério e sem necessidade de justificativa prévia:</p>
+        
+        <div class="importante">
+            <ul>
+                <li><strong>Suspender Acesso Imediato:</strong> Suspender temporariamente seu acesso à plataforma</li>
+                <li><strong>Encerrar Acesso Permanentemente:</strong> Rescindir permanentemente seu direito de utilizar a plataforma</li>
+                <li><strong>Remover Conteúdo:</strong> Remover qualquer conteúdo que você tenha submetido (em futuras funcionalidades)</li>
+                <li><strong>Bloquear IP/Dispositivo:</strong> Bloquear seu endereço IP, dispositivo ou métodos de acesso</li>
+                <li><strong>Tomar Medidas Legais:</strong> Tomar medidas legais apropriadas por violação destes Termos</li>
+            </ul>
+        </div>
+        
+        <h3>10.2 Causas para Rescisão Imediata</h3>
+        
+        <p>O acesso poderá ser rescindido imediatamente, sem aviso prévio, nas seguintes situações:</p>
+        
+        <ul>
+            <li><strong>Violação Grave dos Termos:</strong> Violação de qualquer disposição destes Termos de Uso</li>
+            <li><strong>Atividades Ilegais:</strong> Envolvimento em atividades ilegais através da plataforma</li>
+            <li><strong>Prejuízo à Plataforma:</strong> Ações que causem ou possam causar dano à plataforma ou outros usuários</li>
+            <li><strong>Requisitos Legais:</strong> Para cumprimento de ordem judicial ou requisito legal</li>
+            <li><strong>Segurança da Plataforma:</strong> Para proteger a segurança, integridade ou funcionalidade da plataforma</li>
+        </ul>
+        
+        <h3>10.3 Efeitos da Rescisão</h3>
+        
+        <p>Após a rescisão:</p>
+        
+        <ul>
+            <li><strong>Cessar Uso:</strong> Seu direito de utilizar a plataforma cessará imediatamente</li>
+            <li><strong>Proibição de Reacesso:</strong> Você não poderá tentar acessar a plataforma novamente</li>
+            <li><strong>Sobrevivência de Disposições:</strong> Certas disposições sobreviverão à rescisão (propriedade intelectual, limitações de responsabilidade, indenização)</li>
+            <li><strong>Responsabilidade por Danos:</strong> Você permanecerá responsável por quaisquer danos causados antes da rescisão</li>
+        </ul>
+        
+        <h2>11. 🤝 Indenização</h2>
+        
+        <h3>11.1 Compromisso de Indenizar</h3>
+        
+        <p>Você concorda em defender, indenizar e isentar a Nivora, seus diretores, funcionários, agentes, licenciantes e parceiros de e contra quaisquer reclamações, responsabilidades, danos, perdas, custos, despesas ou honorários advocatícios decorrentes de ou relacionados a:</p>
+        
+        <ul>
+            <li><strong>Seu Uso da Plataforma:</strong> Seu acesso ou uso da plataforma, incluindo dados ou conteúdo transmitido</li>
+            <li><strong>Violação dos Termos:</strong> Sua violação de qualquer disposição destes Termos de Uso</li>
+            <li><strong>Violação de Direitos:</strong> Violação de quaisquer direitos de terceiros, incluindo direitos de propriedade intelectual ou privacidade</li>
+            <li><strong>Conteúdo Enviado:</strong> Qualquer conteúdo que você envie, poste ou transmita através da plataforma</li>
+            <li><strong>Conduta Inadequada:</strong> Sua conduta em conexão com a plataforma</li>
+        </ul>
+        
+        <h3>11.2 Procedimento de Indenização</h3>
+        
+        <p>A Nivora:</p>
+        
+        <ul>
+            <li><strong>Notificação:</strong> Notificará você prontamente sobre qualquer reclamação sujeita a indenização</li>
+            <li><strong>Controle de Defesa:</strong> Terá o direito exclusivo de assumir a defesa e controle de qualquer questão sujeita a indenização por você</li>
+            <li><strong>Cooperação:</strong> Você concorda em cooperar totalmente com nossa defesa de tais reclamações</li>
+            <li><strong>Acordos Não Autorizados:</strong> Você não poderá celebrar qualquer acordo que afete nossos direitos sem nosso consentimento prévio por escrito</li>
+        </ul>
+        
+        <h2>12. 🔗 Links para Sites de Terceiros</h2>
+        
+        <h3>12.1 Controle sobre Links Externos</h3>
+        
+        <p>A plataforma pode conter links para sites de terceiros que não são controlados ou operados pela Nivora. Em relação a esses links:</p>
+        
+        <ul>
+            <li><strong>Não Endossamos:</strong> Não endossamos, garantimos ou assumimos responsabilidade pelo conteúdo, políticas de privacidade ou práticas de sites de terceiros</li>
+            <li><strong>Acesso por Sua Conta:</strong> Você acessa sites de terceiros por sua conta e risco</li>
+            <li><strong>Termos dos Terceiros:</strong> Estará sujeito aos termos e políticas aplicáveis do site de terceiros</li>
+            <li><strong>Recomendação de Revisão:</strong> Recomendamos que você revise os termos de uso e política de privacidade de qualquer site de terceiros que visite</li>
+        </ul>
+        
+        <h3>12.2 Links para a Nivora</h3>
+        
+        <p>Você pode criar links para nossa página inicial, desde que:</p>
+        
+        <ul>
+            <li><strong>Link Direto:</strong> O link seja direto para a página inicial completa</li>
+            <strong>Não Enganoso:</strong> Não crie link de maneira que sugere endosso, afiliação ou parceria não existente</li>
+            <li><strong>Contexto Apropriado:</strong> O link seja feito em contexto apropriado e não ofensivo</li>
+            <li><strong>Atribuição Clara:</strong> Atribua claramente a Nivora como fonte</li>
+            <li><strong>Sem Framing:</strong> Não utilize técnicas de framing que apresentem nossa conteúdo como seu</li>
+        </ul>
+        
+        <h2>13. 📞 Comunicação e Notificações</h2>
+        
+        <h3>13.1 Métodos de Comunicação</h3>
+        
+        <p>Todas as comunicações relacionadas a estes Termos serão feitas:</p>
+        
+        <ul>
+            <li><strong>Publicação na Plataforma:</strong> Para comunicações gerais a todos os usuários (alterações de Termos, avisos importantes)</li>
+            <li><strong>E-mail Registrado:</strong> Para comunicações específicas, se você fornecer endereço de e-mail em futuras funcionalidades</li>
+            <li><strong>Aviso na Plataforma:</strong> Para comunicações sobre sua conta específica (se aplicável no futuro)</li>
+        </ul>
+        
+        <h3>13.2 Eficácia das Notificações</h3>
+        
+        <p>As notificações serão consideradas efetivamente dadas:</p>
+        
+        <ul>
+            <li><strong>Publicação Online:</strong> Imediatamente após publicação na plataforma para comunicações gerais</li>
+            <li><strong>Envio por E-mail:</strong> No momento do envio por e-mail, se endereço estiver registrado</li>
+            <li><strong>Sua Responsabilidade:</strong> É sua responsabilidade manter informações de contato atualizadas e verificar regularmente a plataforma por comunicações</li>
+        </ul>
+        
+        <h2>14. 📋 Disposições Gerais</h2>
+        
+        <h3>14.1 Integralidade do Acordo</h3>
+        
+        <p>Estes Termos de Uso, juntamente com nossa Política de Privacidade, constituem o acordo completo e exclusivo entre você e a Nivora em relação à plataforma e substituem todos os acordos, negociações e discussões anteriores ou contemporâneas, sejam orais ou escritas.</p>
+        
+        <h3>14.2 Tolerância Não Constitui Renúncia</h3>
+        
+        <p>O não exercício ou atraso no exercício de qualquer direito ou disposição destes Termos não constituirá renúncia a tal direito ou disposição. Renúncia a qualquer disposição só será efetiva se feita por escrito e assinada por representante autorizado da Nivora.</p>
+        
+        <h3>14.3 Divisibilidade</h3>
+        
+        <p>Se qualquer disposição destes Termos for considerada ilegal, inválida ou inexequível por qualquer razão, tal disposição será eliminada ou limitada na extensão mínima necessária, e as disposições remanescentes continuarão em pleno vigor e efeito.</p>
+        
+        <h3>14.4 Não Transferibilidade</h3>
+        
+        <p>Você não pode transferir, ceder ou subcontratar quaisquer direitos ou obrigações sob estes Termos sem nosso consentimento prévio por escrito. A Nivora pode transferir estes Termos sem restrição.</p>
+        
+        <h3>14.5 Relação entre as Partes</h3>
+        
+        <p>Nada nestes Termos criará qualquer joint venture, parceria, emprego ou relação de agência entre você e a Nivora.</p>
+        
+        <h3>14.6 Títulos e Interpretação</h3>
+        
+        <p>Os títulos das seções são fornecidos apenas para conveniência e não afetam a interpretação destes Termos. O uso de "incluindo" significa "incluindo, sem limitação".</p>
+        
+        <div class="destaque">
+            <p><strong>📜 INTERPRETAÇÃO FAVORÁVEL À EDUCAÇÃO:</strong> Estes Termos serão interpretados de maneira a promover sua finalidade educativa principal, garantindo acesso seguro, ético e benéfico ao conteúdo sobre saúde do sono.</p>
+        </div>
+        
+        <h2>15. 🆘 Contato e Suporte</h2>
+        
+        <h3>15.1 Dúvidas sobre Estes Termos</h3>
+        
+        <p>Se você tiver dúvidas sobre estes Termos de Uso ou quiser reportar violações, entre em contato através de:</p>
+        
+        <div class="info-box">
+            <p><strong>E-mail para Questões Legais:</strong> nivoralegal@gmail.com<br>
+            <strong>Assunto:</strong> "Dúvida Termos de Uso - Nivora"<br>
+            <strong>Tempo de Resposta Estimado:</strong> 5-10 dias úteis</p>
+        </div>
+        
+        <h3>15.2 Processo de Resolução de Disputas</h3>
+        
+        <p>Antes de iniciar qualquer procedimento legal, você concorda em:</p>
+        
+        <ul>
+            <li><strong>Tentativa de Resolução Amigável:</strong> Tentar resolver disputas através de negociação direta conosco</li>
+            <li><strong>Notificação por Escrito:</strong> Notificar-nos por escrito sobre a natureza da disputa</li>
+            <li><strong>Período de Negociação:</strong> Permitir período de 30 dias para tentativa de resolução amigável</li>
+            <li><strong>Documentação Completa:</strong> Fornecer toda documentação relevante para análise</li>
+        </ul>
+        
+        <div class="aviso">
+            <p><strong>⚖️ MEDIAÇÃO PREFERENCIAL:</strong> Em caso de disputa, as partes concordam em considerar preferencialmente mediação antes de recorrer a ações judiciais, reconhecendo que processos colaborativos geralmente servem melhor aos interesses educativos envolvidos.</p>
+        </div>
+        
+        <h2>16. 📅 Vigência e Revisões Periódicas</h2>
+        
+        <h3>16.1 Vigência Indeterminada</h3>
+        
+        <p>Estes Termos entram em vigor a partir de sua primeira publicação e permanecem em vigor indefinidamente, até serem rescindidos conforme estabelecido neste documento.</p>
+        
+        <h3>16.2 Compromisso com Atualização Contínua</h3>
+        
+        <p>A Nivora compromete-se a:</p>
+        
+        <ul>
+            <li><strong>Revisões Semestrais:</strong> Revisar estes Termos pelo menos a cada 6 meses</li>
+            <li><strong>Atualizações por Avanços Legais:</strong> Atualizar conforme mudanças na legislação aplicável</li>
+            <li><strong>Ajustes por Expansão de Serviços:</strong> Ajustar conforme expansão de funcionalidades da plataforma</li>
+            <li><strong>Transparência em Mudanças:</strong> Comunicar mudanças significativas com antecedência razoável</li>
+            <li><strong>Manutenção de Versões Anteriores:</strong> Manter arquivo de versões anteriores por transparência</li>
+        </ul>
+        
+        <div class="destaque">
+            <p><strong>🌟 COMPROMISSO FINAL COM A EDUCAÇÃO:</strong> Estes Termos são estruturados para proteger tanto os usuários quanto a missão educativa da Nivora. Nosso objetivo é criar um ambiente digital seguro, ético e produtivo para aprendizado sobre saúde do sono, respeitando direitos, esclarecendo responsabilidades e promovendo uso consciente da informação científica.</p>
+        </div>
+        
+        <p style="text-align: center; margin-top: 50px;">
+            <a href="index.html" class="link-voltar">← Voltar para a Página Inicial</a>
+        </p>
+    </div>
+    
+    <div class="rodape">
+        <p>© 2025 Nivora | Plataforma Educativa sobre Saúde do Sono</p>
+        <p style="margin-top: 15px; font-size: 0.85rem;">
+            Termos de Uso atualizados em 15/12/2024 | Versão 2.0<br>
+            Informação legal vinculativa | Consulte profissional para questões médicas
+        </p>
+    </div>
+    
+    <script>
+        // Criar estrelas
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = star.style.height = `${Math.random() * 2 + 1}px`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 3}s`;
+            starsContainer.appendChild(star);
+        }
+        
+        // Data de atualização automática
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYear = new Date().getFullYear();
+            const yearElements = document.querySelectorAll('.current-year');
+            yearElements.forEach(el => {
+                el.textContent = currentYear;
+            });
+            
+            // Destacar seções importantes
+            const importantSections = document.querySelectorAll('.importante, .aviso');
+            importantSections.forEach(section => {
+                section.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.01)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
