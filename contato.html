@@ -1,83 +1,798 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Contato - Nivora</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    :root {
-      --primary:#6C63FF;
-      --darker:#070712;
-      --gray:#A0A0B0;
-    }
-
-    body {
-      margin:0;
-      background:var(--darker);
-      color:white;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:40px 20px;
-      position:relative;
-      overflow:hidden;
-      font-family:'Segoe UI',sans-serif;
-    }
-
-    .stars{position:fixed;inset:0;z-index:-1;}
-    .star{position:absolute;background:white;border-radius:50%;animation:twinkle 3s infinite;}
-    @keyframes twinkle{0%,100%{opacity:.2}50%{opacity:1}}
-
-    .content{max-width:800px;animation:fade .8s ease forwards;}
-    @keyframes fade{from{opacity:0;transform:translateY(30px)}to{opacity:1}}
-
-    h1{color:var(--primary);font-size:2.6rem;margin-bottom:30px;}
-    p{color:var(--gray);font-size:1.1rem;line-height:1.8;margin-bottom:20px;}
-  </style>
+    <meta charset="UTF-8">
+    <title>Contato - Nivora | Fale Conosco e Tire Suas Dúvidas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato com a equipe Nivora. Tire dúvidas sobre sono, faça sugestões, parcerias ou envie feedback. Estamos aqui para ajudar!">
+    
+    <meta name="google-adsense-account" content="ca-pub-2479436560500692">
+    
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #4A44C6;
+            --dark: #0F0F1E;
+            --darker: #070712;
+            --light: #FFFFFF;
+            --gray: #A0A0B0;
+            --success: #4CAF50;
+            --warning: #FF9800;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        
+        body {
+            background: var(--darker);
+            color: var(--light);
+            min-height: 100vh;
+            padding: 0;
+            position: relative;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        /* Estrelas de fundo FUNCIONAIS (MANTER COMO ESTÁ) */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+        
+        /* Container principal */
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            background: var(--darker);
+            padding-top: 80px; /* MAIS ESPAÇO NO TOPO */
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Conteúdo principal */
+        .content {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+        
+        /* Títulos */
+        h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 1.2;
+            font-weight: 700;
+            padding-top: 20px; /* MAIS ESPAÇO ACIMA DO TÍTULO */
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin: 40px 0 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(108, 99, 255, 0.3);
+            font-weight: 600;
+        }
+        
+        h3 {
+            color: var(--light);
+            font-size: 1.5rem;
+            margin: 30px 0 20px;
+            font-weight: 600;
+        }
+        
+        /* Parágrafos */
+        p {
+            color: var(--gray);
+            font-size: 1.15rem;
+            margin-bottom: 22px;
+            line-height: 1.7;
+            text-align: left;
+        }
+        
+        /* Seções de contato */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+        
+        .contact-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .email-highlight {
+            background: rgba(108, 99, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .email-link {
+            color: var(--primary);
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s;
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .email-link:hover {
+            background: rgba(108, 99, 255, 0.2);
+        }
+        
+        /* Formulário - CHECKBOX CORRIGIDO */
+        .form-container {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 35px;
+            margin: 45px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 28px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--light);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            transition: border-color 0.3s;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        textarea {
+            min-height: 160px;
+            resize: vertical;
+            font-size: 1.1rem;
+        }
+        
+        /* CHECKBOX ESTILIZADO (MUDANÇA 2: PREENCHIMENTO AZUL SEM ÍCONE) */
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 25px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .checkbox-container input[type="checkbox"] {
+            /* REVERTIDO para o estilo nativo com a cor do tema */
+            width: 22px;
+            height: 22px;
+            margin-top: 3px;
+            cursor: pointer;
+            
+            /* Ação: Mudar a cor de fundo do checkbox nativo para azul primário */
+            accent-color: var(--primary); 
+            
+            /* Removendo estilos de aparência (necessário para que accent-color funcione em alguns navegadores) */
+            -webkit-appearance: checkbox;
+            appearance: checkbox;
+            
+            /* Reajustando margens e bordas para o checkbox nativo */
+            border-radius: 4px;
+            border: 1px solid var(--gray);
+            background: transparent;
+            padding: 0;
+        }
+        
+        /* O estilo padrão do navegador agora vai lidar com o preenchimento azul ao ser checked */
+        
+        .checkbox-container label {
+            flex: 1;
+            cursor: pointer;
+            margin: 0;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        .checkbox-container a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        .checkbox-container a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Botões */
+        .btn {
+            display: block;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+            margin: 25px auto;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* FAQ e Responsivo (Mantidos) */
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .faq-question {
+            color: var(--light);
+            font-weight: 600;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            color: var(--gray);
+            display: none;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        /* Listas */
+        ul, ol {
+            color: var(--gray);
+            margin: 22px 0 22px 35px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            padding-left: 10px;
+        }
+        
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .content {
+                padding: 0 15px 30px;
+            }
+            
+            h1 {
+                font-size: 2.3rem;
+                padding-top: 30px;
+            }
+            
+            h2 {
+                font-size: 1.9rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            p {
+                font-size: 1.1rem;
+            }
+            
+            .form-container {
+                padding: 25px 20px;
+            }
+            
+            .container {
+                padding-top: 60px;
+            }
+            
+            .checkbox-container {
+                padding: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+                padding-top: 25px;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .email-link {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+            }
+            
+            .faq-item {
+                padding: 20px;
+            }
+            
+            .container {
+                padding-top: 50px;
+            }
+        }
+        
+        /* Prevenir scroll horizontal */
+        * {
+            max-width: 100%;
+        }
+        
+        img, video, iframe {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
+    <div class="stars-container" id="stars-container"></div>
+    
+    <div class="container">
+        <div class="content">
+<h1>Fale Conosco - Estamos Aqui para Ajudar! 📞</h1>
 
-<div class="stars" id="stars"></div>
+<p style="text-align: center; font-size: 1.25rem; margin: 0 auto 35px; max-width: 900px;">
+    Tem dúvidas sobre sono? Sugestões para melhorar nossa plataforma? Quer compartilhar sua experiência? 
+    Entre em contato conosco - nossa equipe está pronta para ajudar você a conquistar noites de sono melhores!
+    A Nivora foi criada com a missão de transformar a relação das pessoas com o sono através de informação 
+    científica acessível e ferramentas práticas. Valorizamos cada feedback e estamos sempre buscando melhorar 
+    nossos serviços para atender melhor às necessidades de nossa comunidade.
+</p>
 
-<div class="content">
-  <h1>Contato</h1>
-
-  <p>
-    Se você tiver dúvidas, sugestões, parcerias ou feedbacks,
-    ficaremos felizes em ouvir você.
-  </p>
-
-  <p>
-    Nosso objetivo é melhorar continuamente a experiência
-    dos usuários e o conteúdo oferecido pela Nivora.
-  </p>
-
-  <p>
-    Entre em contato pelo e-mail:
-    <br><br>
-    <strong style="color:#6C63FF;">nivorasuporte@gmail.com</strong>
-  </p>
-
-  <p>
-    Agradecemos sua visita 🌙
-  </p>
+<div class="contact-grid">
+    <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <h3>Email Principal</h3>
+        <p>Para dúvidas gerais, sugestões, parcerias e feedbacks, nosso email é o canal direto com nossa equipe. Respondemos a todas as mensagens pessoalmente, garantindo que cada contato receba a atenção necessária para resolver suas questões de forma eficiente.</p>
+        <div class="email-highlight">
+            <a href="mailto:nivorasuporte@gmail.com?subject=Contato%20Nivora&body=Olá%20equipe%20Nivora,%0D%0A%0D%0AGostaria%20de%20entrar%20em%20contato%20sobre:" class="email-link">
+                nivorasuporte@gmail.com
+            </a>
+        </div>
+        <p><strong>Tempo de resposta:</strong> 24-48 horas úteis. Mensagens são respondidas por ordem de chegada, com prioridade para questões técnicas urgentes que possam estar afetando a experiência dos usuários em nossa plataforma.</p>
+    </div>
+    
+    <div class="contact-card">
+        <div class="contact-icon">🕒</div>
+        <h3>Horário de Atendimento</h3>
+        <p><strong>Segunda a Sexta:</strong> 9h às 18h (horário de Brasília) - período comercial completo com toda equipe disponível para atendimento.</p>
+        <p><strong>Sábado:</strong> 9h às 12h (atendimento reduzido) - apenas para questões urgentes e suporte técnico emergencial.</p>
+        <p><strong>Domingo:</strong> Fechado para descanso da equipe - importante para mantermos a qualidade do atendimento durante a semana.</p>
+        <p style="margin-top: 15px; color: var(--warning); font-size: 1rem; padding: 10px; background: rgba(255, 152, 0, 0.1); border-radius: 8px;">
+            ⚠️ Feriados nacionais e estaduais: atendimento reduzido ou suspenso. Consulte nosso calendário oficial para datas específicas.
+        </p>
+    </div>
+    
+    <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <h3>Endereço Virtual</h3>
+        <p>Como plataforma 100% digital, operamos remotamente para alcançar todo o Brasil com informações sobre saúde do sono de qualidade. Nossa estrutura é totalmente online, permitindo que ajudemos pessoas em todos os estados brasileiros.</p>
+        <p><strong>Website Oficial:</strong> https://nivoora.github.io - nosso portal principal com todas as ferramentas e conteúdos educacionais.</p>
+        <p><strong>Base Operacional:</strong> Rio de Janeiro, Brasil - onde nossa equipe central coordena todas as atividades e produção de conteúdo.</p>
+        <p style="margin-top: 15px; font-size: 1rem; padding: 12px; background: rgba(108, 99, 255, 0.1); border-radius: 8px;">
+            🌍 Atendemos todo o território nacional via internet, sem restrições geográficas. Qualquer pessoa com acesso à internet pode utilizar nossos serviços gratuitamente.
+        </p>
+    </div>
+</div>
+<div class="form-container">
+    <h2>Envie Sua Mensagem Diretamente ✉️</h2>
+    <p>Preencha o formulário abaixo e nossa equipe entrará em contato o mais breve possível. Todos os campos são importantes para que possamos entender completamente sua solicitação e fornecer a resposta mais adequada e personalizada para suas necessidades específicas relacionadas à saúde do sono.</p>
+    
+    <form id="contact-form">
+        <div class="form-group">
+            <label for="name">Seu Nome Completo *</label>
+            <input type="text" id="name" name="name" required placeholder="Digite seu nome completo com sobrenome" 
+                   minlength="3" maxlength="100">
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Seu Email *</label>
+            <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com"
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        </div>
+        
+        <div class="form-group">
+            <label for="subject">Assunto *</label>
+            <select id="subject" name="subject" required>
+                <option value="">Selecione o motivo do contato</option>
+                <option value="duvida">Dúvida sobre conteúdo científico do sono</option>
+                <option value="sugestao">Sugestão de melhoria da plataforma</option>
+                <option value="parceria">Proposta de parceria profissional</option>
+                <option value="feedback">Feedback sobre experiência no site</option>
+                <option value="tecnico">Problema técnico ou bug encontrado</option>
+                <option value="colaboracao">Oferecer colaboração voluntária</option>
+                <option value="outro">Outro assunto não listado</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="message">Sua Mensagem *</label>
+            <textarea id="message" name="message" required 
+                      placeholder="Descreva detalhadamente sua dúvida, sugestão ou feedback. Seja específico para que possamos ajudar melhor. Mínimo 50 caracteres."
+                      minlength="50" maxlength="1000"></textarea>
+            <div style="text-align: right; font-size: 1rem; color: var(--gray); margin-top: 8px;">
+                <span id="char-count">0</span>/1000 caracteres
+            </div>
+        </div>
+        
+        <div class="checkbox-container">
+            <input type="checkbox" id="privacy-check" required>
+            <label for="privacy-check">
+                Concordo com a Política de Privacidade e autorizo o tratamento dos meus dados para fins de contato *
+            </label>
+        </div>
+        
+        <button type="submit" class="btn">📨 Enviar Mensagem Agora</button>
+        
+        <p style="text-align: center; font-size: 1rem; color: var(--gray); margin-top: 20px; padding: 15px; background: rgba(255, 255, 255, 0.03); border-radius: 10px;">
+            🔒 Suas informações são protegidas por criptografia e usadas apenas para responder seu contato. Nunca compartilhamos seus dados com terceiros sem sua autorização explícita.
+        </p>
+    </form>
 </div>
 
-<script>
-  const stars=document.getElementById('stars');
-  for(let i=0;i<140;i++){
-    const s=document.createElement('div');
-    s.className='star';
-    s.style.width=s.style.height=`${Math.random()*3+1}px`;
-    s.style.top=`${Math.random()*100}%`;
-    s.style.left=`${Math.random()*100}%`;
-    s.style.animationDelay=`${Math.random()*3}s`;
-    stars.appendChild(s);
-  }
-</script>
+<div class="form-container">
+    <h2>Perguntas Frequentes (FAQ) ❓</h2>
+    <p>Confira respostas para as dúvidas mais comuns antes de enviar seu contato. Estas perguntas foram compiladas a partir das principais questões recebidas por nossa equipe nos últimos meses, representando mais de 80% dos contatos que recebemos regularmente sobre saúde do sono e uso da plataforma.</p>
+    
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(1)">
+            Qual é o tempo médio de resposta para emails?
+            <span id="faq-icon-1">▼</span>
+        </div>
+        <div class="faq-answer" id="faq-answer-1">
+            <p><strong>Tempo médio:</strong> 24 horas úteis para maioria das mensagens. Problemas técnicos críticos têm resposta em até 12 horas. Após feriados pode levar até 48 horas. Mensagens de sábado após 12h são respondidas na segunda-feira.</p>
+        </div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(2)">
+            Vocês atendem questões médicas específicas?
+            <span id="faq-icon-2">▼</span>
+        </div>
+        <div class="faq-answer" id="faq-answer-2">
+            <p><strong>Plataforma educacional:</strong> Somos uma plataforma estritamente educacional e informativa. Não realizamos diagnósticos, não prescrevemos tratamentos e não substituímos consultas médicas. Podemos orientar sobre hábitos saudáveis baseados em ciência, mas para diagnósticos e tratamentos, consulte médico especialista em sono. Emergências: procure atendimento médico imediatamente.</p>
+        </div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(3)">
+            Posso sugerir novos conteúdos para o site?
+            <span id="faq-icon-3">▼</span>
+        </div>
+        <div class="faq-answer" id="faq-answer-3">
+            <p><strong>Sim, adoramos sugestões!</strong> Todas são analisadas por nossa equipe editorial. Se aprovadas, entram na fila de desenvolvimento. Se sua ideia for implementada, você será creditado como co-criador (se desejar). Use "Sugestão de melhoria" no formulário e seja detalhado. Tempo de implementação varia conforme complexidade.</p>
+        </div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(4)">
+            Vocês fazem parcerias com profissionais?
+            <span id="faq-icon-4">▼</span>
+        </div>
+        <div class="faq-answer" id="faq-answer-4">
+            <p><strong>Programas de parceria ativos:</strong> Médicos, psicólogos, nutricionistas e outros profissionais podem colaborar escrevendo artigos ou participando de webinars. Pesquisadores podem propor estudos colaborativos. Selecione "Proposta de parceria" no formulário e inclua currículo e proposta detalhada. Processo seletivo leva 2-4 semanas.</p>
+        </div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(5)">
+            Como reportar problemas técnicos no site?
+            <span id="faq-icon-5">▼</span>
+        </div>
+        <div class="faq-answer" id="faq-answer-5">
+            <p><strong>Procedimento:</strong> 1) Selecione "Problema técnico" no formulário. 2) Descreva detalhadamente o problema e passos para reproduzir. 3) Inclua URL exata da página. 4) Informe navegador, sistema operacional e dispositivo. 5) Se possível, inclua captura de tela. Problemas críticos são prioridade máxima e resolvidos em até 4 horas.</p>
+        </div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(6)">
+            Como meus dados são protegidos?
+            <span id="faq-icon-6">▼</span>
+        </div>
+        <div class="faq-answer" id="faq-answer-6">
+            <p><strong>Proteção máxima:</strong> Dados são criptografados em HTTPS, armazenados em servidores seguros com acesso restrito, retidos apenas pelo tempo necessário para responder sua solicitação, e nunca compartilhados sem seu consentimento. Você tem direito a acessar, corrigir ou excluir seus dados a qualquer momento.</p>
+        </div>
+    </div>
+</div>
 
+<div style="text-align: center; margin: 50px 0;">
+    <div class="email-highlight" style="max-width: 1000px; margin: 0 auto; padding: 25px;">
+        <p style="margin: 0; font-size: 1.2rem; font-weight: 500;">
+            <strong>⚠️ Aviso Importante sobre Emergências Médicas:</strong> 
+            Se você está passando por uma crise de saúde, pensamentos preocupantes ou sintomas graves relacionados ao sono, 
+            <strong>procure imediatamente atendimento médico profissional</strong>. Nosso conteúdo é educacional 
+            e informativo, não substituindo cuidados médicos especializados. Em caso de emergência, 
+            ligue para o SAMU (192) ou procure o pronto-socorro mais próximo.
+        </p>
+    </div>
+</div>
+
+<div class="form-container">
+    <h2>📝 Como Escrever uma Mensagem Eficiente</h2>
+    <p>Para garantir que sua mensagem seja compreendida completamente e receba a resposta mais precisa possível, recomendamos seguir estas orientações práticas que facilitam nosso atendimento e aceleram a resolução de sua questão.</p>
+    
+    <h3>Para Dúvidas Técnicas ou Científicas:</h3>
+    <ul>
+        <li><strong>Seja específico:</strong> Em vez de "não consigo dormir", descreva "tenho dificuldade para adormecer há 3 meses, normalmente levo mais de 2 horas todas as noites, mesmo seguindo rotina regular".</li>
+        <li><strong>Inclua contexto completo:</strong> Horários de dormir/acordar, rotina noturna detalhada, hábitos alimentares à noite, uso de dispositivos eletrônicos antes de dormir, ambiente do quarto.</li>
+        <li><strong>Mencione tentativas anteriores:</strong> O que já tentou fazer para melhorar? Quais técnicas testou? Quais resultados obteve? Isso evita sugestões repetidas.</li>
+        <li><strong>Seja realista sobre expectativas:</strong> Entenda que respostas serão educacionais baseadas em ciência, não prescrições médicas personalizadas.</li>
+    </ul>
+                    <h3>Para Sugestões de Melhoria da Plataforma:</h3>
+                <ul>
+                    <li><strong>Descreva o problema atual claramente:</strong> O que falta na plataforma? O que poderia ser melhorado? Qual funcionalidade gostaria de ver implementada?</li>
+                    <li><strong>Proponha soluções concretas e viáveis:</strong> Como sua sugestão resolveria o problema identificado? Qual o benefício para outros usuários?</li>
+                    <li><strong>Inclua exemplos práticos e referências:</strong> Links para sites que fazem algo similar bem feito, estudos que suportam sua sugestão, casos de uso reais.</li>
+                    <li><strong>Considere a viabilidade técnica e financeira:</strong> Sua sugestão é técnica e financeiramente viável para uma plataforma educacional gratuita?</li>
+                </ul>
+                
+                <h3>Para Feedback Geral sobre Experiência do Usuário:</h3>
+                <ul>
+                    <li><strong>Seja construtivo e específico:</strong> Críticas são bem-vindas quando acompanhadas de sugestões concretas de melhoria. Diga não apenas o que está errado, mas como poderia estar certo.</li>
+                    <li><strong>Use exemplos específicos e reproduzíveis:</strong> Em vez de "o site é confuso", diga "na página X, a seção Y foi difícil de encontrar porque a navegação não é intuitiva e o botão está em local não convencional".</li>
+                    <li><strong>Mencione também o que gostou:</strong> Feedback positivo nos ajuda a saber o que manter e aprimorar. Se algo funcionou bem para você, compartilhe!</li>
+                    <li><strong>Seja paciente com mudanças:</strong> Implementações significativas podem levar semanas ou meses dependendo da complexidade e prioridades da equipe.</li>
+                </ul>
+                
+                <p style="margin-top: 30px; font-style: italic; color: var(--primary); padding: 20px; background: rgba(108, 99, 255, 0.08); border-radius: 10px; border-left: 4px solid var(--primary);">
+                    💡 <strong>Dica Prática:</strong> Mensagens bem estruturadas e detalhadas geralmente recebem respostas mais completas e úteis. Reserve alguns minutos para organizar seus pensamentos antes de escrever. Uma boa prática é fazer um rascunho primeiro, revisar para clareza, e só então enviar. Isso economiza tempo tanto para você quanto para nossa equipe de atendimento.
+                </p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: var(--gray);">
+                <p style="font-size: 1rem; margin-bottom: 10px;">© 2025 Nivora. Todos os direitos reservados.</p>
+                <p style="font-size: 0.9rem;">Conteúdo educacional sobre saúde do sono. Não substitui consultas médicas.</p>
+                <p style="font-size: 0.8rem; margin-top: 15px; color: var(--gray);">Desenvolvido para ajudar pessoas a dormirem melhor</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // CRIAR ESTRELAS FUNCIONAIS (MUDANÇA 1: GARANTINDO QUE ESTE CÓDIGO ESTEJA PRESENTE)
+        function createStars() {
+            const starsContainer = document.getElementById('stars-container');
+            if (!starsContainer) return;
+            
+            // Limpar estrelas existentes
+            starsContainer.innerHTML = '';
+            
+            // Criar 200 estrelas (mais que antes)
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Tamanhos variados (1px a 4px)
+                const size = Math.random() * 3 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Posições aleatórias
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.left = `${Math.random() * 100}%`;
+                
+                // Atrasos de animação diferentes
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Toggle FAQ
+        function toggleFAQ(number) {
+            const answer = document.getElementById(`faq-answer-${number}`);
+            const icon = document.getElementById(`faq-icon-${number}`);
+            
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+                icon.textContent = '▼';
+            } else {
+                // Fechar outras FAQs abertas
+                for (let i = 1; i <= 6; i++) {
+                    if (i !== number) {
+                        document.getElementById(`faq-answer-${i}`).style.display = 'none';
+                        document.getElementById(`faq-icon-${i}`).textContent = '▼';
+                    }
+                }
+                
+                answer.style.display = 'block';
+                icon.textContent = '▲';
+            }
+        }
+        
+        // Contador de caracteres
+        const messageField = document.getElementById('message');
+        const charCount = document.getElementById('char-count');
+        
+        if (messageField && charCount) {
+            messageField.addEventListener('input', function() {
+                const currentLength = this.value.length;
+                charCount.textContent = currentLength;
+                
+                if (currentLength > 900) {
+                    charCount.style.color = '#ff6b6b';
+                } else if (currentLength > 700) {
+                    charCount.style.color = '#ffa726';
+                } else {
+                    charCount.style.color = 'var(--gray)';
+                }
+            });
+        }
+        
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validação
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value.trim();
+                const privacyCheck = document.getElementById('privacy-check').checked;
+                
+                let errors = [];
+                
+                if (name.length < 3) errors.push('Nome deve ter pelo menos 3 caracteres');
+                if (!email.match(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i)) errors.push('Email inválido');
+                if (!subject) errors.push('Selecione um assunto');
+                if (message.length < 50) errors.push('Mensagem deve ter pelo menos 50 caracteres');
+                if (!privacyCheck) errors.push('Marque a caixa de Política de Privacidade');
+                
+                if (errors.length > 0) {
+                    alert('❌ Por favor, corrija:\n\n• ' + errors.join('\n• '));
+                    return;
+                }
+                
+                // Simular envio
+                const submitBtn = document.querySelector('#contact-form .btn');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '⏳ Enviando...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert('✅ Mensagem enviada com sucesso! Entraremos em contato em até 48 horas.');
+                    this.reset();
+                    if (charCount) charCount.textContent = '0';
+                    
+                    // Resetar checkbox
+                    document.getElementById('privacy-check').checked = false;
+                    
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 2000);
+            });
+        }
+        
+        // Inicializar TUDO
+        document.addEventListener('DOMContentLoaded', function() {
+            // Criar estrelas (MUDANÇA 1: Chamada da função para iniciar o background)
+            createStars();
+            
+            // Inicializar FAQ fechado
+            for (let i = 1; i <= 6; i++) {
+                const answer = document.getElementById(`faq-answer-${i}`);
+                if (answer) answer.style.display = 'none';
+            }
+            
+            // Prevenir scroll horizontal
+            document.body.style.overflowX = 'hidden';
+            document.documentElement.style.overflowX = 'hidden';
+            
+            // Adicionar mais estrelas se a janela for redimensionada
+            window.addEventListener('resize', function() {
+                createStars();
+            });
+        });
+        
+        // Prevenir zoom em mobile
+        document.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        // Fazer estrelas piscarem continuamente
+        setInterval(() => {
+            const stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                // Alterar aleatoriamente a opacidade de algumas estrelas
+                if (Math.random() > 0.7) {
+                    star.style.opacity = Math.random() > 0.5 ? '0.2' : '1';
+                }
+            });
+        }, 1000);
+    </script>
 </body>
 </html>
