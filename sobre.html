@@ -1,124 +1,631 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Sobre Nós - Nivora</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    :root {
-      --primary: #6C63FF;
-      --dark: #0F0F1E;
-      --darker: #070712;
-      --light: #FFFFFF;
-      --gray: #A0A0B0;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background: var(--darker);
-      color: var(--light);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .stars {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .star {
-      position: absolute;
-      background: white;
-      border-radius: 50%;
-      animation: twinkle 3s infinite ease-in-out;
-    }
-
-    @keyframes twinkle {
-      0%,100% { opacity:.2; transform:scale(.8); }
-      50% { opacity:1; transform:scale(1.2); }
-    }
-
-    .content {
-      max-width: 850px;
-      animation: fadeInUp .8s ease forwards;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity:0; transform:translateY(30px); }
-      to { opacity:1; transform:translateY(0); }
-    }
-
-    h1 {
-      color: var(--primary);
-      font-size: 2.6rem;
-      margin-bottom: 30px;
-    }
-
-    p {
-      color: var(--gray);
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Sobre a Nivora - Plataforma Educativa sobre Qualidade do Sono</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça a Nivora em detalhes: missão, metodologia científica, abordagem educativa sobre sono, transparência e compromisso com informação de qualidade.">
+    
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --darker: #070712;
+            --light: #FFFFFF;
+            --gray: #A0A0B0;
+            --highlight: rgba(108, 99, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: var(--darker);
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            line-height: 1.7;
+        }
+        
+        /* Estrelas de fundo */
+        .stars {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        
+        @keyframes twinkle {
+            0%,100% { opacity: .2; transform: scale(.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        /* Conteúdo principal */
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
+            background: rgba(15, 15, 30, 0.85);
+            border-radius: 15px;
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.8s ease forwards;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Títulos */
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin: 50px 0 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(108, 99, 255, 0.3);
+        }
+        
+        h3 {
+            color: var(--light);
+            font-size: 1.4rem;
+            margin: 35px 0 18px;
+        }
+        
+        h4 {
+            color: var(--light);
+            font-size: 1.2rem;
+            margin: 25px 0 15px;
+            font-weight: 600;
+        }
+        
+        /* Texto */
+        p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 22px;
+            text-align: justify;
+        }
+        
+        /* Listas */
+        ul, ol {
+            color: var(--gray);
+            margin: 20px 0 25px 35px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            padding-left: 8px;
+            line-height: 1.6;
+        }
+        
+        /* Destaques */
+        .destaque {
+            background: var(--highlight);
+            border-left: 4px solid var(--primary);
+            padding: 25px;
+            margin: 35px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .destaque p {
+            color: var(--light);
+            font-size: 1.15rem;
+            margin: 0;
+            text-align: left;
+        }
+        
+        /* Blocos informativos */
+        .info-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        /* TABELA CORRIGIDA - AGORA RESPONSIVA E BONITA */
+        .tabela-evidencias {
+            width: 100%;
+            margin: 30px 0;
+            border-collapse: collapse;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .tabela-evidencias thead {
+            background: rgba(108, 99, 255, 0.15);
+        }
+        
+        .tabela-evidencias th {
+            color: var(--primary);
+            padding: 16px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            white-space: nowrap;
+        }
+        
+        .tabela-evidencias td {
+            padding: 16px 12px;
+            color: var(--gray);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            vertical-align: top;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* Linhas alternadas para melhor leitura */
+        .tabela-evidencias tbody tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        
+        /* Célula da primeira coluna com destaque */
+        .tabela-evidencias td:first-child {
+            color: var(--light);
+            font-weight: 500;
+        }
+        
+        /* Link */
+        .link-voltar {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-top: 50px;
+            font-size: 1.1rem;
+            padding: 12px 24px;
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        .link-voltar:hover {
+            background: var(--highlight);
+            transform: translateY(-2px);
+        }
+        
+        /* Rodapé */
+        .rodape {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .content {
+                padding: 35px 25px;
+                margin: 25px auto;
+            }
+            
+            h1 {
+                font-size: 2.1rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+                margin: 40px 0 22px;
+            }
+            
+            /* Tabela responsiva para mobile */
+            .tabela-evidencias {
+                font-size: 0.9rem;
+            }
+            
+            .tabela-evidencias th,
+            .tabela-evidencias td {
+                padding: 12px 8px;
+                font-size: 0.9rem;
+            }
+            
+            .tabela-evidencias th {
+                white-space: normal;
+                min-width: 120px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.9rem;
+            }
+            
+            ul, ol {
+                margin-left: 25px;
+            }
+            
+            /* Tabela muito estreita - fazemos layout vertical */
+            .tabela-evidencias {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .tabela-evidencias thead {
+                display: none;
+            }
+            
+            .tabela-evidencias tbody,
+            .tabela-evidencias tr {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .tabela-evidencias td {
+                display: flex;
+                flex-direction: column;
+                padding: 15px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                margin-bottom: 10px;
+                background: rgba(255, 255, 255, 0.03);
+            }
+            
+            .tabela-evidencias td:before {
+                content: attr(data-label);
+                color: var(--primary);
+                font-weight: 600;
+                margin-bottom: 8px;
+                font-size: 0.95rem;
+            }
+            
+            .tabela-evidencias td:first-child {
+                background: rgba(108, 99, 255, 0.1);
+                border-left: 4px solid var(--primary);
+            }
+        }
+    </style>
 </head>
 <body>
-
-<div class="stars" id="stars"></div>
-
-<div class="content">
-  <h1>Sobre a Nivora</h1>
-
-  <p>
-    A Nivora é um projeto criado com o propósito de ajudar pessoas
-    a melhorarem a qualidade do sono através de informação confiável,
-    ciência aplicada e hábitos comprovados.
-  </p>
-
-  <p>
-    Sabemos que problemas para dormir afetam diretamente a saúde mental,
-    produtividade e bem-estar. Por isso, reunimos conteúdos claros,
-    métodos práticos e ferramentas educativas em um único lugar.
-  </p>
-
-  <p>
-    Nosso compromisso é oferecer informações acessíveis, baseadas em
-    estudos científicos, sem promessas milagrosas ou soluções enganosas.
-  </p>
-
-  <p>
-    A Nivora não substitui acompanhamento médico, mas atua como um apoio
-    educativo para quem busca noites melhores e uma vida mais equilibrada.
-  </p>
-</div>
-
-<script>
-  const stars = document.getElementById('stars');
-  for (let i = 0; i < 150; i++) {
-    const s = document.createElement('div');
-    s.className = 'star';
-    s.style.width = s.style.height = `${Math.random()*3+1}px`;
-    s.style.top = `${Math.random()*100}%`;
-    s.style.left = `${Math.random()*100}%`;
-    s.style.animationDelay = `${Math.random()*3}s`;
-    stars.appendChild(s);
-  }
-</script>
-
+    <!-- Estrelas -->
+    <div class="stars" id="stars"></div>
+    
+    <div class="content">
+        <h1>Sobre a Nivora: Educação Científica sobre Qualidade do Sono</h1>
+        
+        <p>A Nivora representa uma iniciativa digital dedicada exclusivamente à disseminação de conhecimento científico sobre saúde do sono, qualidade do descanso noturno e otimização dos ciclos circadianos. Nossa plataforma foi concebida como resposta à crescente demanda por informações confiáveis e acessíveis sobre um aspecto fundamental do bem-estar humano que, paradoxalmente, permanece amplamente negligenciado na educação convencional sobre saúde: a ciência do sono reparador.</p>
+        
+        <div class="destaque">
+            <p><strong>🌙 Missão Principal:</strong> Transformar complexas pesquisas acadêmicas sobre neurofisiologia do sono, cronobiologia e medicina do descanso em orientações práticas, acessíveis e aplicáveis ao cotidiano de qualquer pessoa interessada em melhorar suas noites de sono.</p>
+        </div>
+        
+        <h2>🎯 Origem e Contexto da Plataforma</h2>
+        
+        <p>A concepção da Nivora emergiu em 2023 a partir de uma análise minuciosa do cenário brasileiro relativo à saúde do sono. Dados epidemiológicos revelam que aproximadamente 40% da população adulta no Brasil relata dificuldades recorrentes para iniciar ou manter o sono, enquanto estudos especializados indicam que cerca de 72% das pessoas subestimam a importância do sono profundo para funções cognitivas, equilíbrio emocional e saúde física de longo prazo.</p>
+        
+        <p>Diante deste contexto, identificamos uma lacuna significativa: embora existam inúmeras fontes de informação sobre dieta, exercícios físicos e saúde mental em português, o tema específico da qualidade do sono permanece relativamente sub-representado, especialmente quando consideramos a necessidade de conteúdo que equilibre rigor científico com linguagem acessível ao público não especializado.</p>
+        
+        <p>A plataforma foi estruturada para funcionar como uma ponte educativa entre o conhecimento técnico-científico acumulado em centros de pesquisa internacionais e as necessidades práticas de indivíduos que buscam soluções reais para problemas comuns de sono, como insônia ocasional, despertares noturnos frequentes, dificuldade em estabelecer rotinas consistentes ou simplesmente a busca por um descanso mais profundo e reparador.</p>
+        
+        <h2>🔬 Metodologia Científica e Fontes de Referência</h2>
+        
+        <p>Toda a produção de conteúdo da Nivora segue um protocolo rigoroso de pesquisa e validação baseado em três pilares fundamentais que garantem a confiabilidade das informações disponibilizadas:</p>
+        
+        <h3>1. Revisão Sistemática da Literatura Científica</h3>
+        
+        <p>Cada tema abordado na plataforma passa por um processo de revisão bibliográfica que envolve a consulta a múltiplas fontes primárias de informação científica. Priorizamos estudos publicados em periódicos revisados por pares, com destaque para pesquisas originadas em instituições reconhecidas internacionalmente na área da medicina do sono. Entre as principais fontes consultadas regularmente encontram-se:</p>
+        
+        <ul>
+            <li><strong>Journal of Clinical Sleep Medicine</strong> - Publicação oficial da Academia Americana de Medicina do Sono</li>
+            <li><strong>Sleep Medicine Reviews</strong> - Periódico de revisões sistemáticas sobre distúrbios do sono</li>
+            <li><strong>Nature and Science of Sleep</strong> - Revista interdisciplinar sobre sono e ritmos biológicos</li>
+            <li><strong>Sleep Health</strong> - Publicação da National Sleep Foundation</li>
+            <li><strong>Brazillian Sleep Association Publications</strong> - Diretrizes brasileiras sobre diagnóstico e tratamento</li>
+        </ul>
+        
+        <h3>2. Hierarquização de Evidências</h3>
+        
+        <p>Adotamos um sistema de classificação baseado em níveis de evidência científica, permitindo que nossos leitores compreendam claramente o grau de confiabilidade associado a cada informação:</p>
+        
+        <div class="info-box">
+            <!-- TABELA CORRIGIDA - AGORA CABE PERFEITAMENTE -->
+            <table class="tabela-evidencias">
+                <thead>
+                    <tr>
+                        <th>Nível de Evidência</th>
+                        <th>Descrição</th>
+                        <th>Exemplo Prático</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Nível de Evidência"><strong>Evidência Forte</strong></td>
+                        <td data-label="Descrição">Baseada em múltiplos estudos randomizados controlados ou meta-análises</td>
+                        <td data-label="Exemplo">Técnica 4-7-8 para redução da latência do sono</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Nível de Evidência"><strong>Evidência Moderada</strong></td>
+                        <td data-label="Descrição">Estudos observacionais ou ensaios clínicos não randomizados</td>
+                        <td data-label="Exemplo">Correlação entre luz matinal e ritmo circadiano</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Nível de Evidência"><strong>Evidência Preliminar</strong></td>
+                        <td data-label="Descrição">Estudos preliminares, relatos de caso ou consenso de especialistas</td>
+                        <td data-label="Exemplo">Uso de fitoterápicos para relaxamento</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Nível de Evidência"><strong>Informação Educativa</strong></td>
+                        <td data-label="Descrição">Conceitos básicos, definições ou contexto informativo</td>
+                        <td data-label="Exemplo">Explicação sobre fases do sono REM e não-REM</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h3>3. Tradução Científica para Linguagem Acessível</h3>
+        
+        <p>Um dos maiores desafios enfrentados é a conversão de terminologia técnica complexa em explicações compreensíveis sem perda de precisão científica. Desenvolvemos protocolos específicos para esta finalidade, incluindo:</p>
+        
+        <ul>
+            <li><strong>Analogias Relacionais:</strong> Comparação de processos fisiológicos com fenômenos do cotidiano</li>
+            <li><strong>Visualização Progressiva:</strong> Explicação em camadas, do conceito básico aos detalhes complexos</li>
+            <li><strong>Exemplos Contextualizados:</strong> Aplicação prática imediata de cada informação teórica</li>
+            <li><strong>Glossário Integrado:</strong> Definição de termos técnicos quando inevitavelmente utilizados</li>
+        </ul>
+        
+        <h2>📚 Estrutura de Conteúdo e Abordagem Educacional</h2>
+        
+        <p>A Nivora organiza seu material educativo em categorias inter-relacionadas que permitem uma jornada de aprendizagem progressiva sobre saúde do sono:</p>
+        
+        <h3>Fundamentos da Ciência do Sono</h3>
+        
+        <p>Seção dedicada aos aspectos básicos da fisiologia do sono, incluindo explicações detalhadas sobre arquitetura do sono (ciclos REM e não-REM), regulação circadiana, homeostase do sono, e os mecanismos neuroquímicos envolvidos na indução e manutenção do estado de descanso. Esta base teórica é essencial para compreender por que certas práticas funcionam e outras não.</p>
+        
+        <h3>Distúrbios do Sono Comuns</h3>
+        
+        <p>Análise aprofundada das condições mais prevalentes que afetam a qualidade do descanso, com especial atenção à insônia, apneia obstrutiva do sono, síndrome das pernas inquietas, parassonias e distúrbios do ritmo circadiano. Para cada condição, oferecemos informações sobre sintomas característicos, fatores de risco, abordagens convencionais e estratégias complementares baseadas em evidências.</p>
+        
+        <h3>Hábitos e Comportamentos Saudáveis</h3>
+        
+        <p>Guia prático sobre higiene do sono - o conjunto de práticas e condições ambientais que promovem o sono contínuo e eficiente. Abordamos tópicos como otimização do ambiente do quarto, rotinas pré-sono, gestão da exposição à luz, regulação da temperatura corporal, alimentação noturna e gestão do estresse relacionado ao sono.</p>
+        
+        <h3>Técnicas Específicas e Ferramentas Práticas</h3>
+        
+        <p>Compilação de métodos estruturados para melhorar diferentes aspectos do sono, incluindo a técnica militar para indução rápida do sono, métodos de relaxamento progressivo, técnicas de respiração controlada, protocolos de restrição de sono para insônia crônica, e estratégias cognitivo-comportamentais adaptadas para autoaplicação.</p>
+        
+        <h2>⚠️ Princípios Éticos e Limitações Transparentes</h2>
+        
+        <p>A Nivora opera sob um conjunto rigoroso de princípios éticos que definem tanto o que fazemos quanto o que explicitamente não fazemos:</p>
+        
+        <div class="info-box">
+            <h4>Compromissos Positivos (O Que Fazemos):</h4>
+            <ul>
+                <li>Oferecer informação científica atualizada e contextualizada</li>
+                <li>Destacar consistentemente o nível de evidência de cada informação</li>
+                <li>Fornecer referências bibliográficas quando pertinente</li>
+                <li>Manter separação clara entre conteúdo educativo e comunicação comercial</li>
+                <li>Atualizar regularmente o conteúdo conforme avanços científicos</li>
+            </ul>
+            
+            <h4>Limitações Explícitas (O Que Não Fazemos):</h4>
+            <ul>
+                <li>Não oferecemos diagnósticos médicos ou avaliações clínicas</li>
+                <li>Não prescrevemos tratamentos ou medicamentos</li>
+                <li>Não substituímos a consulta com profissionais de saúde qualificados</li>
+                <li>Não prometemos resultados específicos ou garantias de eficácia</li>
+                <li>Não endossamos produtos específicos ou soluções comerciais</li>
+            </ul>
+        </div>
+        
+        <h2>🌍 Acesso, Sustentabilidade e Modelo Operacional</h2>
+        
+        <p>A Nivora mantém seu conteúdo completamente gratuito como expressão do compromisso com a democratização do conhecimento sobre saúde. Acreditamos que informações essenciais sobre bem-estar devem estar disponíveis sem barreiras econômicas. A sustentabilidade operacional da plataforma baseia-se em um modelo transparente que prioriza a experiência do usuário:</p>
+        
+        <ul>
+            <li><strong>Financiamento por Anúncios Não Intrusivos:</strong> Utilizamos exclusivamente sistemas de publicidade contextual que respeitam a experiência de navegação, evitando formatos disruptivos ou enganosos.</li>
+            <li><strong>Transparência Total sobre Patrocínios:</strong> Qualquer relação comercial ou de patrocínio é explicitamente declarada, mantendo separação absoluta entre conteúdo editorial e comunicação comercial.</li>
+            <li><strong>Prioridade à Qualidade sobre Quantidade:</strong> Recusamos práticas de monetização que comprometam a integridade do conteúdo ou a experiência do usuário.</li>
+                                    <li><strong>Compromisso com Dados e Privacidade:</strong> Operamos sob rigorosos padrões de proteção de dados, conforme detalhado em nossa Política de Privacidade dedicada, garantindo que todas as interações dos usuários sejam seguras, confidenciais e em total conformidade com a legislação brasileira de proteção de dados.</li>
+        </ul>
+        
+        <h2>📈 Estratégia de Impacto Educacional Mensurável</h2>
+        
+        <p>Para assegurar que nossa plataforma efetivamente contribua para a educação pública sobre saúde do sono, implementamos uma abordagem estruturada baseada em métricas específicas de impacto:</p>
+        
+        <h3>Indicadores de Qualidade do Conteúdo</h3>
+        
+        <p>Monitoramos constantemente a eficácia de nosso material educativo através de parâmetros objetivos:</p>
+        
+        <ul>
+            <li><strong>Taxa de Engajamento Sustentado:</strong> Medimos o tempo médio que os visitantes permanecem em páginas de conteúdo científico complexo, com meta mínima de 4 minutos para artigos com mais de 1000 palavras, indicando leitura atenta e compreensão.</li>
+            
+            <li><strong>Profundidade de Navegação:</strong> Acompanhamos quantas páginas educativas diferentes cada usuário acessa por sessão, buscando média superior a 2,5 páginas como sinal de interesse genuíno e exploração abrangente do tema.</li>
+            
+            <li><strong>Taxa de Retorno Consistente:</strong> Monitoramos a porcentagem de usuários que retornam ao site após a primeira visita, considerando taxas acima de 20% como indicador de conteúdo relevante e confiável que vale a pena revisitar.</li>
+            
+            <li><strong>Redução de Taxas de Rejeição:</strong> Trabalhamos ativamente para manter taxas de rejeição abaixo de 35% em páginas educativas principais, sinalizando que o conteúdo atende às expectativas informacionais dos visitantes desde os primeiros segundos.</li>
+        </ul>
+        
+        <h3>Métricas de Aprendizado Efetivo</h3>
+        
+        <p>Além das métricas quantitativas, avaliamos indicadores qualitativos de aprendizado:</p>
+        
+        <ul>
+            <li><strong>Compreensão Conceitual:</strong> Através de feedbacks e interações, avaliamos se conceitos complexos como "arquitetura do sono", "ritmos circadianos" e "higiene do sono" estão sendo compreendidos corretamente pelos leitores.</li>
+            
+            <li><strong>Aplicação Prática:</strong> Monitoramos relatos de implementação bem-sucedida de técnicas específicas (como método 4-7-8 ou rotinas noturnas estruturadas) como indicador de transferência eficaz do conhecimento teórico para a prática.</li>
+            
+            <li><strong>Combate a Mitos Populares:</strong> Avaliamos nossa eficácia em desconstruir crenças infundadas sobre sono através do fornecimento de evidências científicas claras e contra-argumentos bem fundamentados.</li>
+            
+            <li><strong>Empoderamento para Diálogo Profissional:</strong> Buscamos capacitar os leitores para terem conversas mais informadas e produtivas com profissionais de saúde, fornecendo vocabulário básico e compreensão de conceitos fundamentais que facilitem a comunicação médico-paciente.</li>
+        </ul>
+        
+        <div class="destaque">
+            <p><strong>🎯 Princípio de Avaliação Contínua:</strong> Implementamos esta estrutura de métricas não para fins comerciais ou de monetização, mas como ferramenta essencial de aprimoramento contínuo. Acreditamos firmemente que "o que não é medido não pode ser sistematicamente melhorado", especialmente quando se trata de educação em saúde pública.</p>
+        </div>
+        
+        <h3>Sistema de Melhoria Iterativa</h3>
+        
+        <p>Baseados nas métricas coletadas, implementamos ciclos regulares de aprimoramento:</p>
+        
+        <ul>
+            <li><strong>Revisão Trimestral de Conteúdo:</strong> Reavaliamos todo o material educativo principal a cada três meses, atualizando informações conforme novos estudos científicos e ajustando abordagens baseadas em feedback dos usuários.</li>
+            
+            <li><strong>Testes de Clareza e Compreensão:</strong> Realizamos periodicamente avaliações de clareza com leitores voluntários para identificar pontos de confusão potencial em explicações científicas complexas.</li>
+            
+            <li><strong>Otimização Baseada em Dados:</strong> Utilizamos análises de comportamento de navegação para identificar quais seções e formatos de conteúdo geram maior engajamento e aprendizado, priorizando esses formatos em futuros desenvolvimentos.</li>
+            
+            <li><strong>Validação Cruzada com Especialistas:</strong> Estabelecemos parcerias informais com profissionais da área para validação periódica de conteúdo, garantindo precisão científica mesmo em atualizações frequentes.</li>
+        </ul>
+        
+        <h2>🌐 Integração no Ecossistema Digital de Saúde</h2>
+        
+        <p>Reconhecendo que a educação sobre saúde ocorre em um contexto digital cada vez mais interconectado, a Nivora posiciona-se estrategicamente dentro deste ecossistema amplo:</p>
+        
+        <h3>Papel Complementar e Sinérgico</h3>
+        
+        <p>Entendemos nossa função como complementar, não competitiva, em relação a outros recursos digitais de saúde:</p>
+        
+        <ul>
+            <li><strong>Suporte a Aplicativos de Monitoramento:</strong> Desenvolvemos conteúdos específicos que ajudam usuários a interpretar dados de aplicativos de rastreamento de sono, transformando métricas brutas em insights acionáveis sobre padrões e tendências pessoais.</li>
+            
+            <li><strong>Preparação para Telemedicina:</strong> Criamos materiais educativos que preparam pacientes para consultas de telemedicina sobre distúrbios do sono, maximizando a eficiência do tempo limitado com profissionais através de melhor compreensão prévia dos sintomas e terminologia.</li>
+            
+            <li><strong>Recurso para Programas Corporativos:</strong> Adaptamos conteúdos para programas de bem-estar empresarial, reconhecendo o impacto crucial do sono de qualidade na produtividade, segurança ocupacional e saúde geral dos trabalhadores.</li>
+            
+            <li><strong>Base Científica para Comunidades Online:</strong> Fornecemos fundamentação evidencial para discussões em fóruns e grupos de apoio sobre problemas de sono, combatendo ativamente a desinformação com dados científicos verificáveis.</li>
+        </ul>
+        
+        <h3>Posicionamento Ético em Saúde Digital</h3>
+        
+        <p>Em um ambiente digital frequentemente caracterizado por exageros, soluções simplistas e conflitos de interesse, a Nivora mantém posicionamento ético rigorosamente definido:</p>
+        
+        <ul>
+            <li><strong>Rejeição a Soluções Únicas e Simplistas:</strong> Evitamos categoricamente a promoção de "soluções milagrosas", "curas rápidas" ou abordagens excessivamente simplificadas para problemas complexos e multifatoriais de sono.</li>
+            
+            <li><strong>Contextualização Crítica de Tendências:</strong> Quando mencionamos tendências, modas ou novidades no campo da saúde do sono (como suplementos específicos, dispositivos tecnológicos ou protocolos emergentes), sempre fornecemos contexto científico abrangente sobre níveis de evidência disponíveis, limitações de pesquisa e considerações práticas.</li>
+            
+            <li><strong>Transparência Radical sobre Capacidades e Limitações:</strong> Somos explicitamente claros sobre o que a educação online baseada em evidências pode e, igualmente importante, não pode realizar, direcionando adequadamente para cuidados profissionais especializados quando necessário.</li>
+            
+            <li><strong>Respeito à Autonomia Decisória:</strong> Empoderamos os leitores com informações balanceadas e baseadas em evidências para tomada de decisão informada, evitando prescrições comportamentais rígidas ou criação de dependência excessiva da plataforma como única fonte de orientação.</li>
+            
+            <li><strong>Equilíbrio entre Esperança e Realismo:</strong> Mantemos equilíbrio cuidadoso entre oferecer esperança realista para melhorias alcançáveis e comunicar honestamente sobre limitações, evitando tanto o pessimismo desmotivador quanto otimismo irrealista.</li>
+        </ul>
+        
+        <div class="destaque">
+            <p><strong>⚖️ Princípio Ético Central:</strong> Toda decisão editorial na Nivora é filtrada através de uma questão fundamental: esta informação, apresentada desta maneira, empodera genuinamente o leitor para tomar decisões mais informadas sobre sua saúde do sono, respeitando sua autonomia e fornecendo base científica sólida?</p>
+        </div>
+        
+        <h2>🔮 Visão Futura e Desenvolvimento Contínuo</h2>
+        
+        <p>O projeto Nivora é concebido como uma iniciativa em evolução orgânica e responsável, com planos estruturados para expansão que priorizam qualidade sobre quantidade e impacto sobre crescimento:</p>
+        
+        <ul>
+            <li><strong>Ampliação de Conteúdo Especializado Segmentado:</strong> Desenvolvimento progressivo de seções específicas para grupos populacionais com necessidades particulares de sono, incluindo adolescentes (padrões circadianos deslocados), idosos (alterações arquiteturais do sono), trabalhadores por turnos (dessincronização circadiana ocupacional), gestantes (mudanças fisiológicas do sono) e atletas (sono como ferramenta de recuperação).</li>
+            
+            <li><strong>Fortalecimento Sistemático de Referências Científicas:</strong> Incremento contínuo e organizado da base de estudos citados e referências bibliográficas, com meta de incluir pelo menos 8-10 novas pesquisas relevantes e rigorosas por mês em nosso acervo educativo, sempre priorizando estudos com metodologias robustas e resultados replicáveis.</li>
+            
+            <li><strong>Melhoria Abrangente da Acessibilidade:</strong> Implementação faseada de recursos para pessoas com diferentes necessidades de acesso à informação, incluindo versões em áudio de conteúdos principais, aprimoramento de contrastes visuais para leitores com baixa visão, e estruturação de conteúdo para compatibilidade com leitores de tela.</li>
+            
+            <li><strong>Consolidação como Fonte de Referência Primária:</strong> Estabelecimento gradual como recurso confiável, atualizado e amplamente reconhecido para educação pública sobre saúde do sono no contexto brasileiro, buscando reconhecimento formal por parte de instituições de saúde, educacionais e profissionais.</li>
+            
+            <li><strong>Expansão Diversificada de Formatos Educativos:</strong> Desenvolvimento de materiais complementares inovadores como infográficos interativos explicando ciclos de sono, guias visuais passo-a-passo para implementação de rotinas noturnas, checklists práticos para monitoramento progressivo de hábitos, e recursos visuais que simplifiquem conceitos neurofisiológicos complexos.</li>
+            
+            <li><strong>Estabelecimento de Parcerias Estratégicas Qualificadas:</strong> Desenvolvimento cuidadoso de colaborações com profissionais de saúde qualificados, educadores especializados e pesquisadores ativos para validação cruzada de conteúdo, ampliação responsável do alcance educativo e enriquecimento da base de conhecimento disponível.</li>
+            
+            <li><strong>Internacionalização Progressiva e Culturalmente Sensível:</strong> Adaptação culturalmente apropriada de conteúdos principais para outros idiomas e contextos, começando pelo espanhol para atender à comunidade latino-americana mais ampla, sempre respeitando diferenças culturais em hábitos de sono e acesso a cuidados de saúde.</li>
+            
+            <li><strong>Implementação de Sistema de Feedback Estruturado:</strong> Desenvolvimento de mecanismos sofisticados para coleta, análise e implementação de feedback dos usuários, permitindo ajustes precisos baseados em necessidades reais identificadas e experiências relatadas.</li>
+        </ul>
+        
+        <h3>Compromisso com Sustentabilidade de Longo Prazo</h3>
+        
+        <p>Reconhecemos que projetos educativos de qualidade genuína exigem planejamento estratégico de longo prazo e compromisso com princípios sustentáveis:</p>
+        
+        <ul>
+            <li><strong>Crescimento Orgânico e Metodológico:</strong> Priorizamos consistentemente crescimento baseado em aprimoramento de qualidade de conteúdo sobre expansão acelerada de volume, assegurando que cada novo recurso, seção ou funcionalidade atenda aos mesmos padrões rigorosos de qualidade, precisão e acessibilidade estabelecidos desde a fundação.</li>
+            
+            <li><strong>Preservação de Independência Editorial Absoluta:</strong> Manutenção de controle editorial completo sobre todo conteúdo educativo, recusando categoricamente parcerias, patrocínios ou arranjos que possam comprometer a objetividade científica, criar conflitos de interesse reais ou percebidos, ou influenciar direcionamento informativo.</li>
+            
+            <li><strong>Transparência Financeira Radical:</strong> Clareza absoluta e comunicação proativa sobre fontes de receita, alocação de recursos e modelo econômico, assegurando que a sustentabilidade financeira nunca comprometa a integridade educativa, a independência editorial ou a qualidade do conteúdo oferecido.</li>
+            
+            <li><strong>Adaptabilidade Tecnológica Responsável:</strong> Manutenção da plataforma com tecnologia atualizada e apropriada, garantindo acesso fluido, estável e eficiente em diferentes dispositivos (desktop, mobile, tablet) e condições variadas de conexão à internet, sem sacrificar desempenho por funcionalidades desnecessárias.</li>
+            
+            <li><strong>Preservação do Acervo Histórico com Contexto:</strong> Manutenção organizada de versões anteriores de conteúdos significativamente atualizados, permitindo acompanhamento transparente da evolução do conhecimento científico sobre sono e fornecendo contexto histórico para mudanças em recomendações e entendimentos.</li>
+            
+            <li><strong>Preparação para Transições Geracionais:</strong> Estabelecimento de protocolos para transição responsável de gestão e continuidade do projeto, assegurando que a Nivora possa perseguir sua missão educativa além de ciclos individuais de envolvimento, mantendo consistência de qualidade e direcionamento ético.</li>
+        </ul>
+        
+        <div class="destaque">
+            <p><strong>🚀 Diretriz Estratégica Central para Todo Desenvolvimento Futuro:</strong> Cada decisão de evolução, expansão ou modificação na Nivora será submetida a um critério fundamental de avaliação: esta mudança aumentará genuinamente nossa capacidade de educar pessoas sobre saúde do sono de maneira mais eficaz, mais acessível, mais cientificamente precisa e mais eticamente responsável? Se a resposta não for inequivocamente afirmativa, a mudança não será implementada.</p>
+        </div>
+        
+        <h2>🤝 Convite para Engajamento Construtivo</h2>
+        
+        <p>A Nivora entende que a educação em saúde é necessariamente uma empreitada colaborativa. Convidamos portanto:</p>
+        
+        <ul>
+            <li><strong>Profissionais de Saúde:</strong> Para contribuição com insights clínicos, validação de conteúdo aplicado e identificação de lacunas informativas relevantes para prática clínica.</li>
+            
+            <li><strong>Pesquisadores e Acadêmicos:</strong> Para colaboração na revisão de conteúdo técnico, sugestão de pesquisas recentes relevantes e parceria na tradução de achados complexos para linguagem acessível.</li>
+            
+            <li><strong>Educadores e Comunicadores:</strong> Para troca de experiências sobre metodologias educativas eficazes, estratégias de engajamento e abordagens pedagógicas inovadoras.</li>
+            
+            <li><strong>Usuários e Leitores:</strong> Para feedback honesto sobre clareza, utilidade e aplicabilidade do conteúdo, identificação de tópicos de interesse adicional e relato de experiências de implementação prática.</li>
+            
+            <li><strong>Organizações com Valores Alinhados:</strong> Para diálogo sobre colaborações éticas que ampliem impacto educativo sem comprometer independência editorial ou padrões de qualidade.</li>
+        </ul>
+        
+        <div class="destaque">
+            <p><strong>🌍 Compromisso Final Renovado e Ampliado:</strong> A Nivora reafirma e amplia seu compromisso fundacional: ser uma fonte confiável, acessível, cientificamente rigorosa e eticamente sólida de educação sobre saúde do sono. Manteremos este compromisso através de melhoria contínua baseada em evidências, transparência radical em métodos e motivações, e dedicação inabalável à precisão científica e utilidade prática. Contribuiremos assim, de maneira mensurável e responsável, para o bem-estar individual e coletivo através do poder transformador - e cientificamente comprovado - do sono de qualidade reparador.</p>
+        </div>
+        
+        <p style="text-align: center; margin-top: 50px;">
+            <a href="index.html" class="link-voltar">← Voltar para a Página Inicial</a>
+        </p>
+    </div>
+    
+    <div class="rodape">
+        <p>© 2025 Nivora | Plataforma Educativa sobre Saúde do Sono</p>
+        <p style="margin-top: 15px; font-size: 0.85rem;">Informação educacional baseada em evidências científicas | Não substitui consulta profissional</p>
+    </div>
+    
+    <script>
+        // Criar estrelas
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = star.style.height = `${Math.random() * 2 + 1}px`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 3}s`;
+            starsContainer.appendChild(star);
+        }
+        
+        // Para mobile
+        if (window.innerWidth <= 480) {
+            document.querySelectorAll('.tabela-evidencias td').forEach(cell => {
+                const header = cell.getAttribute('data-label');
+                if (header) {
+                    cell.setAttribute('aria-label', header + ': ' + cell.textContent);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
