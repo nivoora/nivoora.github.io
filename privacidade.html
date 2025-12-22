@@ -1,124 +1,922 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Política de Privacidade - Nivora</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    :root {
-      --primary: #6C63FF;
-      --dark: #0F0F1E;
-      --darker: #070712;
-      --light: #FFFFFF;
-      --gray: #A0A0B0;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background: var(--darker);
-      color: var(--light);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .stars {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .star {
-      position: absolute;
-      background: white;
-      border-radius: 50%;
-      animation: twinkle 3s infinite ease-in-out;
-    }
-
-    @keyframes twinkle {
-      0%,100% { opacity: .2; transform: scale(.8); }
-      50% { opacity: 1; transform: scale(1.2); }
-    }
-
-    .content {
-      max-width: 800px;
-      animation: fadeInUp .8s ease forwards;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    h1 {
-      color: var(--primary);
-      font-size: 2.6rem;
-      margin-bottom: 30px;
-    }
-
-    p {
-      color: var(--gray);
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 18px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Política de Privacidade - Nivora | Proteção de Dados Completa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Política de Privacidade completa da Nivora. Entenda como protegemos seus dados, coletamos informações e garantimos sua privacidade na plataforma educativa sobre sono.">
+    
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --darker: #070712;
+            --light: #FFFFFF;
+            --gray: #A0A0B0;
+            --highlight: rgba(108, 99, 255, 0.1);
+            --security: rgba(33, 150, 243, 0.1);
+            --transparency: rgba(76, 175, 80, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: var(--darker);
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            line-height: 1.7;
+        }
+        
+        /* Estrelas de fundo */
+        .stars {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        
+        @keyframes twinkle {
+            0%,100% { opacity: .2; transform: scale(.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        /* Conteúdo principal */
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
+            background: rgba(15, 15, 30, 0.85);
+            border-radius: 15px;
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.8s ease forwards;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Títulos */
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin: 50px 0 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(108, 99, 255, 0.3);
+        }
+        
+        h3 {
+            color: var(--light);
+            font-size: 1.4rem;
+            margin: 35px 0 18px;
+        }
+        
+        h4 {
+            color: var(--light);
+            font-size: 1.2rem;
+            margin: 25px 0 15px;
+            font-weight: 600;
+        }
+        
+        /* Texto */
+        p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 22px;
+            text-align: justify;
+        }
+        
+        /* Listas */
+        ul, ol {
+            color: var(--gray);
+            margin: 20px 0 25px 35px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            padding-left: 8px;
+            line-height: 1.6;
+        }
+        
+        /* Destaques */
+        .destaque {
+            background: var(--highlight);
+            border-left: 4px solid var(--primary);
+            padding: 25px;
+            margin: 35px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .destaque p {
+            color: var(--light);
+            font-size: 1.15rem;
+            margin: 0;
+            text-align: left;
+        }
+        
+        /* Segurança */
+        .seguranca {
+            background: var(--security);
+            border-left: 4px solid #2196F3;
+            padding: 25px;
+            margin: 35px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .seguranca p {
+            color: var(--light);
+            font-size: 1.15rem;
+            margin: 0;
+            text-align: left;
+        }
+        
+        /* Transparência */
+        .transparencia {
+            background: var(--transparency);
+            border-left: 4px solid #4CAF50;
+            padding: 25px;
+            margin: 35px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .transparencia p {
+            color: var(--light);
+            font-size: 1.15rem;
+            margin: 0;
+            text-align: left;
+        }
+        
+        /* Blocos informativos */
+        .info-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        /* Link */
+        .link-voltar {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-top: 50px;
+            font-size: 1.1rem;
+            padding: 12px 24px;
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        .link-voltar:hover {
+            background: var(--highlight);
+            transform: translateY(-2px);
+        }
+        
+        /* Rodapé */
+        .rodape {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .content {
+                padding: 35px 25px;
+                margin: 25px auto;
+            }
+            
+            h1 {
+                font-size: 2.1rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+                margin: 40px 0 22px;
+            }
+            
+            ul, ol {
+                margin-left: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.9rem;
+            }
+            
+            ul, ol {
+                margin-left: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Estrelas -->
+    <div class="stars" id="stars"></div>
+    
+    <div class="content">
+        <h1>Política de Privacidade da Plataforma Nivora</h1>
+        
+        <div class="seguranca">
+            <p><strong>🔒 SEU DIREITO À PRIVACIDADE É PRIORIDADE:</strong> Esta Política de Privacidade descreve com transparência completa como a Nivora coleta, utiliza, armazena, protege e, quando aplicável, compartilha informações dos usuários. Ao acessar ou utilizar nossa plataforma, você consente com as práticas descritas neste documento.</p>
+        </div>
+        
+        <p><strong>Última atualização:</strong> 15 de Dezembro de 2024 | <strong>Versão:</strong> 3.0 | <strong>Vigência:</strong> Imediata para todos os usuários</p>
+        
+        <h2>1. 🎯 Introdução e Princípios Fundamentais</h2>
+        
+        <h3>1.1 Compromisso com a Privacidade</h3>
+        
+        <p>A Nivora opera sob a premissa fundamental de que a privacidade é um direito humano essencial, especialmente quando se trata de informações relacionadas à saúde e bem-estar. Esta Política de Privacidade reflete nosso compromisso inabalável com:</p>
+        
+        <ul>
+            <li><strong>Transparência Radical:</strong> Explicação clara e completa de todas as práticas de dados</li>
+            <li><strong>Minimização de Dados:</strong> Coleta apenas do estritamente necessário para fins educativos</li>
+            <li><strong>Segurança Robusta:</strong> Implementação de medidas técnicas avançadas de proteção</li>
+            <li><strong>Controle do Usuário:</strong> Empoderamento dos usuários sobre seus próprios dados</li>
+            <li><strong>Conformidade Legal:</strong> Adesão rigorosa à Lei Geral de Proteção de Dados (LGPD) e regulamentações internacionais aplicáveis</li>
+        </ul>
+        
+        <h3>1.2 Âmbito de Aplicação</h3>
+        
+        <p>Esta Política aplica-se a:</p>
+        
+        <ul>
+            <li><strong>Website Principal:</strong> https://nivoora.github.io e todas as suas páginas</li>
+            <li><strong>Conteúdo Educativo:</strong> Todos os artigos, guias e materiais educativos</li>
+            <li><strong>Ferramentas Interativas:</strong> Quizzes, formulários, geradores e outras funcionalidades</li>
+            <li><strong>Tecnologias Associadas:</strong> Cookies, pixels, armazenamento local e tecnologias similares</li>
+            <li><strong>Comunicações:</strong> Qualquer interação entre você e a plataforma Nivora</li>
+        </ul>
+        
+        <h3>1.3 Definições Importantes</h3>
+        
+        <p>Para clareza, definimos os seguintes termos:</p>
+        
+        <div class="info-box">
+            <ul>
+                <li><strong>Dados Pessoais:</strong> Qualquer informação relacionada a pessoa natural identificada ou identificável</li>
+                <li><strong>Processamento:</strong> Qualquer operação realizada com dados pessoais</li>
+                <li><strong>Controlador:</strong> Nivora, que determina as finalidades e meios do processamento</li>
+                <li><strong>Operador:</strong> Terceiros que processam dados sob nossas instruções</li>
+                <li><strong>Consentimento:</strong> Manifestação livre, informada e inequívoca pela qual o titular concorda com o processamento</li>
+                <li><strong>Anonimização:</strong> Utilização de meios técnicos razoáveis que impeçam a identificação</li>
+                <li><strong>Cookies:</strong> Pequenos arquivos de texto armazenados no dispositivo do usuário</li>
+            </ul>
+        </div>
+        
+        <h2>2. 📊 Informações que Coletamos</h2>
+        
+        <h3>2.1 Informações Coletadas Automaticamente</h3>
+        
+        <p>Quando você visita nossa plataforma, coletamos automaticamente certas informações técnicas através de tecnologias padrão da web:</p>
+        
+        <ul>
+            <li><strong>Informações do Dispositivo:</strong> Tipo de dispositivo, sistema operacional, versão do navegador</li>
+            <li><strong>Informações de Conexão:</strong> Endereço IP (anonimizado), provedor de internet, tipo de conexão</li>
+            <li><strong>Dados de Navegação:</strong> Páginas visitadas, tempo gasto em cada página, sequência de navegação</li>
+            <li><strong>Informações Técnicas:</strong> Resolução de tela, idioma do navegador, plugins instalados</li>
+            <li><strong>Metadados:</strong> Data e hora do acesso, referências (de onde você veio)</li>
+        </ul>
+        
+        <div class="transparencia">
+            <p><strong>🔍 TRANSPARÊNCIA SOBRE IPs:</strong> Coletamos endereços IP apenas para fins de segurança, análise agregada e otimização técnica. Após 30 dias, removemos o último octeto do IP, tornando-o irreversivelmente anônimo para qualquer finalidade de identificação.</p>
+        </div>
+        
+        <h3>2.2 Informações em Ferramentas Interativas</h3>
+        
+        <p>Quando você utiliza nossos quizzes, formulários ou geradores:</p>
+        
+        <ul>
+            <li><strong>Respostas a Perguntas:</strong> Respostas fornecidas em quizzes sobre padrões de sono</li>
+            <li><strong>Preferências e Hábitos:</strong> Informações sobre rotinas, dificuldades e objetivos relacionados ao sono</li>
+            <li><strong>Dados Demográficos Básicos:</strong> Idade, gênero (quando fornecidos voluntariamente)</li>
+            <li><strong>Resultados Gerados:</strong> Resultados personalizados baseados em suas respostas</li>
+        </ul>
+        
+        <div class="destaque">
+            <p><strong>⚠️ IMPORTANTE:</strong> As informações fornecidas em ferramentas interativas são processadas principalmente no seu próprio navegador (client-side). Não coletamos essas informações de forma identificável, a menos que você as envie voluntariamente através de formulários específicos.</p>
+        </div>
+        
+        <h3>2.3 Informações que NÃO Coletamos</h3>
+        
+        <p>Para maior clareza, explicitamos o que <strong>NÃO COLETAMOS</strong>:</p>
+        
+        <div class="info-box">
+            <ul>
+                <li><strong>Informações Médicas Sensíveis:</strong> Diagnósticos, tratamentos, medicamentos específicos</li>
+                <li><strong>Dados de Identificação Completa:</strong> Nome completo, CPF, RG, endereço residencial</li>
+                <li><strong>Informações Financeiras:</strong> Dados de cartão de crédito, contas bancárias</li>
+                <li><strong>Dados Biométricos:</strong> Impressões digitais, reconhecimento facial</li>
+                <li><strong>Localização em Tempo Real:</strong> Coordenadas GPS precisas</li>
+                <li><strong>Conteúdo de Comunicações Privadas:</strong> E-mails, mensagens pessoais (exceto quando enviadas diretamente a nós)</li>
+                <li><strong>Dados de Terceiros:</strong> Informações sobre outras pessoas que você não tem permissão para compartilhar</li>
+            </ul>
+        </div>
+        
+        <h3>2.4 Cookies e Tecnologias Similares</h3>
+        
+        <p>Utilizamos as seguintes categorias de cookies:</p>
+        
+        <ul>
+            <li><strong>Cookies Essenciais:</strong> Necessários para funcionamento básico da plataforma</li>
+            <li><strong>Cookies de Desempenho:</strong> Para análise agregada de uso e otimização</li>
+            <li><strong>Cookies de Funcionalidade:</strong> Para lembrar preferências e personalizar experiência</li>
+            <li><strong>Cookies de Publicidade:</strong> Para exibir anúncios relevantes e medir eficácia</li>
+            <li><strong>Cookies de Terceiros:</strong> De serviços como Google Analytics e Google AdSense</li>
+        </ul>
+        
+        <h2>3. 🎯 Finalidades do Processamento de Dados</h2>
+        
+        <h3>3.1 Finalidades Principais (Por Que Coletamos)</h3>
+        
+        <p>Processamos dados para as seguintes finalidades legítimas:</p>
+        
+        <ul>
+            <li><strong>Fornecimento do Serviço Educativo:</strong> Disponibilizar conteúdo sobre saúde do sono de forma personalizada e relevante</li>
+            <li><strong>Melhoria Contínua da Plataforma:</strong> Analisar padrões de uso para otimizar conteúdo e funcionalidades</li>
+            <li><strong>Segurança e Prevenção de Fraudes:</strong> Detectar e prevenir atividades maliciosas ou abusivas</li>
+            <li><strong>Cumprimento de Obrigações Legais:</strong> Atender a requisitos legais, regulatórios e fiscais</li>
+            <li><strong>Comunicação com Usuários:</strong> Responder a dúvidas, solicitações e feedbacks</li>
+            <li><strong>Personalização da Experiência:</strong> Adaptar conteúdo e recomendações aos interesses demonstrados</li>
+            <li><strong>Pesquisa e Desenvolvimento:</strong> Melhorar nosso entendimento sobre educação em saúde do sono</li>
+        </ul>
+        
+        <h3>3.2 Base Legal para o Processamento</h3>
+        
+        <p>Nosso processamento de dados fundamenta-se nas seguintes bases legais da LGPD:</p>
+        
+        <div class="info-box">
+            <ul>
+                <li><strong>Consentimento:</strong> Para cookies não essenciais e comunicações de marketing (quando aplicável)</li>
+                <li><strong>Execução de Contrato:</strong> Para fornecer os serviços educativos solicitados</li>
+                <strong>Interesse Legítimo:</strong> Para melhorar nossos serviços, garantir segurança e prevenir fraudes</li>
+                <li><strong>Cumprimento de Obrigação Legal:</strong> Para atender a requisitos legais e regulatórios</li>
+                <li><strong>Proteção da Vida ou Incolumidade Física:</strong> Em situações excepcionais de emergência médica (hipotética)</li>
+            </ul>
+        </div>
+        
+        <h3>3.3 Processamento de Dados de Crianças e Adolescentes</h3>
+        
+        <p>A Nivora não coleta intencionalmente dados de crianças menores de 13 anos. Se descobrirmos que coletamos dados de criança sem consentimento parental verificável, tomaremos medidas imediatas para excluir tais informações.</p>
+        
+        <div class="seguranca">
+            <p><strong>👨‍👩‍👧‍👦 PROTEÇÃO ESPECIAL PARA MENORES:</strong> Recomendamos que pais e responsáveis supervisionem a atividade online de crianças. Se você é menor de 18 anos, deve usar a plataforma apenas com permissão e supervisão de seus pais ou responsáveis legais.</p>
+        </div>
+        <h3>4.2 Uso para Análise e Melhoria</h3>
 
-<div class="stars" id="stars"></div>
+<p>Dados agregados e anonimizados são utilizados para:</p>
 
-<div class="content">
-  <h1>Política de Privacidade</h1>
-
-  <p>
-    A Nivora respeita a sua privacidade e está comprometida em proteger
-    os dados pessoais dos usuários que acessam nosso site.
-  </p>
-
-  <p>
-    As informações coletadas são utilizadas exclusivamente para melhorar
-    a experiência do usuário, otimizar conteúdos e oferecer serviços
-    personalizados relacionados ao sono e bem-estar.
-  </p>
-
-  <p>
-    Utilizamos ferramentas de terceiros, como Google Analytics e
-    Google AdSense, que podem usar cookies para exibir anúncios relevantes
-    de acordo com seus interesses.
-  </p>
-
-  <p>
-    Ao continuar navegando neste site, você concorda com esta Política
-    de Privacidade.
-  </p>
+<div class="info-box">
+    <ul>
+        <li><strong>Análise de Engajamento:</strong> Entender quais conteúdos geram maior interesse e tempo de leitura</li>
+        <li><strong>Otimização Técnica:</strong> Identificar e corrigir problemas de performance e acessibilidade</li>
+        <li><strong>Desenvolvimento de Novos Recursos:</strong> Informar criação de novas ferramentas e conteúdos</li>
+        <li><strong>Pesquisa Educacional:</strong> Estudar padrões de aprendizado sobre saúde do sono (sempre com dados agregados)</li>
+        <li><strong>Medição de Impacto:</strong> Avaliar efetividade de nossa abordagem educativa</li>
+    </ul>
 </div>
 
-<script>
-  const stars = document.getElementById('stars');
-  for (let i = 0; i < 150; i++) {
-    const s = document.createElement('div');
-    s.className = 'star';
-    s.style.width = s.style.height = `${Math.random()*3+1}px`;
-    s.style.top = `${Math.random()*100}%`;
-    s.style.left = `${Math.random()*100}%`;
-    s.style.animationDelay = `${Math.random()*3}s`;
-    stars.appendChild(s);
-  }
-</script>
+<h3>4.3 Uso para Comunicação</h3>
 
+<p>Se você entrar em contato conosco ou fornecer endereço de e-mail:</p>
+
+<ul>
+    <li><strong>Resposta a Consultas:</strong> Responder suas dúvidas, solicitações ou feedback</li>
+    <li><strong>Comunicações de Serviço:</strong> Informar sobre alterações importantes em nossos termos ou políticas</li>
+    <li><strong>Atualizações Educativas:</strong> Compartilhar novos conteúdos ou recursos relevantes (apenas com consentimento explícito)</li>
+    <li><strong>Notificações de Segurança:</strong> Alertar sobre questões relevantes de segurança ou privacidade</li>
+</ul>
+
+<h2>5. 🤝 Compartilhamento de Informações</h2>
+
+<h3>5.1 Quando Compartilhamos</h3>
+
+<p>A Nivora leva a sério a confidencialidade de seus dados. Compartilhamos informações apenas nas seguintes circunstâncias específicas:</p>
+
+<div class="seguranca">
+    <ul>
+        <li><strong>Com Seu Consentimento Explícito:</strong> Quando você autoriza especificamente o compartilhamento</li>
+        <li><strong>Prestadores de Serviços:</strong> Com parceiros técnicos que processam dados sob nossas instruções rigorosas (processadores de dados)</li>
+        <li><strong>Requisitos Legais:</strong> Para cumprir leis, regulamentos, processos legais ou solicitações governamentais</li>
+        <li><strong>Proteção de Direitos e Segurança:</strong> Para proteger nossos direitos, propriedade ou segurança, ou de nossos usuários</li>
+        <li><strong>Transferência de Negócio:</strong> Em caso de fusão, aquisição ou venda de ativos (com aviso prévio)</li>
+        <li><strong>Dados Agregados Anonimizados:</strong> Estatísticas e insights que não identificam indivíduos</li>
+    </ul>
+</div>
+
+<h3>5.2 Prestadores de Serviços (Processadores de Dados)</h3>
+
+<p>Trabalhamos com prestadores de serviços terceirizados que nos auxiliam na operação da plataforma. Todos são obrigados por contrato a:</p>
+
+<ul>
+    <li><strong>Processar apenas conforme nossas instruções:</strong> Não podem usar dados para outros fins</li>
+    <li><strong>Implementar medidas de segurança adequadas:</strong> Proteger dados com padrões equivalentes aos nossos</li>
+    <li><strong>Notificar-nos sobre violações:</strong> Informar imediatamente qualquer incidente de segurança</li>
+    <li><strong>Excluir dados quando solicitado:</strong> Remover informações conforme nossas instruções</li>
+    <li><strong>Cooperar com autoridades:</strong> Auxiliar em investigações quando legalmente requerido</li>
+</ul>
+
+<h3>5.3 Serviços de Terceiros Específicos</h3>
+
+<p>Atualmente utilizamos os seguintes serviços que podem processar dados:</p>
+
+<div class="info-box">
+    <h4>🔧 SERVIÇOS TÉCNICOS E ANALÍTICOS:</h4>
+    <ul>
+        <li><strong>GitHub Pages:</strong> Hospedagem estática do website (processa dados técnicos de acesso)</li>
+        <li><strong>Google Analytics:</strong> Análise agregada de tráfego e comportamento (dados anonimizados)</li>
+        <li><strong>Google AdSense:</strong> Exibição de anúncios contextualmente relevantes</li>
+        <li><strong>Serviços de Email:</strong> Para comunicação direta quando você nos contacta</li>
+    </ul>
+    
+    <h4>🌐 POLÍTICAS DOS TERCEIROS:</h4>
+    <p>Cada serviço possui sua própria política de privacidade. Recomendamos que você as revise:</p>
+    
+    <div class="politicas-lista">
+        <div class="politica-item">
+            <div class="politica-icone">📄</div>
+            <div class="politica-conteudo">
+                <strong>Política de Privacidade do Google:</strong><br>
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a>
+            </div>
+        </div>
+        
+        <div class="politica-item">
+            <div class="politica-icone">📊</div>
+            <div class="politica-conteudo">
+                <strong>Política do Google Analytics:</strong><br>
+                <a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener">https://support.google.com/analytics/answer/6004245</a>
+            </div>
+        </div>
+        
+        <div class="politica-item">
+            <div class="politica-icone">🎯</div>
+            <div class="politica-conteudo">
+                <strong>Política do Google AdSense:</strong><br>
+                <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">https://policies.google.com/technologies/ads</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>5.4 Transferências Internacionais de Dados</h3>
+
+<p>Alguns de nossos prestadores de serviços estão localizados fora do Brasil. Todas as transferências internacionais seguem estritamente:</p>
+
+<ul>
+    <li><strong>Cláusulas Contratuais Padrão:</strong> Acordos que garantem proteção equivalente</li>
+    <li><strong>Adequação de Países:</strong> Transferência apenas para países com nível adequado de proteção</li>
+    <li><strong>Consentimento Específico:</strong> Quando aplicável, obtemos consentimento explícito</li>
+    <li><strong>Transparência Completa:</strong> Informamos sobre todas as transferências nesta política</li>
+</ul>
+
+<div class="transparencia">
+    <p><strong>🌍 PROTEÇÃO EM TRANSFERÊNCIAS INTERNACIONAIS:</strong> Garantimos que todas as transferências internacionais de dados atendam aos requisitos da LGPD e ofereçam nível de proteção equivalente ao estabelecido pela legislação brasileira.</p>
+</div>
+
+<h2>6. 🔐 Segurança de Dados</h2>
+
+<h3>6.1 Medidas Técnicas de Segurança</h3>
+
+<p>Implementamos medidas técnicas e organizacionais robustas para proteger seus dados contra acesso não autorizado, alteração, divulgação ou destruição:</p>
+
+<ul>
+    <li><strong>Criptografia:</strong> Uso de HTTPS/SSL em todas as comunicações</li>
+    <li><strong>Anonimização:</strong> Remoção de identificadores diretos quando possível</li>
+    <li><strong>Pseudonimização:</strong> Separação de dados de identificação de dados de conteúdo</li>
+    <li><strong>Controle de Acesso:</strong> Restrição rigorosa de acesso a dados pessoais</li>
+    <li><strong>Monitoramento Contínuo:</strong> Sistemas de detecção e prevenção de intrusões</li>
+    <li><strong>Backups Seguros:</strong> Cópias de segurança criptografadas e protegidas</li>
+    <li><strong>Avaliações Regulares:</strong> Testes periódicos de segurança e vulnerabilidade</li>
+</ul>
+
+<h3>6.2 Medidas Organizacionais</h3>
+
+<p>Além das medidas técnicas, implementamos políticas organizacionais rigorosas:</p>
+
+<div class="info-box">
+    <ul>
+        <li><strong>Política de Acesso Mínimo Necessário:</strong> Funcionários e prestadores acessam apenas dados necessários para suas funções</li>
+        <li><strong>Acordos de Confidencialidade:</strong> Todos com acesso a dados assinam acordos rigorosos</li>
+        <li><strong>Treinamento em Privacidade:</strong> Capacitação regular em proteção de dados e privacidade</li>
+        <li><strong>Política de Retenção:</strong> Exclusão sistemática de dados desnecessários</li>
+        <li><strong>Processo de Resposta a Incidentes:</strong> Protocolo claro para lidar com violações de segurança</li>
+        <li><strong>Avaliações de Impacto:</strong> Análise de riscos para novos processamentos de dados</li>
+    </ul>
+</div>
+
+<h3>6.3 Limitações de Segurança</h3>
+
+<p>É importante reconhecer que:</p>
+
+<ul>
+    <li><strong>Nenhum Sistema é 100% Seguro:</strong> Embora implementemos medidas robustas, nenhum método de transmissão ou armazenamento eletrônico é completamente seguro</li>
+    <li><strong>Responsabilidade Compartilhada:</strong> Você também deve tomar medidas para proteger suas informações (senhas fortes, proteção do dispositivo, etc.)</li>
+    <li><strong>Comunicação Imediata:</strong> Caso suspeite de qualquer violação de segurança relacionada à nossa plataforma, notifique-nos imediatamente</li>
+    <li><strong>Notificação Obrigatória:</strong> Em caso de incidente de segurança que possa causar risco aos direitos dos titulares, notificaremos autoridades e afetados conforme exigido por lei</li>
+</ul>
+
+<h2>7. ⏱️ Retenção de Dados</h2>
+
+<h3>7.1 Períodos de Retenção</h3>
+
+<p>Mantemos dados apenas pelo tempo necessário para cumprir as finalidades para as quais foram coletados, considerando:</p>
+
+<ul>
+    <li><strong>Finalidade do Processamento:</strong> Dados são retidos enquanto necessário para a finalidade específica</li>
+    <li><strong>Requisitos Legais:</strong> Períodos mínimos exigidos por leis aplicáveis</li>
+    <li><strong>Contratos Vigentes:</strong> Enquanto houver relação contratual relevante</li>
+    <li><strong>Interesse Legítimo:</strong> Período razoável para nossos interesses legítimos</li>
+    <li><strong>Consentimento:</strong> Enquanto o consentimento permanecer válido e não revogado</li>
+</ul>
+
+<h3>7.2 Períodos Específicos de Retenção</h3>
+
+<p>Estabelecemos os seguintes períodos máximos de retenção:</p>
+
+<div class="info-box">
+    <div class="tabela-retencao">
+        <div class="tabela-cabecalho">
+            <div class="coluna-tipo">Tipo de Dados</div>
+            <div class="coluna-periodo">Período de Retenção</div>
+            <div class="coluna-justificativa">Justificativa</div>
+        </div>
+        
+        <div class="tabela-linha">
+            <div class="coluna-tipo" data-label="Tipo de Dados">
+                <strong>Logs de Acesso (IPs)</strong>
+            </div>
+            <div class="coluna-periodo" data-label="Período de Retenção">
+                30 dias
+            </div>
+            <div class="coluna-justificativa" data-label="Justificativa">
+                Segurança e análise técnica
+            </div>
+        </div>
+        
+        <div class="tabela-linha">
+            <div class="coluna-tipo" data-label="Tipo de Dados">
+                <strong>Dados de Analytics</strong>
+            </div>
+            <div class="coluna-periodo" data-label="Período de Retenção">
+                14 meses
+            </div>
+            <div class="coluna-justificativa" data-label="Justificativa">
+                Análise de tendências e desempenho
+            </div>
+        </div>
+        
+        <div class="tabela-linha">
+            <div class="coluna-tipo" data-label="Tipo de Dados">
+                <strong>E-mails de Contato</strong>
+            </div>
+            <div class="coluna-periodo" data-label="Período de Retenção">
+                5 anos
+            </div>
+            <div class="coluna-justificativa" data-label="Justificativa">
+                Histórico de comunicação e suporte
+            </div>
+        </div>
+        
+        <div class="tabela-linha">
+            <div class="coluna-tipo" data-label="Tipo de Dados">
+                <strong>Dados de Cookies</strong>
+            </div>
+            <div class="coluna-periodo" data-label="Período de Retenção">
+                Conforme configuração do cookie
+            </div>
+            <div class="coluna-justificativa" data-label="Justificativa">
+                Funcionalidade específica de cada cookie
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>7.3 Exclusão de Dados</h3>
+
+<p>Após os períodos de retenção ou quando solicitado pelo titular:</p>
+
+<ul>
+    <li><strong>Exclusão Segura:</strong> Dados são excluídos usando métodos que previnem recuperação</li>
+    <li><strong>Anonimização:</strong> Quando exclusão completa não é possível, dados são anonimizados</li>
+    <li><strong>Confirmação de Exclusão:</strong> Fornecemos confirmação quando solicitamos exclusão</li>
+    <li><strong>Exceções Legais:</strong> Podemos reter dados quando exigido por lei ou para exercer direitos legais</li>
+</ul>
+
+<h2>8. 🛡️ Seus Direitos como Titular de Dados</h2>
+
+<h3>8.1 Direitos Garantidos pela LGPD</h3>
+
+<p>Como titular de dados, você possui os seguintes direitos fundamentais:</p>
+
+<div class="destaque">
+    <ul>
+        <li><strong>Confirmação e Acesso:</strong> Confirmar que processamos seus dados e acessá-los</li>
+        <li><strong>Correção:</strong> Solicitar correção de dados incompletos, inexatos ou desatualizados</li>
+        <li><strong>Anonimização, Bloqueio ou Eliminação:</strong> Solicitar anonimização, bloqueio ou eliminação de dados desnecessários ou excessivos</li>
+        <li><strong>Portabilidade:</strong> Receber dados em formato estruturado e interoperável</li>
+        <li><strong>Eliminação:</strong> Solicitar eliminação de dados processados com consentimento</li>
+        <li><strong>Informação sobre Compartilhamento:</strong> Obter informações sobre compartilhamento com terceiros</li>
+        <li><strong>Informação sobre Possibilidade de Não Consentir:</strong> Ser informado sobre possibilidade de não fornecer consentimento e consequências</li>
+        <li><strong>Revogação de Consentimento:</strong> Revogar consentimento a qualquer momento</li>
+    </ul>
+</div>
+        <h3>9.2 Cookies de Terceiros Específicos</h3>
+        
+        <p>Utilizamos os seguintes serviços de terceiros que podem configurar cookies:</p>
+        
+        <div class="info-box">
+            <div class="tabela-cookies">
+                <div class="cookie-cabecalho">
+                    <div class="cookie-servico">Serviço</div>
+                    <div class="cookie-finalidade">Finalidade</div>
+                    <div class="cookie-optout">Como Optar</div>
+                </div>
+                
+                <div class="cookie-linha">
+                    <div class="cookie-servico" data-label="Serviço">
+                        <strong>Google Analytics</strong>
+                    </div>
+                    <div class="cookie-finalidade" data-label="Finalidade">
+                        Análise de uso da plataforma
+                    </div>
+                    <div class="cookie-optout" data-label="Como Optar">
+                        <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">
+                            https://tools.google.com/dlpage/gaoptout
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="cookie-linha">
+                    <div class="cookie-servico" data-label="Serviço">
+                        <strong>Google AdSense</strong>
+                    </div>
+                    <div class="cookie-finalidade" data-label="Finalidade">
+                        Anúncios personalizados
+                    </div>
+                    <div class="cookie-optout" data-label="Como Optar">
+                        <a href="https://adssettings.google.com" target="_blank" rel="noopener">
+                            https://adssettings.google.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h3>9.3 Tecnologias Similares</h3>
+        
+        <p>Além de cookies, podemos utilizar:</p>
+        
+        <ul>
+            <li><strong>Web Beacons/Pixels:</strong> Pequenas imagens invisíveis para rastrear determinadas atividades</li>
+            <li><strong>Local Storage:</strong> Armazenamento local no navegador para preferências</li>
+            <li><strong>Session Storage:</strong> Armazenamento temporário durante uma sessão de navegação</li>
+            <li><strong>IndexedDB:</strong> Para funcionalidades mais complexas de ferramentas interativas</li>
+        </ul>
+        
+        <h2>10. 📧 Comunicações de Marketing</h2>
+        
+        <h3>10.1 Princípios de Comunicação</h3>
+        
+        <p>Todas as comunicações de marketing da Nivora seguem estritos princípios:</p>
+        
+        <ul>
+            <li><strong>Consentimento Prévio:</strong> Nunca enviaremos comunicações sem consentimento explícito</li>
+            <li><strong>Relevância Educativa:</strong> Conteúdo sempre relacionado à saúde do sono e bem-estar</li>
+            <li><strong>Frequência Moderada:</strong> Não sobrecarregaremos sua caixa de entrada</li>
+            <li><strong>Opção de Cancelamento:</strong> Todo e-mail inclui link de cancelamento fácil e imediato</li>
+            <li><strong>Transparência na Origem:</strong> Claramente identificado como comunicação da Nivora</li>
+        </ul>
+        
+        <h3>10.2 Tipos de Comunicação</h3>
+        
+        <p>Caso você opte por receber comunicações, poderá receber:</p>
+        
+        <div class="info-box">
+            <ul>
+                <li><strong>Newsletters Educativas:</strong> Resumos de novos artigos e conteúdos científicos</li>
+                <li><strong>Dicas Práticas:</strong> Sugestões semanais para melhorar a qualidade do sono</li>
+                <li><strong>Atualizações de Ferramentas:</strong> Informações sobre novas funcionalidades</li>
+                <li><strong>Pesquisas Opcionais:</strong> Solicitações de feedback para melhorar nossos serviços</li>
+                <li><strong>Alertas Importantes:</strong> Mudanças significativas em termos ou políticas</li>
+            </ul>
+        </div>
+        
+        <h2>11. 🔗 Links para Sites de Terceiros</h2>
+        
+        <h3>11.1 Responsabilidade por Links Externos</h3>
+        
+        <p>Nossa plataforma pode conter links para sites de terceiros. Em relação a esses links:</p>
+        
+        <ul>
+            <li><strong>Não Controlamos:</strong> Não temos controle sobre o conteúdo ou práticas de privacidade de sites de terceiros</li>
+            <li><strong>Revisão Recomendada:</strong> Recomendamos que você revise as políticas de privacidade de qualquer site que visite</li>
+            <li><strong>Não Endossamos:</strong> A inclusão de links não implica endosso das práticas de privacidade desses sites</li>
+            <li><strong>Responsabilidade do Usuário:</strong> Você acessa sites de terceiros por sua conta e risco</li>
+            <li><strong>Comunicação de Problemas:</strong> Se encontrar problemas com links externos, informe-nos</li>
+        </ul>
+        
+        <div class="seguranca">
+            <p><strong>⚠️ ALERTA DE SEGURANÇA:</strong> Tenha cuidado ao fornecer informações pessoais em sites de terceiros. A Nivora não se responsabiliza por práticas de coleta de dados de outros sites, mesmo quando acessados através de links em nossa plataforma.</p>
+        </div>
+        
+        <h2>12. ⚖️ Conformidade Legal e Regulatória</h2>
+        
+        <h3>12.1 Legislação Aplicável</h3>
+        
+        <p>Esta Política de Privacidade está em conformidade com:</p>
+        
+        <ul>
+            <li><strong>Lei Geral de Proteção de Dados (LGPD):</strong> Lei nº 13.709/2018</li>
+            <li><strong>Marco Civil da Internet:</strong> Lei nº 12.965/2014</li>
+            <li><strong>Regulamentações da ANPD:</strong> Resoluções e orientações da Autoridade Nacional de Proteção de Dados</li>
+            <li><strong>Legislação Internacional:</strong> Quando aplicável, consideramos GDPR (UE) e CCPA (Califórnia)</li>
+        </ul>
+        
+        <h3>12.2 Encarregado pelo Tratamento de Dados (DPO)</h3>
+        
+        <p>Designamos um Encarregado pelo Tratamento de Dados responsável por:</p>
+        
+        <div class="info-box">
+            <p><strong>👤 Encarregado (DPO) da Nivora:</strong><br>
+            <strong>Função:</strong> Responsável pela proteção de dados e privacidade<br>
+            <strong>Contato:</strong> nivoraprivacidade@gmail.com<br>
+            <strong>Atribuições:</strong> Aceitar reclamações e comunicações, orientar funcionários, executar outras atribuições determinadas pelo controlador ou previstas em normas</p>
+        </div>
+        
+        <h2>13. 📝 Alterações nesta Política de Privacidade</h2>
+        
+        <h3>13.1 Notificação de Alterações</h3>
+        
+        <p>Podemos atualizar esta Política de Privacidade periodicamente. Quando fizermos alterações significativas:</p>
+        
+        <ul>
+            <li><strong>Notificação Visível:</strong> Publicaremos aviso proeminente na plataforma</li>
+            <li><strong>Data de Atualização:</strong> Atualizaremos a data "Última atualização" no início do documento</li>
+            <li><strong>Resumo de Mudanças:</strong> Forneceremos resumo das principais alterações</li>
+            <li><strong>Período de Transição:</strong> Daremos tempo razoável para você revisar as mudanças</li>
+            <li><strong>Consentimento para Mudanças Significativas:</strong> Para alterações substantivas, podemos solicitar novo consentimento</li>
+        </ul>
+        
+        <h3>13.2 Aceitação Contínua</h3>
+        
+        <p>O uso continuado da plataforma após alterações nesta Política constitui aceitação das novas condições. Se você não concordar com as alterações, deve:</p>
+        
+        <div class="destaque">
+            <p><strong>🛑 DIREITO DE RECUSA:</strong> 1) Parar de usar a plataforma imediatamente<br>
+            2) Exercer seus direitos de exclusão de dados conforme descrito na Seção 8<br>
+            3) Entrar em contato conosco com suas preocupações</p>
+        </div>
+        
+        <h2>14. 🌍 Usuários Internacionais</h2>
+        
+        <h3>14.1 Transferências e Conformidade</h3>
+        
+        <p>Se você acessar nossa plataforma de fora do Brasil:</p>
+        
+        <ul>
+            <li><strong>Transferência para o Brasil:</strong> Seus dados serão processados no Brasil</li>
+            <li><strong>Leis Locais:</strong> Você é responsável por conformidade com leis locais aplicáveis</li>
+            <li><strong>Direitos Adicionais:</strong> Podem aplicar-se direitos adicionais dependendo de sua jurisdição</li>
+            <li><strong>Representante na UE (se aplicável):</strong> Para usuários da UE, designaremos representante conforme exigido pelo GDPR</li>
+        </ul>
+        
+        <h3>14.2 Usuários da União Europeia</h3>
+        
+        <p>Para usuários da União Europeia, aplicam-se adicionalmente:</p>
+        
+        <div class="info-box">
+            <ul>
+                <li><strong>Base Legal do GDPR:</strong> Processamento conforme Artigo 6 do GDPR</li>
+                <li><strong>Direito ao Esquecimento:</strong> Direito de ter dados apagados em determinadas circunstâncias</li>
+                <li><strong>Direito à Portabilidade:</strong> Direito de receber dados em formato estruturado</li>
+                <li><strong>Direito de Oposição:</strong> Direito de se opor ao processamento em determinadas circunstâncias</li>
+                <li><strong>Autoridade Supervisora:</strong> Direito de apresentar reclamação à autoridade supervisora local</li>
+            </ul>
+        </div>
+        
+        <h2>15. 🆘 Contato e Suporte</h2>
+        
+        <h3>15.1 Canais de Contato para Privacidade</h3>
+        
+        <p>Para questões, preocupações ou exercício de direitos relacionados a privacidade:</p>
+        
+        <div class="seguranca">
+            <p><strong>📧 Contato Principal (Encarregado de Dados):</strong><br>
+            <strong>E-mail:</strong> nivoraprivacidade@gmail.com<br>
+            <strong>Assunto:</strong> "Privacidade - Nivora"<br>
+            <strong>Prazo de Resposta:</strong> 15 dias úteis para direitos LGPD<br>
+            <strong>Horário de Atendimento:</strong> Segunda a sexta, 9h às 18h (horário de Brasília)</p>
+        </div>
+        
+        <h3>15.2 Autoridade Nacional de Proteção de Dados (ANPD)</h3>
+        
+        <p>Se você não estiver satisfeito com como tratamos suas preocupações de privacidade, tem o direito de apresentar reclamação à Autoridade Nacional de Proteção de Dados:</p>
+        
+        <div class="info-box">
+            <p><strong>🏛️ Autoridade Nacional de Proteção de Dados (ANPD):</strong><br>
+            <strong>Site:</strong> https://www.gov.br/anpd<br>
+            <strong>E-mail:</strong> atendimento@anpd.gov.br<br>
+            <strong>Endereço:</strong> Setor de Autarquias Sul, Quadra 1, Bloco C, 4º andar, Brasília/DF, CEP: 70070-010</p>
+        </div>
+        
+        <h2>16. 📅 Vigência e Compromisso Final</h2>
+        
+        <h3>16.1 Vigência</h3>
+        
+        <p>Esta Política de Privacidade entra em vigor em 15 de Dezembro de 2024 e permanece em vigor até ser substituída por versão atualizada.</p>
+        
+        <h3>16.2 Compromisso Renovado com a Privacidade</h3>
+        
+        <div class="transparencia">
+            <p><strong>🌟 COMPROMISSO FINAL:</strong> A Nivora reafirma seu compromisso inabalável com a proteção de sua privacidade e dados pessoais. Operamos sob o princípio de que a confiança é o fundamento de qualquer relação educativa significativa. Continuaremos a evoluir nossas práticas de privacidade, sempre priorizando a segurança, transparência e controle que você merece como nosso usuário e parceiro na jornada por um sono melhor.</p>
+        </div>
+        
+        <p style="text-align: center; margin-top: 50px;">
+            <a href="index.html" class="link-voltar">← Voltar para a Página Inicial</a>
+        </p>
+    </div>
+    
+    <div class="rodape">
+        <p>© 2025 Nivora | Plataforma Educativa sobre Saúde do Sono</p>
+        <p style="margin-top: 15px; font-size: 0.85rem;">
+            Política de Privacidade atualizada em 15/12/2024 | Versão 3.0<br>
+            Conforme Lei Geral de Proteção de Dados (LGPD) - Lei nº 13.709/2018
+        </p>
+    </div>
+    
+    <script>
+        // Criar estrelas
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = star.style.height = `${Math.random() * 2 + 1}px`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 3}s`;
+            starsContainer.appendChild(star);
+        }
+        
+        // Data de atualização automática
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYear = new Date().getFullYear();
+            document.querySelectorAll('.current-year').forEach(el => {
+                el.textContent = currentYear;
+            });
+            
+            // Animar seções ao passar o mouse
+            const sections = document.querySelectorAll('.destaque, .seguranca, .transparencia');
+            sections.forEach(section => {
+                section.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                section.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+            
+            // Adicionar atributos de acessibilidade às tabelas
+            const tabelas = document.querySelectorAll('.tabela-retencao, .tabela-cookies');
+            tabelas.forEach(tabela => {
+                tabela.setAttribute('role', 'table');
+                tabela.setAttribute('aria-label', 'Tabela de informações');
+            });
+        });
+    </script>
 </body>
 </html>
