@@ -39,7 +39,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nivora - sonhe alto</title>
     <style>
-        :root {
+:root {
             --primary: #0044CC;
             --secondary: #0033A0;
             --dark: #0F0F1E;
@@ -7681,7 +7681,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     function initEverything() {
-        createStars('stars-sds', 150);
+        createStars('stars-container', 150);
         generateWeekCalendar();
         setupSleepOptions();
         setupBreathingGuide();
@@ -7752,7 +7752,7 @@ document.addEventListener('DOMContentLoaded', function() {
         startDate.setDate(today.getDate() - currentDay);
         
         // Carregar dados salvos do calendário
-const savedData = JSON.parse(localStorage.getItem('sleepCalendarData')) || {};
+        const savedData = JSON.parse(localStorage.getItem('sleepCalendarData')) || {};
         
         for (let i = 0; i < 7; i++) {
             const currentDate = new Date(startDate);
@@ -7884,22 +7884,22 @@ const savedData = JSON.parse(localStorage.getItem('sleepCalendarData')) || {};
         const completionOk = document.getElementById('completion-ok');
         
         // RESETAR PROTOCOLO 7 PARA O DIA 1
-// Limpar qualquer dado salvo anteriormente
-localStorage.removeItem('sleepChallenge');
-
-// Inicializar estado do desafio SEMPRE no DIA 1
-const savedChallenge = {
-    currentDay: 1, // SEMPRE DIA 1
-    completedDays: [],
-    startDates: {},
-    lastAcceptanceDate: null,
-    playerName: "Jogador"
-};
-
-STATE.challenge = savedChallenge;
-
-// Salvar estado resetado
-localStorage.setItem('sleepChallenge', JSON.stringify(savedChallenge));
+        // Limpar qualquer dado salvo anteriormente
+        localStorage.removeItem('sleepChallenge');
+        
+        // Inicializar estado do desafio SEMPRE no DIA 1
+        const savedChallenge = {
+            currentDay: 1, // SEMPRE DIA 1
+            completedDays: [],
+            startDates: {},
+            lastAcceptanceDate: null,
+            playerName: "Jogador"
+        };
+        
+        STATE.challenge = savedChallenge;
+        
+        // Salvar estado resetado
+        localStorage.setItem('sleepChallenge', JSON.stringify(savedChallenge));
         
         challengeDaysContainer.innerHTML = '';
         
@@ -7908,9 +7908,10 @@ localStorage.setItem('sleepChallenge', JSON.stringify(savedChallenge));
             dayDiv.className = 'challenge-day';
             dayDiv.setAttribute('data-day', i);
             
+            // SEMPRE mostrar o dia 1 como ativo, os outros como bloqueados
             const isCompleted = STATE.challenge.completedDays.includes(i);
-const isCurrent = i === 1; // SEMPRE dia 1 é o atual
-const isLocked = i > 1; // Todos os outros dias bloqueados
+            const isCurrent = i === 1; // SEMPRE dia 1 é o atual
+            const isLocked = i > 1; // Todos os outros dias bloqueados
             
             if (isCompleted) {
                 dayDiv.classList.add('completed');
@@ -7970,10 +7971,8 @@ const isLocked = i > 1; // Todos os outros dias bloqueados
             missionModal.classList.remove('active');
         });
         
-        
-declineMission.addEventListener('click', function() {
-    missionModal.classList.remove('active');
-});
+        declineMission.addEventListener('click', function() {
+            missionModal.classList.remove('active');
         });
         
         acceptMission.addEventListener('click', function() {
