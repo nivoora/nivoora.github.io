@@ -7751,18 +7751,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const startDate = new Date(today);
         startDate.setDate(today.getDate() - currentDay);
         
-        // Verificar se é uma nova semana e resetar se necessário
-const currentWeekStart = startDate.toDateString();
-const savedWeekStart = localStorage.getItem('sleepWeekStart');
-
-if (savedWeekStart !== currentWeekStart) {
-    localStorage.removeItem('sleepCalendarData');
-    localStorage.removeItem('lastSleepSelectionDate');
-    localStorage.removeItem('lastSleepSelectionLevel');
-    localStorage.setItem('sleepWeekStart', currentWeekStart);
-}
-
-// Carregar dados salvos do calendário
+        // Carregar dados salvos do calendário
 const savedData = JSON.parse(localStorage.getItem('sleepCalendarData')) || {};
         
         for (let i = 0; i < 7; i++) {
@@ -7894,11 +7883,13 @@ const savedData = JSON.parse(localStorage.getItem('sleepCalendarData')) || {};
         const closeCompletion = document.getElementById('close-completion');
         const completionOk = document.getElementById('completion-ok');
         
-        // Carregar progresso salvo OU iniciar do zero
-const saved = JSON.parse(localStorage.getItem('sleepChallenge'));
+        // RESETAR PROTOCOLO 7 PARA O DIA 1
+// Limpar qualquer dado salvo anteriormente
+localStorage.removeItem('sleepChallenge');
 
-const savedChallenge = saved || {
-    currentDay: 1,
+// Inicializar estado do desafio SEMPRE no DIA 1
+const savedChallenge = {
+    currentDay: 1, // SEMPRE DIA 1
     completedDays: [],
     startDates: {},
     lastAcceptanceDate: null,
@@ -7906,6 +7897,9 @@ const savedChallenge = saved || {
 };
 
 STATE.challenge = savedChallenge;
+
+// Salvar estado resetado
+localStorage.setItem('sleepChallenge', JSON.stringify(savedChallenge));
         
         challengeDaysContainer.innerHTML = '';
         
@@ -7915,19 +7909,8 @@ STATE.challenge = savedChallenge;
             dayDiv.setAttribute('data-day', i);
             
             const isCompleted = STATE.challenge.completedDays.includes(i);
-
-// Verificar se o dia anterior foi aceito e se já passaram 24h
-function isDayUnlocked(day) {
-    if (day === 1) return true;
-    const prevStartDate = STATE.challenge.startDates[day - 1];
-    if (!prevStartDate) return false;
-    const hoursPassed = (new Date() - new Date(prevStartDate)) / (1000 * 60 * 60);
-    return hoursPassed >= 24;
-}
-
-const isUnlocked = isDayUnlocked(i);
-const isCurrent = isUnlocked && !isCompleted;
-const isLocked = !isUnlocked && !isCompleted;
+const isCurrent = i === 1; // SEMPRE dia 1 é o atual
+const isLocked = i > 1; // Todos os outros dias bloqueados
             
             if (isCompleted) {
                 dayDiv.classList.add('completed');
@@ -7987,23 +7970,9 @@ const isLocked = !isUnlocked && !isCompleted;
             missionModal.classList.remove('active');
         });
         
-        declineMission.addEventListener('click', function() {
-    const day = STATE.challenge.currentMission;
+        
+declineMission.addEventListener('click', function() {
     missionModal.classList.remove('active');
-
-    if (day && day > 1) {
-        // Recusou uma missão depois da 1 — reinicia tudo do dia 1
-        STATE.challenge = {
-            currentDay: 1,
-            completedDays: [],
-            startDates: {},
-            lastAcceptanceDate: null,
-            playerName: "Jogador"
-        };
-        localStorage.setItem('sleepChallenge', JSON.stringify(STATE.challenge));
-        setTimeout(() => setupChallenge(), 300);
-    }
-    // Se recusar o dia 1, só fecha o modal sem resetar nada
 });
         });
         
