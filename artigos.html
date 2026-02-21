@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigos sobre Sono e Qualidade de Vida</title>
+    <meta name="description" content="Explore nossa coleção completa de artigos sobre sono, insônia, apneia, paralisia do sono, pesadelos e muito mais. Conteúdo aprofundado e baseado em evidências científicas.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0044CC;
+            --secondary: #0033A0;
+            --dark: #0F0F1E;
+            --darker: #070712;
+            --light: #FFFFFF;
+            --gray: #A0A0B0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(15, 15, 30, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0 5%;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            color: var(--secondary);
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 100px auto 0;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .intro-text {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .article-card {
+            background: rgba(15, 15, 30, 0.6);
+            border: 1px solid rgba(0, 68, 204, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 200px;
+        }
+
+        .article-card:hover {
+            background: rgba(15, 15, 30, 0.9);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 68, 204, 0.2);
+        }
+
+        .article-number {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .article-title {
+            color: var(--light);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .article-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: 1px solid var(--primary);
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .article-link:hover {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                margin-top: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">NIVORA</a>
+    </header>
+
+    <main>
+        <h1>Artigos</h1>
+        <p class="intro-text">
+            Explore nossa coleção completa de artigos sobre sono, insônia, apneia do sono, paralisia do sono, pesadelos e muito mais. Todos os conteúdos são aprofundados, baseados em evidências científicas e desenvolvidos para ajudar você a entender e melhorar a qualidade do seu sono.
+        </p>
+
+        <div class="articles-grid">
+            <!-- Artigo 1 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 01</div>
+                    <h2 class="article-title">Insônia: Causas, Consequências e Estratégias Eficazes</h2>
+                </div>
+                <a href="/artigos/artigo1.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 2 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 02</div>
+                    <h2 class="article-title">Fase REM: O Palco dos Sonhos e a Consolidação da Memória</h2>
+                </div>
+                <a href="/artigos/artigo2.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 3 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 03</div>
+                    <h2 class="article-title">Apneia do Sono: Um Inimigo Silencioso da Saúde</h2>
+                </div>
+                <a href="/artigos/artigo3.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 4 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 04</div>
+                    <h2 class="article-title">Paralisia do Sono: Entendendo o Fenômeno Entre o Sonho e a Vigília</h2>
+                </div>
+                <a href="/artigos/artigo4.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 5 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 05</div>
+                    <h2 class="article-title">Pesadelos: Desvendando os Terrores Noturnos</h2>
+                </div>
+                <a href="/artigos/artigo5.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 6 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 06</div>
+                    <h2 class="article-title">Melatonina: O Hormônio do Sono e Seu Papel na Regulação do Ciclo Circadiano</h2>
+                </div>
+                <a href="/artigos/artigo6.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 7 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 07</div>
+                    <h2 class="article-title">Rotinas para Dormir Melhor: Construindo o Caminho para Noites Reparadoras</h2>
+                </div>
+                <a href="/artigos/artigo7.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 8 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 08</div>
+                    <h2 class="article-title">Método Militar para Dormir Rápido: A Técnica de 2 Minutos</h2>
+                </div>
+                <a href="/artigos/artigo8.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 9 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 09</div>
+                    <h2 class="article-title">Ansiedade Noturna: Como os Pensamentos Acelerados Roubam Seu Sono</h2>
+                </div>
+                <a href="/artigos/artigo9.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 10 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 10</div>
+                    <h2 class="article-title">Ciclos do Sono: Desvendando as Fases que Moldam Seu Descanso</h2>
+                </div>
+                <a href="/artigos/artigo10.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 11 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 11</div>
+                    <h2 class="article-title">Hábitos Noturnos: Construindo uma Rotina Saudável</h2>
+                </div>
+                <a href="/artigos/artigo11.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 12 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 12</div>
+                    <h2 class="article-title">Técnicas para Melhorar o Sono: Um Guia Abrangente</h2>
+                </div>
+                <a href="/artigos/artigo12.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 13 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 13</div>
+                    <h2 class="article-title">A Importância Vital do Sono: Mais do que Descanso</h2>
+                </div>
+                <a href="/artigos/artigo13.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 14 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 14</div>
+                    <h2 class="article-title">Sono e Saúde Mental: A Conexão Indissociável</h2>
+                </div>
+                <a href="/artigos/artigo14.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 15 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 15</div>
+                    <h2 class="article-title">Alimentação e Sono: Como o Que Você Come Afeta Seu Descanso</h2>
+                </div>
+                <a href="/artigos/artigo15.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 16 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 16</div>
+                    <h2 class="article-title">O Papel Crucial do Colchão e Travesseiro na Qualidade do Seu Sono</h2>
+                </div>
+                <a href="/artigos/artigo16.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 17 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 17</div>
+                    <h2 class="article-title">Sono e Produtividade: A Conexão Essencial para o Sucesso Diário</h2>
+                </div>
+                <a href="/artigos/artigo17.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 18 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 18</div>
+                    <h2 class="article-title">Sono e Envelhecimento: Como o Descanso Noturno Muda com a Idade</h2>
+                </div>
+                <a href="/artigos/artigo18.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 19 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 19</div>
+                    <h2 class="article-title">Sono e Exercício Físico: A Dupla Essencial para a Saúde</h2>
+                </div>
+                <a href="/artigos/artigo19.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 20 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 20</div>
+                    <h2 class="article-title">Luz Azul e Sono: Como a Tecnologia Afeta Seu Descanso Noturno</h2>
+                </div>
+                <a href="/artigos/artigo20.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 21 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 21</div>
+                    <h2 class="article-title">Higiene do Sono: O Guia Completo para um Descanso Perfeito</h2>
+                </div>
+                <a href="/artigos/artigo21.html" class="article-link">Ler artigo →</a>
+            </div>
+
+            <!-- Artigo 22 -->
+            <div class="article-card">
+                <div>
+                    <div class="article-number">Artigo 22</div>
+                    <h2 class="article-title">Estresse e Sono: A Relação Perigosa que Rouba Suas Noites</h2>
+                </div>
+                <a href="/artigos/artigo22.html" class="article-link">Ler artigo →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NIVORA. Todos os direitos reservados. | <a href="/">Voltar ao início</a></p>
+    </footer>
+</body>
+</html>
