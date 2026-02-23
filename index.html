@@ -2591,7 +2591,7 @@ body {
     right: 0;
     background: rgba(20, 20, 30, 0.98);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 15px 20px;
+    padding: 10px 20px;
     z-index: 9998;
     display: none;
     width: 100%;
@@ -2616,7 +2616,7 @@ body {
 .cookie-content {
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    gap: 12px;
     align-items: center;
     justify-content: space-between;
     max-width: 100%;
@@ -2626,17 +2626,10 @@ body {
     flex: 1;
 }
 
-.cookie-text h3 {
-    color: var(--light);
-    font-size: 0.9rem;
-    margin: 0 0 4px 0;
-    font-weight: 600;
-}
-
 .cookie-text p {
     color: var(--gray);
-    font-size: 0.8rem;
-    line-height: 1.4;
+    font-size: 0.75rem;
+    line-height: 1.3;
     margin: 0;
 }
 
@@ -2647,16 +2640,16 @@ body {
 
 .cookie-buttons {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     justify-content: flex-end;
     flex-shrink: 0;
 }
 
 .cookie-btn {
-    padding: 6px 14px;
+    padding: 5px 12px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    font-size: 0.8rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -9350,12 +9343,10 @@ document.addEventListener("DOMContentLoaded", function() {
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
             <div class="cookie-text">
-                <h3>Configurações de cookies</h3>
-                <p>Utilizamos cookies para fornecer e melhorar nossos serviços, analisar o uso do site e, se você concordar, personalizar sua experiência e divulgar nossos serviços para você. Você pode ler nossa <a href="/privacidade.html" target="_blank">Política de Cookies aqui</a>.</p>
+                <p>Utilizamos cookies para fornecer e melhorar nossos serviços. Você pode ler nossa <a href="/privacidade.html" target="_blank">Política de Cookies aqui</a>.</p>
             </div>
             <div class="cookie-buttons">
                 <button id="rejectCookies" class="cookie-btn cookie-btn-secondary">Rejeitar</button>
-                <button id="customizeCookies" class="cookie-btn cookie-btn-secondary">Personalizar</button>
                 <button id="acceptCookies" class="cookie-btn cookie-btn-primary">Aceitar</button>
             </div>
         </div>
@@ -9415,7 +9406,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const cookieBanner = document.getElementById('cookieBanner');
         const acceptBtn = document.getElementById('acceptCookies');
         const rejectBtn = document.getElementById('rejectCookies');
-        const customizeBtn = document.getElementById('customizeCookies');
         
         const cookieChoice = localStorage.getItem('nivoora-cookie-choice');
         const cookieTimestamp = localStorage.getItem('nivoora-cookie-timestamp');
@@ -9436,10 +9426,6 @@ document.addEventListener("DOMContentLoaded", function() {
             localStorage.setItem('nivoora-cookie-choice', 'rejected');
             localStorage.setItem('nivoora-cookie-timestamp', Date.now().toString());
             cookieBanner.classList.remove('show');
-        });
-        
-        customizeBtn.addEventListener('click', function() {
-            window.location.href = '/privacidade.html';
         });
     });
     </script>
