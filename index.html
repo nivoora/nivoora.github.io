@@ -9,20 +9,20 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_apple-touch-icon.png">
     <link rel="manifest" href="favicon_site.webmanifest">
-    <meta name="theme-color" content="#6C63FF">
+    <meta name="theme-color" content="#0044CC">
     
     <!-- Open Graph Meta Tags para Compartilhamento em Redes Sociais -->
     <meta property="og:title" content="NIVORA">
     <meta property="og:description" content="Dormir é uma ciência, não um luxo. A nivora conecta os pontos entre os ciclos circadianos e o bem-estar moderno, oferecendo uma curadoria precisa sobre como a ciência pode silenciar sua mente e restaurar seu corpo.">
-    <meta property="og:image" content="https://nivoora.github.io/preview.png">
-    <meta property="og:url" content="https://nivoora.github.io">
+    <meta property="og:image" content="https://nivoora.com.br/preview.png">
+    <meta property="og:url" content="https://nivoora.com.br">
     <meta property="og:type" content="website">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="NIVORA">
     <meta name="twitter:description" content="Dormir é uma ciência, não um luxo. A nivora conecta os pontos entre os ciclos circadianos e o bem-estar moderno, oferecendo uma curadoria precisa sobre como a ciência pode silenciar sua mente e restaurar seu corpo.">
-    <meta name="twitter:image" content="https://nivoora.github.io/preview.png">
+    <meta name="twitter:image" content="https://nivoora.com.br/preview.png">
     
     <meta name="google-adsense-account" content="ca-pub-2479436560500692">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
@@ -120,7 +120,7 @@
             right: 0;
             width: 100%;
             height: 70px;
-            background: rgba(15, 15, 30, 0.95);
+            background: var(--primary);
             backdrop-filter: blur(10px);
             padding: 0 5%;
             z-index: 1000 !important;
@@ -2579,10 +2579,211 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 100; /* REDUZIDO: fica ATRÁS do menu */
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(20, 20, 30, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    z-index: 9999;
+    max-width: 500px;
+    display: none;
+    backdrop-filter: blur(10px);
+}
+
+.cookie-banner.show {
+    display: block;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.cookie-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cookie-text h3 {
+    color: var(--light);
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.cookie-text p {
+    color: var(--gray);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.cookie-text a {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.cookie-btn {
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.cookie-btn-secondary {
+    background: transparent;
+    color: var(--light);
+}
+
+.cookie-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cookie-btn-primary {
+    background: var(--primary);
+    color: var(--light);
+    border-color: var(--primary);
+}
+
+.cookie-btn-primary:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+.pwa-banner {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    padding: 12px 20px;
+    z-index: 9998;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 68, 204, 0.3);
+}
+
+.pwa-banner.show {
+    display: flex;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pwa-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.pwa-icon {
+    flex-shrink: 0;
+}
+
+.pwa-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.pwa-text {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.pwa-text h4 {
+    color: var(--light);
+    font-size: 0.95rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.pwa-text p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.8rem;
+    margin: 2px 0 0 0;
+}
+
+.pwa-close {
+    background: none;
+    border: none;
+    color: var(--light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.pwa-close:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 600px) {
+    .pwa-banner {
+        top: 70px;
+        padding: 10px 15px;
+    }
+    
+    .pwa-content {
+        gap: 10px;
+    }
+    
+    .pwa-icon img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .pwa-text h4 {
+        font-size: 0.9rem;
+    }
+    
+    .pwa-text p {
+        font-size: 0.75rem;
+    }
 }
 
 .logo {
@@ -8582,7 +8783,7 @@ E nós também.`;
             
             <div class="share-grid">
                 <!-- WhatsApp -->
-                <a href="https://api.whatsapp.com/send?text=Descubra como melhorar seu sono com ciência! Visite: https://nivoora.github.io" 
+                <a href="https://api.whatsapp.com/send?text=Descubra como melhorar seu sono com ciência! Visite: https://nivoora.com.br" 
                    target="_blank" class="share-btn">
                     <div class="share-item">
                         <img src="https://i.postimg.cc/wx0JjmCH/lv-0-20260110030922.png" 
@@ -8606,7 +8807,7 @@ E nós também.`;
                 </a>
                 
                 <!-- Facebook -->
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://nivoora.github.io" 
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://nivoora.com.br" 
                    target="_blank" class="share-btn">
                     <div class="share-item">
                         <img src="https://i.postimg.cc/6Qr4J2Vp/lv-0-20260110031030.png" 
@@ -8618,7 +8819,7 @@ E nós também.`;
                 </a>
                 
                 <!-- Telegram -->
-                <a href="https://t.me/share/url?url=https://nivoora.github.io&text=Descubra como melhorar seu sono com ciência!" 
+                <a href="https://t.me/share/url?url=https://nivoora.com.br&text=Descubra como melhorar seu sono com ciência!" 
                    target="_blank" class="share-btn">
                     <div class="share-item">
                         <img src="https://i.postimg.cc/Vv6JCKxS/lv-0-20260110031127.png" 
@@ -8630,7 +8831,7 @@ E nós também.`;
                 </a>
                 
                 <!-- Twitter/X -->
-                <a href="https://twitter.com/intent/tweet?text=Descubra como melhorar seu sono com ciência!&url=https://nivoora.github.io" 
+                <a href="https://twitter.com/intent/tweet?text=Descubra como melhorar seu sono com ciência!&url=https://nivoora.com.br" 
                    target="_blank" class="share-btn">
                     <div class="share-item">
                         <img src="https://i.postimg.cc/TYKy2Hjb/lv-0-20260110031059.png" 
@@ -8780,7 +8981,7 @@ E nós também.`;
 
     // FUNÇÃO PARA COPIAR LINK
     function copyLinkToClipboard() {
-        const siteUrl = "https://nivoora.github.io";
+        const siteUrl = "https://nivoora.com.br";
         navigator.clipboard.writeText(siteUrl).then(() => {
             const message = document.getElementById('copy-message');
             message.classList.add('show');
@@ -9140,6 +9341,35 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     </script>
 
+    <!-- ========== NOTIFICAÇÃO DE COOKIES ========== -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h3>Configurações de cookies</h3>
+                <p>Utilizamos cookies para fornecer e melhorar nossos serviços, analisar o uso do site e, se você concordar, personalizar sua experiência e divulgar nossos serviços para você. Você pode ler nossa <a href="/privacidade.html" target="_blank">Política de Cookies aqui</a>.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button id="rejectCookies" class="cookie-btn cookie-btn-secondary">Rejeitar</button>
+                <button id="customizeCookies" class="cookie-btn cookie-btn-secondary">Personalizar</button>
+                <button id="acceptCookies" class="cookie-btn cookie-btn-primary">Aceitar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== BANNER DE INSTALAÇÃO PWA ========== -->
+    <div class="pwa-banner" id="pwaBanner">
+        <div class="pwa-content">
+            <div class="pwa-icon">
+                <img src="favicon_favicon.ico" alt="Nivora">
+            </div>
+            <div class="pwa-text">
+                <h4>Instalar Nivora</h4>
+                <p>Baixe nosso app e acesse sempre que quiser</p>
+            </div>
+            <button id="closePwaBanner" class="pwa-close">×</button>
+        </div>
+    </div>
+
     <!-- ========== NOTIFICAÇÃO MISTERIOSA (EASTER EGG) ========== -->
     <div class="mystery-overlay" id="mysteryOverlay">
         <div class="mystery-notification">
@@ -9172,3 +9402,66 @@ document.addEventListener("DOMContentLoaded", function() {
 </body>
 </html>
 
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cookieBanner = document.getElementById('cookieBanner');
+        const acceptBtn = document.getElementById('acceptCookies');
+        const rejectBtn = document.getElementById('rejectCookies');
+        const customizeBtn = document.getElementById('customizeCookies');
+        
+        const cookieChoice = localStorage.getItem('nivoora-cookie-choice');
+        
+        if (!cookieChoice) {
+            cookieBanner.classList.add('show');
+        }
+        
+        acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('nivoora-cookie-choice', 'accepted');
+            cookieBanner.classList.remove('show');
+        });
+        
+        rejectBtn.addEventListener('click', function() {
+            localStorage.setItem('nivoora-cookie-choice', 'rejected');
+            cookieBanner.classList.remove('show');
+        });
+        
+        customizeBtn.addEventListener('click', function() {
+            window.location.href = '/privacidade.html';
+        });
+    });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const pwaBanner = document.getElementById('pwaBanner');
+        const closePwaBtn = document.getElementById('closePwaBanner');
+        
+        // Mostrar o banner PWA
+        pwaBanner.classList.add('show');
+        
+        // Fechar o banner ao clicar no botão X
+        closePwaBtn.addEventListener('click', function() {
+            pwaBanner.classList.remove('show');
+        });
+        
+        // Auto-fechar após 5 segundos
+        setTimeout(function() {
+            pwaBanner.classList.remove('show');
+        }, 5000);
+        
+        // Detectar se o evento beforeinstallprompt está disponível
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', function(e) {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Mostrar o banner quando o evento estiver disponível
+            pwaBanner.classList.add('show');
+            
+            closePwaBtn.addEventListener('click', function() {
+                pwaBanner.classList.remove('show');
+            });
+        });
+    });
+    </script>
