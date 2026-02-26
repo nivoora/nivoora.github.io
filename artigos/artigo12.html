@@ -76,6 +76,8 @@
         }
     </style>
     
+    
+    
     <style>
         img.emoji {
             height: 1em;
@@ -85,6 +87,34 @@
             display: inline-block;
         }
     </style>
+    
+    <script>
+        (function() {
+            function checkEmojiSupport() {
+                var canvas = document.createElement('canvas');
+                var ctx = canvas.getContext('2d');
+                if (!ctx) return false;
+                var smile = String.fromCodePoint(0x1F603); // Smiling Face with Open Mouth
+                ctx.textBaseline = 'top';
+                ctx.font = '32px Arial';
+                ctx.fillText(smile, 0, 0);
+                return ctx.getImageData(16, 16, 1, 1).data[0] !== 0;
+            }
+
+            if (!checkEmojiSupport()) {
+                var script = document.createElement('script');
+                script.src = 'https://unpkg.com/twemoji@latest/dist/twemoji.min.js';
+                script.crossOrigin = 'anonymous';
+                script.onload = function() {
+                    twemoji.parse(document.body, {
+                        folder: 'svg',
+                        ext: '.svg'
+                    });
+                };
+                document.head.appendChild(script);
+            }
+        })();
+    </script>
     </head>
 <body>
     <div class="container">
@@ -160,7 +190,7 @@
     
     
     
-    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    
     <script>
         window.addEventListener('load', function() {
             twemoji.parse(document.body, {
@@ -169,6 +199,10 @@
             });
         });
     </script>
+    
+    
+    
+    
     </body>
 </html>
 
