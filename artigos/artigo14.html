@@ -75,7 +75,17 @@
             margin-bottom: 10px;
         }
     </style>
-</head>
+    
+    <style>
+        img.emoji {
+            height: 1em;
+            width: 1em;
+            margin: 0 .05em 0 .1em;
+            vertical-align: -0.1em;
+            display: inline-block;
+        }
+    </style>
+    </head>
 <body>
     <div class="container">
         <h1>Sono e Saúde Mental: A Conexão Indissociável para o Bem-Estar</h1>
@@ -165,5 +175,21 @@
             <div class="faq-answer">Medicamentos para dormir podem ser uma solução de curto prazo, mas é crucial abordar a causa raiz do problema. Consulte um médico para discutir as melhores opções de tratamento, que podem incluir terapia, mudanças no estilo de vida e, se necessário, medicamentos específicos para sua condição.</div>
         </div>
     </div>
-</body>
+
+    
+    
+    
+    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener('load', function() {
+            twemoji.parse(document.body, {
+                folder: 'svg',
+                ext: '.svg'
+            });
+        });
+    </script>
+    </body>
 </html>
+
+
+

@@ -75,7 +75,17 @@
             margin-bottom: 10px;
         }
     </style>
-</head>
+    
+    <style>
+        img.emoji {
+            height: 1em;
+            width: 1em;
+            margin: 0 .05em 0 .1em;
+            vertical-align: -0.1em;
+            display: inline-block;
+        }
+    </style>
+    </head>
 <body>
     <div class="container">
         <h1>A Importância Vital do Sono: Mais do que Descanso, Uma Necessidade Essencial</h1>
@@ -158,5 +168,21 @@
             <div class="faq-answer">Se você acorda revigorado, tem energia durante o dia, consegue se concentrar e não sente sonolência excessiva, é provável que esteja dormindo o suficiente. Se sentir fadiga, irritabilidade ou dificuldade de concentração, pode ser um sinal de privação do sono.</div>
         </div>
     </div>
-</body>
+
+    
+    
+    
+    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener('load', function() {
+            twemoji.parse(document.body, {
+                folder: 'svg',
+                ext: '.svg'
+            });
+        });
+    </script>
+    </body>
 </html>
+
+
+
