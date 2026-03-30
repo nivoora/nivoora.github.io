@@ -57,10 +57,11 @@
         /* ========== RESET CORRETO (SEM 100vw!) ========== */
         html, body {
             width: 100%;
+            height: 100%;
             max-width: 100%;
             margin: 0;
             padding: 0;
-            overflow-x: clip;
+            overflow: hidden; /* Impede scroll duplo */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
@@ -80,9 +81,9 @@
             position: relative;
         }
         
-        /* ========== SCROLL SMOOTH ========== */
+        /* ========== SCROLL SMOOTH (REMOVIDO PARA EVITAR TRAVAS) ========== */
         html {
-            scroll-behavior: smooth;
+            /* scroll-behavior: smooth; */
         }
         
         /* ========== CONTAINERS (SEM 100vw!) ========== */
@@ -100,13 +101,16 @@
         
         .page {
             width: 100%;
-            min-height: 100vh;
+            height: 100vh;
             position: absolute;
             top: 0;
             left: 0;
-            padding-bottom: 90px;
+            padding-top: 70px; /* Altura do header */
+            padding-bottom: 90px; /* Espaço para o menu inferior */
             display: none;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-y: contain;
         }
         
         .page.active {
@@ -130,10 +134,10 @@
             border-bottom: none;
         }
         
-        /* ========== CONTEÚDO COMEÇA ABAIXO DO HEADER ========== */
-        .page > *:first-child:not(header):not(.app-header) {
+        /* ========== CONTEÚDO COMEÇA ABAIXO DO HEADER (REMOVIDO MARGIN EM FAVOR DE PADDING NO .PAGE) ========== */
+        /* .page > *:first-child:not(header):not(.app-header) {
             margin-top: 70px;
-        }
+        } */
         
         /* ========== MENU INFERIOR ========== */
         .bottom-nav {
@@ -187,12 +191,11 @@
         }
         
         /* ========== CSS PÁGINA INÍCIO ========== */
-
-
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+        .inicio-wrapper {
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
 body {
     background-color: var(--darker);
@@ -5825,7 +5828,7 @@ footer {
         Se você sofre de insônia crônica, apneia do sono, narcolepsia ou outros distúrbios graves, consulte um médico especialista.
     </p>
     <p>
-        &copy; 2026 Nivora - sonhe alto. Todos os direitos reservados
+        &copy; 2026 Nivoora - sonhe alto. Todos os direitos reservados
     </p>
     <p style="color: var(--gray); font-size: 0.8rem; margin-top: 10px;">
         Informações baseadas em pesquisas científicas - Consulte sempre um profissional de saúde
@@ -8655,7 +8658,7 @@ E nós também.`;
 </script>
 <footer style="padding: 40px 5%; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 20px;">
     <p style="color: var(--gray); font-size: 0.85rem; opacity: 0.7;">
-        &copy; 2026 Nivora - sonhe alto. Todos os direitos reservados
+        &copy; 2026 Nivoora - sonhe alto. Todos os direitos reservados
     </p>
     <p style="color: var(--gray); font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">
         Informações baseadas em pesquisas científicas - Consulte sempre um profissional de saúde
@@ -8931,7 +8934,7 @@ E nós também.`;
         <a href="/sobre.html" style="color: #0000EE; text-decoration: underline; font-size: 0.95rem; font-weight: 500;">sobre</a>
     </div>
     <p style="color: var(--gray); font-size: 0.85rem; opacity: 0.7;">
-        &copy; 2026 Nivora - sonhe alto. Todos os direitos reservados
+        &copy; 2026 Nivoora - sonhe alto. Todos os direitos reservados
     </p>
     <p style="color: var(--gray); font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">
         Informações baseadas em pesquisas científicas - Consulte sempre um profissional de saúde
