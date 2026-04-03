@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<script src="https://pl29023429.profitablecpmratenetwork.com/81/07/af/8107afaad7ab51ebe7f2dce7791333b0.js"></script>
-<script src="https://pl29023780.profitablecpmratenetwork.com/b5/ea/fb/b5eafbabcaa229340dea92d0e0b7cedb.js"></script>
     <link rel="canonical" href="https://nivoora.com.br/" />
     <meta name="theme-color" content="#0044CC">
     <meta name="description" content="Na Nivora, dormir deixa de ser um mistério. Descubra como os ciclos circadianos influenciam seu bem-estar e receba insights práticos para noites melhores e dias mais produtivos.">
@@ -3772,39 +3770,6 @@ body {
     }
 }
 
-/* ========== LOADING ========== */
-.loading {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--darker);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.loading.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.loading-spinner {
-    width: 50px;
-    height: 50px;
-    border: 4px solid rgba(255, 255, 255, 0.1);
-    border-top: 4px solid var(--primary);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
 
         
         
@@ -6383,10 +6348,6 @@ footer {
             
             <!-- ========== PÁGINA SDS ========== -->
             <div class="page" id="page-sds">
-<!-- Loading Screen -->
-<div class="loading" id="loading-screen">
-    <div class="loading-spinner"></div>
-</div>
 
 <!-- Stars Background -->
 <div class="stars" id="stars-sds"></div>
@@ -7957,11 +7918,9 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // ========== INICIALIZAÇÃO ==========
-    window.addEventListener('load', function() {
-      var ls = document.getElementById('loading-screen');
-      if (ls) ls.classList.add('hidden');
-      initEverything();
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    initEverything();
+});
     
     function initEverything() {
         createStars('stars-container', 150);
@@ -9522,6 +9481,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
     <!-- Google Analytics 4 Custom Events -->
     <script src="analytics-events.js" defer></script>
+    <script src="https://pl29023429.profitablecpmratenetwork.com/81/07/af/8107afaad7ab51ebe7f2dce7791333b0.js"></script>
+<script src="https://pl29023780.profitablecpmratenetwork.com/b5/ea/fb/b5eafbabcaa229340dea92d0e0b7cedb.js"></script>
     </body>
 </html>
 
