@@ -6545,10 +6545,7 @@ footer {
         </div>
 
 
-<div style="text-align:center;margin:20px auto;">
-<script>atOptions = {'key':'40b4b6448e3140d063e7a690ec6a49b3','format':'iframe','height':250,'width':300,'params':{}};</script>
-<script src="https://www.highperformanceformat.com/40b4b6448e3140d063e7a690ec6a49b3/invoke.js"></script>
-</div>
+
         <!-- ===== FUNCIONALIDADE 2: CALCULADOR DE MELATONINA ===== -->
         <div class="sds-message" onclick="if(typeof window.__popunder === 'function') window.__popunder();">
             <div class="sds-bar"></div>
@@ -8687,7 +8684,7 @@ E nós também.`;
 <!-- SEÇÃO DE POLÍTICA DE PRIVACIDADE -->
 
 <div style="text-align:center;margin:20px auto;"><script>atOptions = {'key':'40b4b6448e3140d063e7a690ec6a49b3','format':'iframe','height':250,'width':300,'params':{}};</script>
-<script src="https://www.highperformanceformat.com/40b4b6448e3140d063e7a690ec6a49b3/invoke.js"></script></div>
+<script async src="https://www.highperformanceformat.com/40b4b6448e3140d063e7a690ec6a49b3/invoke.js"></script></div>
 <section class="section" id="privacy">
     <div class="container">
         <h2>🔒 Política de Privacidade</h2>
@@ -8718,7 +8715,7 @@ E nós também.`;
 <!-- NOVA SEÇÃO: TERMOS DE USO -->
 
 <div style="text-align:center;margin:20px auto;"><script>atOptions = {'key':'40b4b6448e3140d063e7a690ec6a49b3','format':'iframe','height':250,'width':300,'params':{}};</script>
-<script src="https://www.highperformanceformat.com/40b4b6448e3140d063e7a690ec6a49b3/invoke.js"></script></div>
+<script async src="https://www.highperformanceformat.com/40b4b6448e3140d063e7a690ec6a49b3/invoke.js"></script></div>
 <section class="section" id="terms">
     <div class="container">
         <h2>📜 Termos de Uso</h2>
@@ -8749,7 +8746,7 @@ E nós também.`;
 <!-- SEÇÃO DE CONTATO -->
 
 <div style="text-align:center;margin:20px auto;"><script>atOptions = {'key':'40b4b6448e3140d063e7a690ec6a49b3','format':'iframe','height':250,'width':300,'params':{}};</script>
-<script src="https://www.highperformanceformat.com/40b4b6448e3140d063e7a690ec6a49b3/invoke.js"></script></div>
+<script async src="https://www.highperformanceformat.com/40b4b6448e3140d063e7a690ec6a49b3/invoke.js"></script></div>
 <section class="section" id="contact">
     <div class="container">
         <h2>📧 Contato</h2>
@@ -8773,7 +8770,7 @@ E nós também.`;
 <!-- SEÇÃO DE FEEDBACK -->
 
 <div style="text-align:center;margin:20px auto;"><script>atOptions = {'key':'40b4b6448e3140d063e7a690ec6a49b3','format':'iframe','height':250,'width':300,'params':{}};</script>
-<script src="https://www.highperformanceformat.com/40b4b6448e3140d063e7a690ec6a49b3/invoke.js"></script></div>
+<script async src="https://www.highperformanceformat.com/40b4b6448e3140d063e7a690ec6a49b3/invoke.js"></script></div>
 <section class="section" id="feedback">
     <div class="container">
         <h2>📤 Feedback</h2>
@@ -8817,7 +8814,7 @@ E nós também.`;
 <!-- SEÇÃO DE COMPARTILHAMENTO COM IMAGENS -->
 
 <div style="text-align:center;margin:20px auto;"><script>atOptions = {'key':'40b4b6448e3140d063e7a690ec6a49b3','format':'iframe','height':250,'width':300,'params':{}};</script>
-<script src="https://www.highperformanceformat.com/40b4b6448e3140d063e7a690ec6a49b3/invoke.js"></script></div>
+<script async src="https://www.highperformanceformat.com/40b4b6448e3140d063e7a690ec6a49b3/invoke.js"></script></div>
 <section class="section" id="share">
     <div class="container">
         <h2>👥 Compartilhe com um Amigo</h2>
@@ -9467,11 +9464,13 @@ document.addEventListener("DOMContentLoaded", function() {
     
     
     <script>
-        window.addEventListener('load', function() {
-            twemoji.parse(document.body, {
-                folder: 'svg',
-                ext: '.svg'
-            });
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof twemoji !== 'undefined') {
+                twemoji.parse(document.body, {
+                    folder: 'svg',
+                    ext: '.svg'
+                });
+            }
         });
     </script>
     
@@ -9480,36 +9479,23 @@ document.addEventListener("DOMContentLoaded", function() {
     
     <!-- Google Analytics 4 Custom Events -->
     <script src="analytics-events.js" defer></script>
-        </body>
-</html>
-
-
-
-
-
-
-
-    <script>
+            <script>
     document.addEventListener('DOMContentLoaded', function() {
         const cookieBanner = document.getElementById('cookieBanner');
         const acceptBtn = document.getElementById('acceptCookies');
         const rejectBtn = document.getElementById('rejectCookies');
-        
         const cookieChoice = localStorage.getItem('nivoora-cookie-choice');
         const cookieTimestamp = localStorage.getItem('nivoora-cookie-timestamp');
         const now = Date.now();
         const thirtyDaysInMs = 30 * 24 * 60 * 60 * 1000;
-        
         if (!cookieChoice || !cookieTimestamp || (now - parseInt(cookieTimestamp)) > thirtyDaysInMs) {
             cookieBanner.classList.add('show');
         }
-        
         acceptBtn.addEventListener('click', function() {
             localStorage.setItem('nivoora-cookie-choice', 'accepted');
             localStorage.setItem('nivoora-cookie-timestamp', Date.now().toString());
             cookieBanner.classList.remove('show');
         });
-        
         rejectBtn.addEventListener('click', function() {
             localStorage.setItem('nivoora-cookie-choice', 'rejected');
             localStorage.setItem('nivoora-cookie-timestamp', Date.now().toString());
@@ -9520,17 +9506,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     <script>
     let deferredPrompt;
-    
     window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault();
         deferredPrompt = e;
-        
         const pwaBanner = document.getElementById('pwaBanner');
         const closePwaBtn = document.getElementById('closePwaBanner');
-        
         if (pwaBanner && closePwaBtn) {
             pwaBanner.classList.add('show');
-            
             pwaBanner.addEventListener('click', function(e) {
                 if (e.target === pwaBanner || e.target.closest('.pwa-content')) {
                     if (deferredPrompt) {
@@ -9545,14 +9527,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 }
             });
-            
             closePwaBtn.addEventListener('click', function() {
                 pwaBanner.classList.remove('show');
             });
-            
             setTimeout(function() {
                 pwaBanner.classList.remove('show');
             }, 5000);
         }
     });
     </script>
+    <!-- Google Analytics 4 Custom Events -->
+    <script src="analytics-events.js" defer></script>
+
+        </body>
+</html>
