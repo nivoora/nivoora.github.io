@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<script src="https://pl29023429.profitablecpmratenetwork.com/81/07/af/8107afaad7ab51ebe7f2dce7791333b0.js"></script>
-<script src="https://pl29023780.profitablecpmratenetwork.com/b5/ea/fb/b5eafbabcaa229340dea92d0e0b7cedb.js"></script>
     <link rel="canonical" href="https://nivoora.com.br/artigos/artigo7.html" />
     <meta name="theme-color" content="#0044CC">
     <meta charset="UTF-8">
@@ -77,6 +75,35 @@
         .faq-answer {
             margin-bottom: 10px;
         }
+    
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
     </style>
     
     
@@ -89,6 +116,35 @@
             vertical-align: -0.1em;
             display: inline-block;
         }
+    
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
     </style>
     
     <script>
@@ -120,6 +176,7 @@
     </script>
     </head>
 <body>
+    <div class="stars" id="stars"></div>
     <div class="container">
         <h1>Rotinas para Dormir Melhor: Construindo o Caminho para Noites Reparadoras</h1>
 
@@ -220,7 +277,34 @@
     
     
     
-    </body>
+    
+    <script>
+        function createStars(containerId, count) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            const fragment = document.createDocumentFragment();
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 3 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.top = (Math.random() * 100) + '%';
+                star.style.left = (Math.random() * 100) + '%';
+                star.style.animationDelay = (Math.random() * 3) + 's';
+                star.style.opacity = (Math.random() * 0.7 + 0.3);
+                star.style.animationDuration = (1 + Math.random() * 2) + 's';
+                fragment.appendChild(star);
+            }
+            container.appendChild(fragment);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars('stars', 150);
+        });
+    </script>
+
+</body>
 </html>
 
 

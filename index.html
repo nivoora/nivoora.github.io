@@ -75,11 +75,7 @@
             color: inherit;
         }
         
-        body {
-            background-color: var(--darker);
-            color: var(--light);
-            position: relative;
-        }
+        
         
         /* ========== SCROLL SMOOTH ========== */
         html {
@@ -195,12 +191,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-    background-color: var(--darker);
-    color: var(--light);
-    overflow-x: hidden;
-    position: relative;
-}
+
 
 .stars {
     position: fixed;
@@ -284,14 +275,9 @@ header {
     box-shadow: none !important;
 }
 
-.nav-container {
-    display: none; /* Removido - não usar mais */
-}
 
-nav ul {
-    display: none; /* Removido - não usar mais */
-    list-style: none;
-}
+
+
 
 nav ul li {
     position: relative;
@@ -311,17 +297,7 @@ nav ul li a:hover {
     color: var(--primary);
 }
 
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--light);
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 5px;
-    z-index: 1001;
-    margin-left: 15px;
-}
+
 
 /* ========== HAMBURGER MENU BUTTON ========== */
 .hamburger-menu {
@@ -397,7 +373,9 @@ nav ul li a:hover {
     transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     overflow-y: auto;
     box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
-}
+
+    max-height: 100vh;
+    overflow-y: auto;}
 
 .sidebar-menu.active {
     right: 0;
@@ -597,7 +575,9 @@ nav ul li a:hover {
         width: 60%; /* 60% da tela no mobile, não 100% */
         max-width: 60vw;
         right: -60%;
-    }
+    
+    max-height: 100vh;
+    overflow-y: auto;}
     
     .sidebar-content {
         padding: 70px 25px 30px;
@@ -615,9 +595,7 @@ nav ul li a:hover {
 }
 
 @media (max-width: 768px) {
-    .mobile-menu-btn {
-        display: none; /* Não usado mais */
-    }
+    
     
     nav ul {
         display: none !important; /* Completamente escondido */
@@ -821,13 +799,21 @@ nav ul li a:hover {
     font-size: 2.5rem;
     margin-bottom: 15px;
     color: var(--primary);
-}
+
+    background: rgba(80, 80, 100, 0.13);
+    padding: 6px 14px;
+    border-radius: 0;
+    display: inline-block;}
 
 .section-subtitle {
     text-align: center;
     color: var(--gray);
     font-size: 1.1rem;
-}
+
+    background: rgba(80, 80, 100, 0.07);
+    padding: 5px 12px;
+    border-radius: 0;
+    display: inline-block;}
 
 .form-container {
     max-width: 600px;
@@ -1448,12 +1434,20 @@ nav ul li a:hover {
     font-size: 2.2rem;
     color: var(--primary);
     margin-bottom: 10px;
-}
+
+    background: rgba(80, 80, 100, 0.13);
+    padding: 6px 14px;
+    border-radius: 0;
+    display: inline-block;}
 
 .section-subtitle {
     color: var(--gray);
     font-size: 1.1rem;
-}
+
+    background: rgba(80, 80, 100, 0.07);
+    padding: 5px 12px;
+    border-radius: 0;
+    display: inline-block;}
 
 /* MILITARY TECHNIQUE STYLES */
 .technique-grid {
@@ -2482,7 +2476,11 @@ footer .disclaimer {
     
     .section-header h2 {
         font-size: 1.8rem;
-    }
+    
+    background: rgba(80, 80, 100, 0.13);
+    padding: 6px 14px;
+    border-radius: 0;
+    display: inline-block;}
     
     .article-category {
         padding: 25px 20px;
@@ -2506,27 +2504,7 @@ footer .disclaimer {
         
         
         /* ========== CSS DO SDS ========== */
-:root {
-    --primary: #0044CC;
-    --primary-dark: #0033A0;
-    --secondary: #0033A0;
-    --dark: #0F0F1E;
-    --darker: #070712;
-    --light: #FFFFFF;
-    --gray: #A0A0B0;
-    --accent: #0044CC; /* MESMA cor do primary (NÃO azul ciano) */
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --warning: #FF4444;
-    --success: #00CC66;
 
-
-        /* ========== CSS PÁGINA SDS ========== */
-    --yellow: #FFCC00;
-    --purple: #9C27B0;
-    --pink: #E91E63;
-    --orange: #FF9800;
-    --fire-red: #FF4444;
-}
 
 * {
     margin: 0;
@@ -2535,14 +2513,7 @@ footer .disclaimer {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-    background-color: var(--darker);
-    color: var(--light);
-    overflow-x: hidden;
-    position: relative;
-    scroll-behavior: smooth;
-    touch-action: pan-y;
-}
+
 
 .stars {
     position: fixed;
@@ -3777,14 +3748,7 @@ body {
         
         
         /* ========== CSS DO GERAL ========== */
-:root {
-    --primary: #0044CC; /* AZUL SOLICITADO */
-    --secondary: #0033A0;
-    --dark: #0F0F1E;
-    --darker: #070712;
-    --light: #FFFFFF;
-    --gray: #A0A0B0;
-}
+
 
 * {
     margin: 0;
@@ -3796,14 +3760,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-    background-color: var(--darker);
-    color: var(--light);
-    overflow-x: hidden;
-    position: relative;
-    line-height: 1.6;
-    scroll-behavior: smooth; /* Scroll suave global */
-}
+
 
 .stars {
     position: fixed;
@@ -4038,7 +3995,11 @@ header {
     justify-content: center;
     gap: 10px;
     text-align: center;
-}
+
+    background: rgba(80, 80, 100, 0.13);
+    padding: 6px 14px;
+    border-radius: 0;
+    display: inline-block;}
 
 /* ABOUT SECTION - SCROLL MAIS SUAVE */
 .about-content {
@@ -4468,7 +4429,11 @@ footer {
     
     .section h2 {
         font-size: 1.8rem;
-    }
+    
+    background: rgba(80, 80, 100, 0.13);
+    padding: 6px 14px;
+    border-radius: 0;
+    display: inline-block;}
     
     .contact-info,
     .feedback-form,
@@ -4506,7 +4471,11 @@ footer {
     
     .section h2 {
         font-size: 1.6rem;
-    }
+    
+    background: rgba(80, 80, 100, 0.13);
+    padding: 6px 14px;
+    border-radius: 0;
+    display: inline-block;}
     
     .star-input {
         font-size: 2rem;
@@ -4567,7 +4536,14 @@ footer {
             z-index: 998;
             opacity: 0;
             transition: opacity 0.3s;
-        }
+        
+    background: rgba(15, 15, 30, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}}
         
         .menu-overlay.active {
             display: block;
@@ -4731,7 +4707,24 @@ footer {
             margin-top: 10px;
         }
         
-    </style>
+    
+.sidebar-article-link {
+    display: block;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    color: var(--light);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.sidebar-article-link:hover {
+    background: rgba(0, 68, 204, 0.2);
+}
+
+</style>
     
     
     
@@ -4743,7 +4736,24 @@ footer {
             vertical-align: -0.1em;
             display: inline-block;
         }
-    </style>
+    
+.sidebar-article-link {
+    display: block;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    color: var(--light);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.sidebar-article-link:hover {
+    background: rgba(0, 68, 204, 0.2);
+}
+
+</style>
     
     <script>
         (function() {
@@ -4804,39 +4814,29 @@ footer {
         <div class="sidebar-divider"></div>
         
         <nav class="sidebar-nav">
-            <div class="sidebar-link sidebar-item-display">
-                <span class="sidebar-link-icon">🎯</span>
-                <span class="sidebar-link-text">Plano personalizado</span>
-            </div>
-            <div class="sidebar-link sidebar-item-display">
-                <span class="sidebar-link-icon">😴</span>
-                <span class="sidebar-link-text">Animal do Sono</span>
-            </div>
-            <div class="sidebar-link sidebar-item-display">
-                <span class="sidebar-link-icon">🎖️</span>
-                <span class="sidebar-link-text">Método Militar</span>
-            </div>
-            <div class="sidebar-link sidebar-item-display">
-                <span class="sidebar-link-icon">📊</span>
-                <span class="sidebar-link-text">Quiz de Sono</span>
-            </div>
-            <div class="sidebar-link sidebar-item-display">
-                <span class="sidebar-link-icon">🔬</span>
-                <span class="sidebar-link-text">Distúrbios do Sono</span>
-            </div>
-            <div class="sidebar-link sidebar-item-display">
-                <span class="sidebar-link-icon">💬</span>
-                <span class="sidebar-link-text">Depoimentos</span>
-            </div>
-            <div class="sidebar-link sidebar-item-display">
-                <span class="sidebar-link-icon">🌙</span>
-                <span class="sidebar-link-text">Qualidade de sono</span>
-            </div>
-            <div class="sidebar-link sidebar-item-display">
-                <span class="sidebar-link-icon">❓</span>
-                <span class="sidebar-link-text">FAQ</span>
-            </div>
-        </nav>
+<a href="https://nivoora.com.br/insonia-causas-consequencias-e-estrategias-eficazes" target="_blank" class="sidebar-article-link">Insônia: Causas, Consequências e Estratégias</a>
+<a href="https://nivoora.com.br/fase-rem-o-palco-dos-sonhos" target="_blank" class="sidebar-article-link">Fase REM: O Palco dos Sonhos</a>
+<a href="https://nivoora.com.br/apneia-do-sono-um-inimigo-silencioso" target="_blank" class="sidebar-article-link">Apneia do Sono: Um Inimigo Silencioso</a>
+<a href="https://nivoora.com.br/paralisia-do-sono-entendendo-o-fenomeno" target="_blank" class="sidebar-article-link">Paralisia do Sono: Entre o Sonho e a Vigília</a>
+<a href="https://nivoora.com.br/pesadelos-desvendando-os-terrores-noturnos" target="_blank" class="sidebar-article-link">Pesadelos: Desvendando os Terrores Noturnos</a>
+<a href="https://nivoora.com.br/melatonina-o-hormonio-do-sono" target="_blank" class="sidebar-article-link">Melatonina: O Hormônio do Sono</a>
+<a href="https://nivoora.com.br/rotinas-para-dormir-melhor" target="_blank" class="sidebar-article-link">Rotinas para Dormir Melhor</a>
+<a href="https://nivoora.com.br/metodo-militar-para-dormir-rapido" target="_blank" class="sidebar-article-link">Método Militar para Dormir Rápido</a>
+<a href="https://nivoora.com.br/ansiedade-noturna-como-os-pensamentos-roubam-seu-sono" target="_blank" class="sidebar-article-link">Ansiedade Noturna e o Sono</a>
+<a href="https://nivoora.com.br/ciclos-do-sono-desvendando-as-fases" target="_blank" class="sidebar-article-link">Ciclos do Sono: As Fases do Descanso</a>
+<a href="https://nivoora.com.br/habitos-noturnos-rotina-saudavel" target="_blank" class="sidebar-article-link">Hábitos Noturnos Saudáveis</a>
+<a href="https://nivoora.com.br/tecnicas-para-melhorar-o-sono" target="_blank" class="sidebar-article-link">Técnicas para Melhorar o Sono</a>
+<a href="https://nivoora.com.br/a-importancia-vital-do-sono" target="_blank" class="sidebar-article-link">A Importância Vital do Sono</a>
+<a href="https://nivoora.com.br/sono-e-saude-mental" target="_blank" class="sidebar-article-link">Sono e Saúde Mental</a>
+<a href="https://nivoora.com.br/alimentacao-e-sono" target="_blank" class="sidebar-article-link">Alimentação e Sono</a>
+<a href="https://nivoora.com.br/o-papel-do-colchao-e-travesseiro-no-sono" target="_blank" class="sidebar-article-link">Colchão e Travesseiro na Qualidade do Sono</a>
+<a href="https://nivoora.com.br/sono-e-produtividade" target="_blank" class="sidebar-article-link">Sono e Produtividade</a>
+<a href="https://nivoora.com.br/sono-e-envelhecimento" target="_blank" class="sidebar-article-link">Sono e Envelhecimento</a>
+<a href="https://nivoora.com.br/sono-e-exercicio-fisico" target="_blank" class="sidebar-article-link">Sono e Exercício Físico</a>
+<a href="https://nivoora.com.br/luz-azul-e-sono" target="_blank" class="sidebar-article-link">Luz Azul e Sono</a>
+<a href="https://nivoora.com.br/higiene-do-sono-guia-completo" target="_blank" class="sidebar-article-link">Higiene do Sono: Guia Completo</a>
+<a href="https://nivoora.com.br/estresse-e-sono" target="_blank" class="sidebar-article-link">Estresse e Sono</a>
+</nav>
     </div>
 </div>
 
@@ -4868,7 +4868,7 @@ footer {
         </div>
     </div>
     
-    <a href="#" class="cta-button" style="pointer-events: none; cursor: default;">Descubra Seu Plano de Sono 🚀</a>
+    <a href="#form" class="cta-button" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'}); return false;">Descubra Seu Plano de Sono 🚀</a>
 </section>
 
 <div class="divider-line"></div>
@@ -4985,8 +4985,8 @@ footer {
 <section class="quiz-animal-section" id="quiz-animal">
     <div class="container">
         <div class="section-header">
-            <h2>Descubra Seu Animal do Sono 😴</h2>
-            <p class="section-subtitle">Responda 7 perguntas para descobrir qual animal representa seu padrão de sono</p>
+            <h2>Descubra Seu Animal do Sono</h2>
+<p class="section-subtitle">SdS: Responda 7 perguntas para descobrir qual animal representa seu padrão de sono 😴</p>
         </div>
         
         <div class="quiz-container">
@@ -5165,8 +5165,8 @@ footer {
 <section class="military-technique-section" id="military-technique">
     <div class="container">
         <div class="section-header">
-            <h2>Durma em Até 2 Minutos com Técnica Militar 🎖️</h2>
-            <p class="section-subtitle">Método da Força Aérea dos EUA - 96% de eficácia comprovada</p>
+            <h2>Durma em Até 2 Minutos com Técnica Militar</h2>
+<p class="section-subtitle">SdS: Método da Força Aérea dos EUA — 96% de eficácia comprovada 🎖️</p>
         </div>
         
         <div class="technique-grid">
@@ -5327,8 +5327,8 @@ footer {
 <section class="sleep-quality-quiz-section" id="sleep-quality-quiz">
     <div class="container">
         <div class="section-header">
-            <h2>📊 Avalie Sua Qualidade de Sono</h2>
-            <p class="section-subtitle">Descubra como melhorar seu sono em 5 perguntas rápidas</p>
+            <h2>Avalie Sua Qualidade de Sono</h2>
+<p class="section-subtitle">SdS: Descubra como melhorar seu sono em 5 perguntas rápidas 📊</p>
         </div>
         
         <div class="sleep-quiz-container">
@@ -5751,7 +5751,8 @@ footer {
 <section class="faq-section" id="faq">
     <div class="container">
         <div class="section-header">
-            <h2>FAQ - Perguntas Frequentes ❓</h2>
+            <h2>Perguntas Frequentes</h2>
+<p class="section-subtitle">SdS: Tire suas dúvidas sobre sono e o Nivora ❓</p>
             <p class="section-subtitle">Tire suas dúvidas sobre sono e saúde noturna</p>
         </div>
         
@@ -6771,10 +6772,7 @@ footer {
 </section>
 
 <style>
-:root {
-    --azul: #0044CC;
-    --card-bg: rgba(255, 255, 255, 0.05); /* Transparente para ver estrelas */
-}
+
 
 /* ========== CONTAINER PRINCIPAL ========== */
 .sds-features {
@@ -7331,6 +7329,23 @@ footer {
         min-width: 280px;
     }
 }
+
+.sidebar-article-link {
+    display: block;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    color: var(--light);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.sidebar-article-link:hover {
+    background: rgba(0, 68, 204, 0.2);
+}
+
 </style>
 
 <script>
@@ -7949,7 +7964,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
     
     function initEverything() {
-        createStars('stars-container', 150);
+        createStars('stars-sds', 150);
         generateWeekCalendar();
         setupSleepOptions();
         setupBreathingGuide();
